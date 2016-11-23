@@ -360,6 +360,10 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
     color: #5e5e5e;
     background-color: transparent;
 }
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    color: #555;
+    background-color: transparent;
+}
 
 .main-panel>.content {
     padding: 20px 10px 0 10px;
@@ -424,13 +428,8 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
     min-height: calc(100% - 60px);
 }
 
-.content .container-fluid .row .col-md-12 .card a {
-    color: #252422;
-    font: 13px;
-    font-weight: 600;
-}
 .tab-content {
-  padding: 15px 30px;
+    padding: 15px 30px;
 }
 
 .card {
@@ -442,6 +441,69 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
     margin-bottom: 20px;
     position: relative;
     z-index: 1;
+}
+
+.nav-tabs-navigation {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.nav-tabs-wrapper {
+    display: inline-block;
+    margin-bottom: -6px;
+    margin-left: 1.25%;
+    margin-right: 1.25%;
+    position: relative;
+    width: 97.5%;
+}
+
+.nav-tabs-navigation .nav>li>a {
+    padding-bottom: 16px;
+    padding-top: 15px;
+}
+.nav-tabs {
+  width: 100%;
+}
+.nav-tabs>li>a {
+    border: 0 none;
+    color: #A49E93;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    border: 0 none;
+    background-color: transparent;
+}
+
+.nav-tabs>li>a:hover {
+    color: #66615b;
+}
+
+.nav-tabs>li.active {
+    color: #0a0a0a;
+    font-weight: 800;
+    position: relative;
+}
+
+.nav-tabs>li.active :before {
+    border-bottom: 11px solid #F1EAE0;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 40%;
+    bottom: 1px;
+}
+
+.nav-tabs>li.active :after {
+    border-bottom: 11px solid #FFFFFF;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 40%;
+    bottom: 0;
 }
 
 .footer {
@@ -459,7 +521,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
 
 .footer nav ul li {
     display: inline-block;
-    padding: 10px 15px;
+    padding: 15px 15px 0;
     margin: 3px 3px;
     line-height: 20px;
     text-align: center;
@@ -468,12 +530,11 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
 .footer nav ul a:not(.btn) {
     color: #66615b;
     display: block;
-    margin-bottom: 3px;
 }
 
 .footer .copyright {
     color: #66615b;
-    padding: 10px 15px;
+    padding: 15px 15px 0;
     font-size: 14px;
     margin: 3px 3px;
     line-height: 20px;
