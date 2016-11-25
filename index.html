@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="dege">
     <!-- <link rel="stylesheet" href="./bootstrap-4.0.0-alpha/dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./bower_components/animate.css/animate.min.css">
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
     <link rel="stylesheet" href="./sweetalert2/sweetalert2.min.css">
-    <link rel="stylesheet" href="./css/style.css">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="./themify-icons/themify-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>DahSing Bank</title>
 </head>
 
@@ -50,11 +51,11 @@
                         </a>
                         <div class="collapse" id="componentsExamples" aria-expanded="false">
                             <ul class="nav">
-                                <li class="active"><a href="#" class="open" data-menu-id="buttons">Buttons</a></li>
+                                <li><a href="#" data-menu-id="buttons">Buttons</a></li>
                                 <li><a href="#" data-menu-id="panels">Panels</a></li>
                                 <li><a href="#" data-menu-id="sweetAlert">Sweet Alert</a></li>
                                 <li><a href="#" data-menu-id="notifications">Notifications</a></li>
-                                <li><a href="#">Typography</a></li>
+                                <li><a href="#" data-menu-id="typography">Typography</a></li>
                             </ul>
                         </div>
                     </li>
@@ -67,8 +68,8 @@
                         </a>
                         <div class="collapse" id="formsExamples" aria-expanded="false">
                             <ul class="nav">
-                                <li><a href="#">Regular Forms</a></li>
-                                <li><a href="#">Extended Forms</a></li>
+                                <li><a href="#" data-menu-id="regularForms">Regular Forms</a></li>
+                                <li><a href="#" data-menu-id="extendedForms">Extended Forms</a></li>
                                 <li><a href="#">Validation Forms</a></li>
                                 <li><a href="#">Wizard</a></li>
                             </ul>
@@ -168,12 +169,12 @@
                                     <div class="nav-tabs-wrapper">
                                         <!-- Nav tabs -->
                                         <ul class="nav nav-tabs main" role="tablist">
-                                            <li role="presentation" class="active"><a href="#buttons" role="tab" data-toggle="tab">Buttons<i class="ti-close"></i></a></li>
+                                            <!-- <li role="presentation" class="active"><a href="#buttons" role="tab" data-toggle="tab">Buttons<i class="ti-close"></i></a></li> -->
                                         </ul>
 
                                         <!-- Tab panes -->
-                                        <div class="tab-content">
-                                            <div id="buttons" class="tab-pane active" role="tabpanel">
+                                        <div class="tab-content main">
+                                            <div id="buttons" class="tab-pane" role="tabpanel">
                                                 <h2>按钮颜色</h2>
                                                 <div class="row">
                                                     <div role="tabpanel" class="tab-pane active" id="buttons">
@@ -326,71 +327,244 @@
                                                 </div>
                                             </div>
                                             <div id="sweetAlert" class="tab-pane" role="tabpanel">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <div class="panel panel-primary">
+                                                            <div class="panel-heading">example</div>
+                                                            <div class="panel-body">
+                                                                <p>Basic example</p>
+                                                                <button type="button" class="btn btn-primary btn1">Try Me</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-3">
+                                                        <div class="panel panel-success">
+                                                            <div class="panel-heading">example</div>
+                                                            <div class="panel-body">
+                                                                <p>A success message</p>
+                                                                <button type="button" class="btn btn-success btn2">Try Me</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-3">
+                                                        <div class="panel panel-info">
+                                                            <div class="panel-heading">example</div>
+                                                            <div class="panel-body">
+                                                                <p>Custom HTML description</p>
+                                                                <button type="button" class="btn btn-info btn3">Try Me</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-3">
+                                                        <div class="panel panel-danger">
+                                                            <div class="panel-heading">example</div>
+                                                            <div class="panel-body">
+                                                                <p>...and by passing a parameter, you can execute something else for "Cancel"</p>
+                                                                <button type="button" class="btn btn-danger btn4">Try Me</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="notifications" class="tab-pane" role="tabpanel">
+                                                <h2>警告框的状态</h2>
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="alert alert-success" role="alert">Well done! You successfully read this important alert message.</div>
+                                                        <div class="alert alert-info" role="alert">Heads up! This alert needs your attention, but it's not super important.</div>
+                                                        <div class="alert alert-warning" role="alert">Warning! Better check yourself, you're not looking too good.</div>
+                                                        <div class="alert alert-danger" role="alert">Oh snap! Change a few things up and try submitting again.</div>
+                                                    </div>
+                                                </div>
+                                                <h2>警告框的显示位置</h2>
+                                                <div class="row" style="margin-top:30px">
+                                                    <button class="btn btn-default notifyTL">Top Left</button>
+                                                    <button class="btn btn-default notifyTC">Top Center</button>
+                                                    <button class="btn btn-default notifyTR">Top Right</button>
+                                                </div>
+                                                <div class="row" style="margin-top:30px">
+                                                    <button class="btn btn-default notifyBL">Bottom Left</button>
+                                                    <button class="btn btn-default notifyBC">Bottom Center</button>
+                                                    <button class="btn btn-default notifyBR">Bottom Right</button>
+                                                </div>
+                                            </div>
+                                            <div id="typography" class="tab-pane" role="tabpanel">
+                                                <h2>面板</h2>
+                                                <div class="row">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">Panel heading without title</div>
+                                                        <div class="panel-body">
+                                                            Panel content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                                                            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                                                            id est laborum.
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            Panel content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                                                            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                                                            id est laborum.
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-body">
+                                                            Panel content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                                                            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                                                            id est laborum.
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            Panel content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                                                            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                                                            id est laborum.
+                                                        </div>
+                                                        <div class="panel-footer">Panel footer</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="regularForms" class="tab-pane" role="tabpanel">
+                                              <h2>基本表单样式</h2>
                                               <div class="row">
-                                                <div class="col-xs-3">
-                                                  <div class="panel panel-primary">
-                                                    <div class="panel-heading">example</div>
-                                                    <div class="panel-body">
-                                                      <p>Basic example</p>
-                                                      <button type="button" class="btn btn-primary btn1">Try Me</button>
-                                                    </div>
+                                                <div class="col-xs-6 col-xs-offset-3">
+                                                  <form role="form" class="text-left">
+                                                  <div class="form-group">
+                                                    <label for="exampleInputEmail1">Email address</label>
+                                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                                                   </div>
+                                                  <div class="form-group">
+                                                    <label for="exampleInputPassword1">Password</label>
+                                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <label for="exampleInputFile">File input</label>
+                                                    <input type="file" id="exampleInputFile">
+                                                    <p class="help-block">Example block-level help text here.</p>
+                                                  </div>
+                                                  <div class="checkbox">
+                                                    <label>
+                                                      <input type="checkbox"> Check me out
+                                                    </label>
+                                                  </div>
+                                                  <button type="submit" class="btn btn-default">Submit</button>
+                                                </form>
                                                 </div>
-                                                <div class="col-xs-3">
-                                                  <div class="panel panel-success">
-                                                    <div class="panel-heading">example</div>
-                                                    <div class="panel-body">
-                                                      <p>A success message</p>
-                                                      <button type="button" class="btn btn-success btn2">Try Me</button>
-                                                    </div>
-                                                  </div>
+                                              </div>
+
+                                              <div class="row">
+                                                <div class="col-xs-6 col-xs-offset-3">
+                                                  <h3 class="text-left">输入框</h3>
+                                                  <input type="text" class="form-control" placeholder="Text input">
                                                 </div>
-                                                <div class="col-xs-3">
-                                                  <div class="panel panel-info">
-                                                    <div class="panel-heading">example</div>
-                                                    <div class="panel-body">
-                                                      <p>Custom HTML description</p>
-                                                      <button type="button" class="btn btn-info btn3">Try Me</button>
-                                                    </div>
-                                                  </div>
+                                              </div>
+
+                                              <div class="row">
+                                                <div class="col-xs-6 col-xs-offset-3">
+                                                  <h3 class="text-left">文本域</h3>
+                                                  <textarea class="form-control" rows="3"></textarea>
                                                 </div>
-                                                <div class="col-xs-3">
-                                                  <div class="panel panel-danger">
-                                                    <div class="panel-heading">example</div>
-                                                    <div class="panel-body">
-                                                      <p>...and by passing a parameter, you can execute something else for "Cancel"</p>
-                                                      <button type="button" class="btn btn-danger btn4">Try Me</button>
-                                                    </div>
-                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="col-xs-6 col-xs-offset-3">
+                                                  <h3 class="text-left">多选和单选框</h3>
+                                                  <from class="text-left">
+                                                        <div class="checkbox">
+                                                              <label>
+                                                                <input type="checkbox" value="">
+                                                                Option one is this and that&mdash;be sure to include why it's great
+                                                              </label>
+                                                        </div>
+                                                        <div class="checkbox">
+                                                              <label>
+                                                                <input type="checkbox" value="">
+                                                                Option one is this and that&mdash;be sure to include why it's great
+                                                              </label>
+                                                        </div>
+                                                        <div class="checkbox disabled">
+                                                          <label>
+                                                            <input type="checkbox" value="" disabled>
+                                                            Option two is disabled
+                                                          </label>
+                                                        </div>
+
+                                                        <div class="radio">
+                                                          <label>
+                                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                                            Option one is this and that&mdash;be sure to include why it's great
+                                                          </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                          <label>
+                                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                                            Option two can be something else and selecting it will deselect option one
+                                                          </label>
+                                                        </div>
+                                                        <div class="radio disabled">
+                                                          <label>
+                                                            <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+                                                            Option three is disabled
+                                                          </label>
+                                                        </div>
+                                                  </from>
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="col-xs-6 col-xs-offset-3">
+                                                  <h3 class="text-left">下拉列表（select）</h3>
+                                                  <select class="form-control">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                  </select>
                                                 </div>
                                               </div>
                                             </div>
-                                            <div id="notifications" class="tab-pane" role="tabpanel">
-                                              <h2>警告框的状态</h2>
+                                            <div id="extendedForms" class="tab-pane" role="tabpanel">
+                                              <h2>时间选择器 Datepicker</h2>
                                               <div class="row">
-                                                <div class="col-xs-12">
-                                                  <div class="alert alert-success" role="alert">Well done! You successfully read this important alert message.</div>
-                                                  <div class="alert alert-info" role="alert">Heads up! This alert needs your attention, but it's not super important.</div>
-                                                  <div class="alert alert-warning" role="alert">Warning! Better check yourself, you're not looking too good.</div>
-                                                  <div class="alert alert-danger" role="alert">Oh snap! Change a few things up and try submitting again.</div>
+                                                <div class="col-xs-4">
+                                                  <h4>Datetime</h4>
+                                                  <div class="form-group">
+                                                      <div class='input-group date' id='datetimepicker1'>
+                                                          <input type='text' class="form-control" />
+                                                          <span class="input-group-addon">
+                                                              <span class="glyphicon glyphicon-calendar"></span>
+                                                          </span>
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                  <h4>Date</h4>
+                                                  <div class="form-group">
+                                                      <div class='input-group date' id='datetimepicker10'>
+                                                          <input type='text' class="form-control" />
+                                                          <span class="input-group-addon">
+                                                              <span class="glyphicon glyphicon-calendar">
+                                                              </span>
+                                                          </span>
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                  <h4>Time</h4>
+                                                  <div class="form-group">
+                                                      <div class='input-group date' id='datetimepicker3'>
+                                                          <input type='text' class="form-control" />
+                                                          <span class="input-group-addon">
+                                                              <span class="glyphicon glyphicon-time"></span>
+                                                          </span>
+                                                      </div>
+                                                  </div>
                                                 </div>
                                               </div>
-                                              <h2>警告框的显示位置</h2>
-                                              <div class="row" style="margin-top:30px">
-                                                <button class="btn btn-default notifyTL">Top Left</button>
-                                                <button class="btn btn-default notifyTC">Top Center</button>
-                                                <button class="btn btn-default notifyTR">Top Right</button>
-                                              </div>
-                                              <div class="row" style="margin-top:30px">
-                                                <button class="btn btn-default notifyBL">Bottom Left</button>
-                                                <button class="btn btn-default notifyBC">Bottom Center</button>
-                                                <button class="btn btn-default notifyBR">Bottom Right</button>
+                                              <div class="row">
+                                                <h2>Inline</h2>
+                                                <div class="col-xs-12">
+                                                  <div id="datetimepicker12"></div>
+                                                </div>
                                               </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -432,6 +606,8 @@
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="./sweetalert2/sweetalert2.min.js"></script>
     <script src="./bower_components/remarkable-bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script src="./bower_components/moment/min/moment.min.js"></script>
+    <script src="./bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <script src="./js/main.js"></script>
 </body>
 

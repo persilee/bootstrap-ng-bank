@@ -1,13 +1,14 @@
 $(function() {
 
     $('.card').height($('.content').height() - 20);
+    $('.main.tab-content').height($('.card').height() - 81);
     $('.dropdown-toggle').dropdown();
 
     /*
      * 点击让搜索框整体变白，失去焦点是变回原来颜色
      */
 
-    $('.form-control').on({
+    $('.navbar-form .form-control').on({
         focus: function() {
             $('.input-group-addon').css('background-color', '#FFFFFF');
         },
@@ -15,10 +16,47 @@ $(function() {
             $('.input-group-addon').css('background-color', '#F3F2EE');
         }
     });
+    $('.nav-tabs').on('click', 'a', function() {
+        var _this = this;
+        $(this).tab('show');
+        $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li>a').each(function() {
+            if ($(this).attr('data-menu-id') == $(_this).attr('href').substring(1)) {
+                $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li').removeClass('active');
+                $(this).parent().addClass('active');
+            }
+        });
+    });
+    /*
+     * 点击tab页上的X关闭tab页
+     */
+    $('.nav-tabs').on('click', 'li .ti-close', function() {
+        var _this = this;
+        if ($(_this).closest('li').next().length > 0) {
+            $(_this).closest('li').next().find('a').trigger('click');
+        } else {
+            $(_this).closest('li').prev().find('a').trigger('click');
+        };
+        if ($(_this).closest('li').siblings().length == 0) {
+            swal({
+                title: "已经是最后一个了!",
+                buttonsStyling: false,
+                confirmButtonClass: 'btn btn-primary btn-lg'
+            });
+        } else {
+            $(_this).closest('li').remove();
+            $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li>a').each(function() {
+                if ($(this).attr('data-menu-id') == $(_this).closest('a').attr('href').substring(1)) {
+                    $(this).removeClass('open');
+                }
+            });
+        }
+
+        return false;
+    });
     /*
      * 点击左侧菜单，添加到tab页面里
      */
-    $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li>a').on('click', function() {
+    $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul').on('click', 'li>a', function() {
         if ($(this).hasClass('open')) {
             console.log('open');
             $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li').removeClass('active');
@@ -28,13 +66,10 @@ $(function() {
             $(this).addClass('open');
             $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li').removeClass('active');
             $(this).parent().addClass('active');
-            var tab = $('<li role="presentation"><a href=' + '#' + $(this).attr('data-menu-id') + ' role="tab" data-toggle="tab">' + $(this).text() + '</a></li>');
+            var tab = $('<li role="presentation"><a href=' + '#' + $(this).attr('data-menu-id') + ' role="tab" data-toggle="tab">' + $(this).text() + '<i class="ti-close"></i></a></li>');
             $('.nav.nav-tabs.main').append(tab);
             $('.nav-tabs a[href=' + '#' + $(this).attr('data-menu-id') + ']').trigger('click');
         }
-    });
-    $('.nav-tabs').on('click', 'a', function() {
-        $(this).tab('show');
     });
     /*
      * sweet alert 2
@@ -220,5 +255,18 @@ $(function() {
                 align: "right"
             }
         });
+    });
+    $('#datetimepicker1').datetimepicker();
+    $('#datetimepicker3').datetimepicker({
+        format: 'LT'
+    });
+    $('#datetimepicker10').datetimepicker({
+        viewMode: 'years',
+        format: 'MM/YYYY',
+        debug: true
+    });
+    $('#datetimepicker12').datetimepicker({
+        inline: true
+            // sideBySide: true
     });
 })
