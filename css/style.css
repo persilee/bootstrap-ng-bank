@@ -428,19 +428,33 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
     transition: none;
 }
 
-.dropdown-menu:before {
-    border-bottom: 11px solid #fff;
-    border-left: 11px solid transparent;
-    border-right: 11px solid transparent;
+.dropdown-menu.per:before {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ccc;
+    border-bottom-color: rgba(0,0,0,.1);
     content: "";
     display: inline-block;
     position: absolute;
     right: 12px;
-    top: -11px;
+    top: -10px;
+}
+.dropdown-menu.per:after {
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid #fff;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 13px;
+    top: -9px;
 }
 
-.dropdown-menu.left:before {
+.dropdown-menu.per.left:before {
     right: 75%;
+}
+.dropdown-menu.per.left:after {
+    right: 75.7%;
 }
 
 .content .container-fluid, .content .container-fluid .row, .content .container-fluid .row .col-md-12 {
@@ -586,14 +600,6 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
 .footer .heart {
     color: rgb(255, 91, 91);
 }
-/*.bootstrap-datetimepicker-widget.dropdown-menu.bottom:before {
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: 7px solid #ccc;
-    border-bottom-color: rgba(0,0,0,0.2);
-    top: -7px;
-    right: 92.1%;
-}*/
 
 
 

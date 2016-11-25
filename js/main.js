@@ -2,6 +2,8 @@ $(function() {
 
     $('.card').height($('.content').height() - 20);
     $('.main.tab-content').height($('.card').height() - 81);
+
+    //下拉菜单
     $('.dropdown-toggle').dropdown();
 
     /*
@@ -32,17 +34,21 @@ $(function() {
     $('.nav-tabs').on('click', 'li .ti-close', function() {
         var _this = this;
         if ($(_this).closest('li').next().length > 0) {
+          //找到下一个tab页面 出发点击事件
             $(_this).closest('li').next().find('a').trigger('click');
         } else {
+          //如果没有下一个，找到上一个tab页面 出发点击事件
             $(_this).closest('li').prev().find('a').trigger('click');
         };
         if ($(_this).closest('li').siblings().length == 0) {
+          //如果是最后一个弹出提示
             swal({
                 title: "已经是最后一个了!",
                 buttonsStyling: false,
                 confirmButtonClass: 'btn btn-primary btn-lg'
             });
         } else {
+          //移除tab标签  且  给菜单上的open开关移除
             $(_this).closest('li').remove();
             $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li>a').each(function() {
                 if ($(this).attr('data-menu-id') == $(_this).closest('a').attr('href').substring(1)) {
@@ -57,6 +63,7 @@ $(function() {
      * 点击左侧菜单，添加到tab页面里
      */
     $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul').on('click', 'li>a', function() {
+      //判断此tab页有没有打开 如果打开定位到此tab页面 如果没有打开就显示此页
         if ($(this).hasClass('open')) {
             console.log('open');
             $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li').removeClass('active');
@@ -256,6 +263,9 @@ $(function() {
             }
         });
     });
+    /*
+     * 设置datetimepicker
+     */
     $('#datetimepicker1').datetimepicker();
     $('#datetimepicker3').datetimepicker({
         format: 'LT'
@@ -263,7 +273,7 @@ $(function() {
     $('#datetimepicker10').datetimepicker({
         viewMode: 'years',
         format: 'MM/YYYY',
-        debug: true
+        debug: false
     });
     $('#datetimepicker12').datetimepicker({
         inline: true
