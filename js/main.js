@@ -34,21 +34,21 @@ $(function() {
     $('.nav-tabs').on('click', 'li .ti-close', function() {
         var _this = this;
         if ($(_this).closest('li').next().length > 0) {
-          //找到下一个tab页面 出发点击事件
+            //找到下一个tab页面 出发点击事件
             $(_this).closest('li').next().find('a').trigger('click');
         } else {
-          //如果没有下一个，找到上一个tab页面 出发点击事件
+            //如果没有下一个，找到上一个tab页面 出发点击事件
             $(_this).closest('li').prev().find('a').trigger('click');
         };
         if ($(_this).closest('li').siblings().length == 0) {
-          //如果是最后一个弹出提示
+            //如果是最后一个弹出提示
             swal({
                 title: "已经是最后一个了!",
                 buttonsStyling: false,
                 confirmButtonClass: 'btn btn-primary btn-lg'
             });
         } else {
-          //移除tab标签  且  给菜单上的open开关移除
+            //移除tab标签  且  给菜单上的open开关移除
             $(_this).closest('li').remove();
             $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li>a').each(function() {
                 if ($(this).attr('data-menu-id') == $(_this).closest('a').attr('href').substring(1)) {
@@ -63,7 +63,7 @@ $(function() {
      * 点击左侧菜单，添加到tab页面里
      */
     $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul').on('click', 'li>a', function() {
-      //判断此tab页有没有打开 如果打开定位到此tab页面 如果没有打开就显示此页
+        //判断此tab页有没有打开 如果打开定位到此tab页面 如果没有打开就显示此页
         if ($(this).hasClass('open')) {
             console.log('open');
             $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li').removeClass('active');
@@ -280,3 +280,104 @@ $(function() {
             // sideBySide: true
     });
 })
+
+/*
+ * 设置validator
+ */
+
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+$('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+
+$('#basicBootstrapForm').bootstrapValidator({
+    message: 'This value is not valid',
+    autoFocus: true,
+    feedbackIcons: {
+        valid: 'fa fa-check',
+        invalid: 'fa fa-times',
+        validating: 'fa fa-refresh'
+    },
+    fields: {
+        firstName: {
+            row: '.col-xs-4',
+            validators: {
+                notEmpty: {
+                    message: 'The first name is required'
+                }
+            }
+        },
+        lastName: {
+            row: '.col-xs-4',
+            validators: {
+                notEmpty: {
+                    message: 'The last name is required'
+                }
+            }
+        },
+        username: {
+            trigger: 'blur',
+            validators: {
+                notEmpty: {
+                    message: 'The username is required'
+                },
+                stringLength: {
+                    min: 6,
+                    max: 30,
+                    message: 'The username must be more than 6 and less than 30 characters long'
+                },
+                regexp: {
+                    regexp: /^[a-zA-Z0-9_\.]+$/,
+                    message: 'The username can only consist of alphabetical, number, dot and underscore'
+                }
+            }
+        },
+        email: {
+            validators: {
+                notEmpty: {
+                    message: 'The email address is required'
+                },
+                emailAddress: {
+                    message: 'The input is not a valid email address'
+                }
+            }
+        },
+        password: {
+            validators: {
+                notEmpty: {
+                    message: 'The password is required'
+                },
+                different: {
+                    field: 'username',
+                    message: 'The password cannot be the same as username'
+                }
+            }
+        },
+        gender: {
+            validators: {
+                notEmpty: {
+                    message: 'The gender is required'
+                }
+            }
+        },
+        captcha: {
+            validators: {
+                callback: {
+                    message: 'Wrong answer',
+                    callback: function(value, validator, $field) {
+                        var items = $('#captchaOperation').html().split(' '),
+                            sum = parseInt(items[0]) + parseInt(items[2]);
+                        return value == sum;
+                    }
+                }
+            }
+        },
+        agree: {
+            validators: {
+                notEmpty: {
+                    message: 'You must agree with the terms and conditions'
+                }
+            }
+        }
+    }
+});
