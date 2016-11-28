@@ -5,11 +5,41 @@ $(function() {
 
     //下拉菜单
     $('.dropdown-toggle').dropdown();
+    /*
+     * 点击收缩菜单
+     */
+    $('.user .photo').tooltip('toggle');
+    var sidebar_switch = true;
+      $('#minimizeSidebar').on('click',function(){
+        if (sidebar_switch) {
+          $('.sidebar').width(80);
+          $('.main-panel').width($(window).width() - 80);
+          $('.sidebar .logo').addClass('hidden');
+          $('.mini-logo').removeClass('hidden');
+          $('.user .photo').width(50);
+          $('.user .info').css('display','none');
 
+          // $('.user .photo').popover({
+          //   trigger:'hover', //触发方式
+          //   template: '', //你自定义的模板
+          //   title:'aaa',//设置 弹出框 的标题
+          //   html: true, // 为true的话，data-content里就能放html代码了
+          //   content:''//这里可以直接写字符串，也可以 是一个函数，该函数返回一个字符串；
+          // });
+          sidebar_switch = false;
+        }else{
+          $('.sidebar').width(260);
+          $('.main-panel').width($(window).width() - 260);
+          $('.sidebar .logo').removeClass('hidden');
+          $('.mini-logo').addClass('hidden');
+          $('.user .photo').width(80);
+          $('.user .info').css('display','block');
+          sidebar_switch = true;
+        }
+      })
     /*
      * 点击让搜索框整体变白，失去焦点是变回原来颜色
      */
-
     $('.navbar-form .form-control').on({
         focus: function() {
             $('.input-group-addon').css('background-color', '#FFFFFF');
@@ -279,105 +309,152 @@ $(function() {
         inline: true
             // sideBySide: true
     });
-})
+    /*
+     * 设置validator
+     */
 
-/*
- * 设置validator
- */
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
 
-function randomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-$('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
-
-$('#basicBootstrapForm').bootstrapValidator({
-    message: 'This value is not valid',
-    autoFocus: true,
-    feedbackIcons: {
-        valid: 'fa fa-check',
-        invalid: 'fa fa-times',
-        validating: 'fa fa-refresh'
-    },
-    fields: {
-        firstName: {
-            row: '.col-xs-4',
-            validators: {
-                notEmpty: {
-                    message: 'The first name is required'
-                }
-            }
+    $('#basicBootstrapForm').bootstrapValidator({
+        message: 'This value is not valid',
+        autoFocus: true,
+        feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
         },
-        lastName: {
-            row: '.col-xs-4',
-            validators: {
-                notEmpty: {
-                    message: 'The last name is required'
+        fields: {
+            firstName: {
+                row: '.col-xs-4',
+                validators: {
+                    notEmpty: {
+                        message: 'The first name is required'
+                    }
                 }
-            }
-        },
-        username: {
-            trigger: 'blur',
-            validators: {
-                notEmpty: {
-                    message: 'The username is required'
-                },
-                stringLength: {
-                    min: 6,
-                    max: 30,
-                    message: 'The username must be more than 6 and less than 30 characters long'
-                },
-                regexp: {
-                    regexp: /^[a-zA-Z0-9_\.]+$/,
-                    message: 'The username can only consist of alphabetical, number, dot and underscore'
+            },
+            lastName: {
+                row: '.col-xs-4',
+                validators: {
+                    notEmpty: {
+                        message: 'The last name is required'
+                    }
                 }
-            }
-        },
-        email: {
-            validators: {
-                notEmpty: {
-                    message: 'The email address is required'
-                },
-                emailAddress: {
-                    message: 'The input is not a valid email address'
+            },
+            username: {
+                trigger: 'blur',
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: 'The username can only consist of alphabetical, number, dot and underscore'
+                    }
                 }
-            }
-        },
-        password: {
-            validators: {
-                notEmpty: {
-                    message: 'The password is required'
-                },
-                different: {
-                    field: 'username',
-                    message: 'The password cannot be the same as username'
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required'
+                    },
+                    emailAddress: {
+                        message: 'The input is not a valid email address'
+                    }
                 }
-            }
-        },
-        gender: {
-            validators: {
-                notEmpty: {
-                    message: 'The gender is required'
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    },
+                    different: {
+                        field: 'username',
+                        message: 'The password cannot be the same as username'
+                    }
                 }
-            }
-        },
-        captcha: {
-            validators: {
-                callback: {
-                    message: 'Wrong answer',
-                    callback: function(value, validator, $field) {
-                        var items = $('#captchaOperation').html().split(' '),
-                            sum = parseInt(items[0]) + parseInt(items[2]);
-                        return value == sum;
+            },
+            gender: {
+                validators: {
+                    notEmpty: {
+                        message: 'The gender is required'
+                    }
+                }
+            },
+            captcha: {
+                validators: {
+                    callback: {
+                        message: 'Wrong answer',
+                        callback: function(value, validator, $field) {
+                            var items = $('#captchaOperation').html().split(' '),
+                                sum = parseInt(items[0]) + parseInt(items[2]);
+                            return value == sum;
+                        }
+                    }
+                }
+            },
+            agree: {
+                validators: {
+                    notEmpty: {
+                        message: 'You must agree with the terms and conditions'
                     }
                 }
             }
-        },
-        agree: {
-            validators: {
-                notEmpty: {
-                    message: 'You must agree with the terms and conditions'
-                }
-            }
         }
-    }
-});
+    });
+
+
+    /*
+     * 设置bootstrap table
+     */
+    // //先销毁表格
+    // $('#eventsTable').bootstrapTable('destroy');
+    var $result = $('#eventsResult');
+
+    $('#eventsTable').on('all.bs.table', function(e, name, args) {
+            console.log('Event:', name, ', data:', args);
+        })
+        .on('click-row.bs.table', function(e, row, $element) {
+            $result.text('Event: click-row.bs.table');
+        })
+        .on('dbl-click-row.bs.table', function(e, row, $element) {
+            $result.text('Event: dbl-click-row.bs.table');
+        })
+        .on('sort.bs.table', function(e, name, order) {
+            $result.text('Event: sort.bs.table');
+        })
+        .on('check.bs.table', function(e, row) {
+            $result.text('Event: check.bs.table');
+        })
+        .on('uncheck.bs.table', function(e, row) {
+            $result.text('Event: uncheck.bs.table');
+        })
+        .on('check-all.bs.table', function(e) {
+            $result.text('Event: check-all.bs.table');
+        })
+        .on('uncheck-all.bs.table', function(e) {
+            $result.text('Event: uncheck-all.bs.table');
+        })
+        .on('load-success.bs.table', function(e, data) {
+            $result.text('Event: load-success.bs.table');
+        })
+        .on('load-error.bs.table', function(e, status) {
+            $result.text('Event: load-error.bs.table');
+        })
+        .on('column-switch.bs.table', function(e, field, checked) {
+            $result.text('Event: column-switch.bs.table');
+        })
+        .on('page-change.bs.table', function(e, number, size) {
+            $result.text('Event: page-change.bs.table');
+        })
+        .on('search.bs.table', function(e, text) {
+            $result.text('Event: search.bs.table');
+        });
+})
