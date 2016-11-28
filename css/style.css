@@ -54,6 +54,21 @@ span[data-notify=icon] {
     color: #FFFFFF;
 }
 
+.popover-content {
+    background-color: #f4f3ef;
+    padding: 9px 14px;
+    z-index: 10000;
+}
+.nav.popo {
+  width: 100%;
+  background-color: #f4f3ef;
+  color: #535353;
+}
+
+.nav.popo a {
+  color: #535353;
+}
+
 .nav>li>a:hover, .nav>li>a:focus {
     text-decoration: none;
     background-color: transparent;

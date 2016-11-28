@@ -5,6 +5,17 @@ $(function() {
 
     //下拉菜单
     $('.dropdown-toggle').dropdown();
+    //提示
+    $('[data-toggle=tooltip]').tooltip('show');
+    //弹窗
+    $('.user .photo').popover({
+          trigger:'click',//触发方式
+          // title:'aaa',//设置 弹出框 的标题
+          html: true, // 为true的话，data-content里就能放html代码了
+          placement: 'right',
+          content:'<ul class="nav popo">'+'<li><a href="#profile">'+'My Profile</a></li><li><a href="#editprofile">Edit Profile</a></li>'+'<li><a href="#settings">'+'Settings</a></li></ul>'
+        });
+    $('[data-toggle=popover]').popover('show');
     /*
      * 点击收缩菜单
      */
