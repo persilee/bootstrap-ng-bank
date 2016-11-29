@@ -8,46 +8,77 @@ $(function() {
     //提示
     $('[data-toggle=tooltip]').tooltip('show');
     //弹窗
-    $('.user .photo').popover({
-          trigger:'click',//触发方式
-          // title:'aaa',//设置 弹出框 的标题
-          html: true, // 为true的话，data-content里就能放html代码了
-          placement: 'right',
-          content:'<ul class="nav popo">'+'<li><a href="#profile">'+'My Profile</a></li><li><a href="#editprofile">Edit Profile</a></li>'+'<li><a href="#settings">'+'Settings</a></li></ul>'
-        });
     $('[data-toggle=popover]').popover('show');
     /*
      * 点击收缩菜单
      */
     $('.user .photo').tooltip('toggle');
     var sidebar_switch = true;
-      $('#minimizeSidebar').on('click',function(){
+    $('#minimizeSidebar').on('click', function() {
         if (sidebar_switch) {
-          $('.sidebar').width(80);
-          $('.main-panel').width($(window).width() - 80);
-          $('.sidebar .logo').addClass('hidden');
-          $('.mini-logo').removeClass('hidden');
-          $('.user .photo').width(50);
-          $('.user .info').css('display','none');
-
-          // $('.user .photo').popover({
-          //   trigger:'hover', //触发方式
-          //   template: '', //你自定义的模板
-          //   title:'aaa',//设置 弹出框 的标题
-          //   html: true, // 为true的话，data-content里就能放html代码了
-          //   content:''//这里可以直接写字符串，也可以 是一个函数，该函数返回一个字符串；
-          // });
-          sidebar_switch = false;
-        }else{
-          $('.sidebar').width(260);
-          $('.main-panel').width($(window).width() - 260);
-          $('.sidebar .logo').removeClass('hidden');
-          $('.mini-logo').addClass('hidden');
-          $('.user .photo').width(80);
-          $('.user .info').css('display','block');
-          sidebar_switch = true;
+            $(this).find('i').attr('class','ti-menu-alt');
+            $('.sidebar').width(80);
+            $('.sidebar').addClass('mini');
+            $('.main-panel').width($(window).width() - 80);
+            $('.sidebar .logo').addClass('hidden');
+            $('.mini-logo').removeClass('hidden');
+            $('.user .photo').width(50);
+            $('.user .info').css('display', 'none');
+            $('.sidebar.mini .nav li a').attr('data-toggle', '');
+            sidebar_switch = false;
+        } else {
+            $(this).find('i').attr('class','ti-more-alt');
+            $('.sidebar').width(260);
+            $('.sidebar').removeClass('mini');
+            $('.main-panel').width($(window).width() - 260);
+            $('.sidebar .logo').removeClass('hidden');
+            $('.mini-logo').addClass('hidden');
+            $('.user .photo').width(80);
+            $('.user .info').css('display', 'block');
+            $('.sidebar .nav li a').attr('data-toggle', 'collapse');
+            $('.sidebar .collapse').css('display', '');
+            sidebar_switch = true;
         }
-      })
+    });
+    //hover 时候出现菜单
+    var timer = '';
+    $('.user .photo').popover({
+        trigger: 'manual', //触发方式
+        // title:'aaa',//设置 弹出框 的标题
+        html: true, // 为true的话，data-content里就能放html代码了
+        placement: 'right',
+        content: contentText
+    }).mouseenter(function() {
+        if ($('.sidebar').hasClass('mini')) {
+            $(this).popover('show');
+        }
+    }).mouseleave(function() {
+        var _this = this;
+        timer = setTimeout(function() {
+            $(_this).popover('hide');
+        }, 200);
+    });
+    $('.user').on('mouseenter', '.popo-list', function() {
+        clearTimeout(timer);
+    }).on('mouseleave', '.popo-list', function() {
+        $('.user .photo').popover('hide');
+    });
+
+    function contentText() {
+        return [
+            '<ul class="popo-list">',
+            '<li><a href="#profile">My Profile</a></li>',
+            '<li><a href="#editprofile">Edit Profile</a></li>',
+            '<li><a href="#settings">Settings</a></li>',
+            '</ul>'
+        ].join('');
+    }
+
+    $('.wrapper').on('mouseenter', '.sidebar.mini .sidebar-wrapper>.nav>li', function() {
+        $('.sidebar.mini .collapse').eq($(this).index() + 1).css('display', 'block');
+    }).on('mouseleave', '.sidebar.mini .sidebar-wrapper>.nav>li', function() {
+        $('.sidebar.mini .collapse').eq($(this).index() + 1).css('display', 'none');
+    });
     /*
      * 点击让搜索框整体变白，失去焦点是变回原来颜色
      */
@@ -62,9 +93,10 @@ $(function() {
     $('.nav-tabs').on('click', 'a', function() {
         var _this = this;
         $(this).tab('show');
-        $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li>a').each(function() {
+        $('.sidebar .sidebar-wrapper>.nav li>a').each(function() {
             if ($(this).attr('data-menu-id') == $(_this).attr('href').substring(1)) {
-                $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li').removeClass('active');
+                $('.sidebar .sidebar-wrapper>.nav li').removeClass('active');
+                $(this).parent().eq(0).parents('li').addClass('active');
                 $(this).parent().addClass('active');
             }
         });
@@ -91,7 +123,7 @@ $(function() {
         } else {
             //移除tab标签  且  给菜单上的open开关移除
             $(_this).closest('li').remove();
-            $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li>a').each(function() {
+            $('.sidebar .sidebar-wrapper>.nav li>a').each(function() {
                 if ($(this).attr('data-menu-id') == $(_this).closest('a').attr('href').substring(1)) {
                     $(this).removeClass('open');
                 }
@@ -103,17 +135,19 @@ $(function() {
     /*
      * 点击左侧菜单，添加到tab页面里
      */
-    $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul').on('click', 'li>a', function() {
+    $('.sidebar .sidebar-wrapper').on('click', '.nav ul li>a', function() {
         //判断此tab页有没有打开 如果打开定位到此tab页面 如果没有打开就显示此页
         if ($(this).hasClass('open')) {
             console.log('open');
-            $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li').removeClass('active');
+            $('.sidebar .sidebar-wrapper>.nav li').removeClass('active');
             $(this).parent().addClass('active');
+            $(this).parent().eq(0).parents('li').addClass('active');
             $('.nav-tabs a[href=' + '#' + $(this).attr('data-menu-id') + ']').trigger('click');
         } else {
             $(this).addClass('open');
-            $('.sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li').removeClass('active');
+            $('.sidebar .sidebar-wrapper>.nav li').removeClass('active');
             $(this).parent().addClass('active');
+            $(this).parent().eq(0).parents('li').addClass('active');
             var tab = $('<li role="presentation"><a href=' + '#' + $(this).attr('data-menu-id') + ' role="tab" data-toggle="tab">' + $(this).text() + '<i class="ti-close"></i></a></li>');
             $('.nav.nav-tabs.main').append(tab);
             $('.nav-tabs a[href=' + '#' + $(this).attr('data-menu-id') + ']').trigger('click');

@@ -54,21 +54,6 @@ span[data-notify=icon] {
     color: #FFFFFF;
 }
 
-.popover-content {
-    background-color: #f4f3ef;
-    padding: 9px 14px;
-    z-index: 10000;
-}
-.nav.popo {
-  width: 100%;
-  background-color: #f4f3ef;
-  color: #535353;
-}
-
-.nav.popo a {
-  color: #535353;
-}
-
 .nav>li>a:hover, .nav>li>a:focus {
     text-decoration: none;
     background-color: transparent;
@@ -84,7 +69,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
     outline: 0 !important;
 }
 
-.form-control, .input-group-addon, .tagsinput, .navbar, .navbar .alert, .general-animation, .sidebar .user .photo, .sidebar .user a ,.main-panel ,.sidebar{
+.form-control, .input-group-addon, .tagsinput, .navbar, .navbar .alert, .general-animation, .sidebar .user .photo, .sidebar .user a ,.main-panel ,.sidebar,.mini-logo,.mini-logo a{
     -webkit-transition: all 300ms linear;
     -moz-transition: all 300ms linear;
     -o-transition: all 300ms linear;
@@ -304,13 +289,14 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
     border: 0;
     border-radius: 0;
     font-size: 16px;
-    z-index: 3;
 }
 
 .navbar .navbar-minimize {
     float: left;
 }
-
+.navbar .navbar-form {
+  margin-left: 20px;
+}
 .navbar-default .navbar-nav>li>a:not(.btn):focus {
     background-color: transparent;
     border-radius: 3px;
@@ -329,6 +315,20 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
 
 .navbar .navbar-minimize .btn {
     margin: 18px 3px;
+}
+
+.navbar .navbar-minimize .ti-more-alt {
+    display: inline-block;
+    min-width: 14px;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.navbar .navbar-minimize .ti-menu-alt{
+  margin-top: 3px;
+}
+.navbar .navbar-minimize i{
+  font-weight: 700;
 }
 
 .btn.btn-icon, .navbar .navbar-nav>li>a.btn.btn-icon {
@@ -521,8 +521,6 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
     background-color: #FFFFFF;
     color: #252422;
     margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
 }
 
 .nav-tabs-navigation {
@@ -647,8 +645,80 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
 .footer .heart {
     color: rgb(255, 91, 91);
 }
-
-
+.popover-content {
+    background-color: #f4f3ef;
+    padding: 9px 0px;
+    z-index: 10000;
+}
+.sidebar .mini-nav ul, .popo-list {
+  list-style: none;
+  padding: 0;
+  width: 150px;
+}
+.sidebar .mini-nav ul li:hover ,.popo-list li:hover{
+  background-color: #66615b
+}
+.sidebar .mini-nav ul li:hover a ,.popo-list li:hover a{
+  color: #fff;
+}
+.sidebar .mini-nav ul li a,.popo-list a {
+  color: #535353;
+  padding: 0 10px;
+}
+.sidebar .mini-nav ul li {
+  line-height: 2.5;
+  padding-left: 10px;
+}
+.sidebar .mini-nav {
+  list-style: none;
+  padding: 0;
+  display: none;
+}
+.sidebar .mini-nav>li {
+  text-align: center;
+  margin: 50px auto;
+}
+.sidebar .mini-nav>li:hover>i{
+  color: rgba(255,255,255, 1);
+}
+.sidebar .mini-nav>li>i{
+  color: rgba(255,255,255, .75);
+  font-size: 30px;
+}
+.sidebar.mini .sidebar-wrapper>.nav>li {
+  margin: 40px auto;
+}
+.sidebar.mini .nav li p{
+  opacity: 0;
+}
+.sidebar.mini .nav li a i{
+  font-size: 30px;
+}
+.sidebar.mini .nav a{
+  position: relative;
+}
+.sidebar.mini .collapse {
+  display: block;
+  visibility: visible;
+  position: absolute;
+  left: 80px;
+  top: -15px;
+  width: 180px;
+  z-index: 2016;
+  background-color: #f4f3ef;
+  border-radius: 6px;
+  box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
+  display: none;
+}
+.sidebar.mini .collapse li a{
+  color: #535353;
+}
+.sidebar.mini .collapse li:hover {
+  background-color: #66615b
+}
+.sidebar.mini .collapse li:hover a{
+  color: #fff;
+}
 
 /*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
 
