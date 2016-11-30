@@ -2,7 +2,6 @@ $(function() {
 
     $('.card').height($('.content').height() - 20);
     $('.main.tab-content').height($('.card').height() - 81);
-
     //下拉菜单
     $('.dropdown-toggle').dropdown();
     //提示
@@ -16,10 +15,9 @@ $(function() {
     var sidebar_switch = true;
     $('#minimizeSidebar').on('click', function() {
         if (sidebar_switch) {
-            $(this).find('i').attr('class','ti-menu-alt');
-            $('.sidebar').width(80);
+            $(this).find('i').attr('class', 'ti-menu-alt');
             $('.sidebar').addClass('mini');
-            $('.main-panel').width($(window).width() - 80);
+            $('body').addClass('sidebar-mini');
             $('.sidebar .logo').addClass('hidden');
             $('.mini-logo').removeClass('hidden');
             $('.user .photo').width(50);
@@ -27,10 +25,9 @@ $(function() {
             $('.sidebar.mini .nav li a').attr('data-toggle', '');
             sidebar_switch = false;
         } else {
-            $(this).find('i').attr('class','ti-more-alt');
-            $('.sidebar').width(260);
+            $(this).find('i').attr('class', 'ti-more-alt');
             $('.sidebar').removeClass('mini');
-            $('.main-panel').width($(window).width() - 260);
+            $('body').removeClass('sidebar-mini');
             $('.sidebar .logo').removeClass('hidden');
             $('.mini-logo').addClass('hidden');
             $('.user .photo').width(80);
@@ -75,9 +72,9 @@ $(function() {
     }
 
     $('.wrapper').on('mouseenter', '.sidebar.mini .sidebar-wrapper>.nav>li', function() {
-        $('.sidebar.mini .collapse').eq($(this).index() + 1).css('display', 'block');
+        // $('.sidebar.mini .collapse').eq($(this).index() + 1).css('display', 'block');
     }).on('mouseleave', '.sidebar.mini .sidebar-wrapper>.nav>li', function() {
-        $('.sidebar.mini .collapse').eq($(this).index() + 1).css('display', 'none');
+        // $('.sidebar.mini .collapse').eq($(this).index() + 1).css('display', 'none');
     });
     /*
      * 点击让搜索框整体变白，失去焦点是变回原来颜色
@@ -90,11 +87,15 @@ $(function() {
             $('.input-group-addon').css('background-color', '#F3F2EE');
         }
     });
+    /*
+     * 点击切换tab页
+     */
     $('.nav-tabs').on('click', 'a', function() {
         var _this = this;
         $(this).tab('show');
         $('.sidebar .sidebar-wrapper>.nav li>a').each(function() {
             if ($(this).attr('data-menu-id') == $(_this).attr('href').substring(1)) {
+                $('.navbar .navbar-brand a').text($(this).text());
                 $('.sidebar .sidebar-wrapper>.nav li').removeClass('active');
                 $(this).parent().eq(0).parents('li').addClass('active');
                 $(this).parent().addClass('active');
@@ -123,6 +124,7 @@ $(function() {
         } else {
             //移除tab标签  且  给菜单上的open开关移除
             $(_this).closest('li').remove();
+            $('.nav-tabs.main>li').width((($('.nav-tabs.main').width() - 1) / $('.nav-tabs.main>li').length) - 1);
             $('.sidebar .sidebar-wrapper>.nav li>a').each(function() {
                 if ($(this).attr('data-menu-id') == $(_this).closest('a').attr('href').substring(1)) {
                     $(this).removeClass('open');
@@ -139,17 +141,20 @@ $(function() {
         //判断此tab页有没有打开 如果打开定位到此tab页面 如果没有打开就显示此页
         if ($(this).hasClass('open')) {
             console.log('open');
+            $('.navbar .navbar-brand a').text($(this).text());
             $('.sidebar .sidebar-wrapper>.nav li').removeClass('active');
             $(this).parent().addClass('active');
             $(this).parent().eq(0).parents('li').addClass('active');
             $('.nav-tabs a[href=' + '#' + $(this).attr('data-menu-id') + ']').trigger('click');
         } else {
             $(this).addClass('open');
+            $('.navbar .navbar-brand a').text($(this).text());
             $('.sidebar .sidebar-wrapper>.nav li').removeClass('active');
             $(this).parent().addClass('active');
             $(this).parent().eq(0).parents('li').addClass('active');
             var tab = $('<li role="presentation"><a href=' + '#' + $(this).attr('data-menu-id') + ' role="tab" data-toggle="tab">' + $(this).text() + '<i class="ti-close"></i></a></li>');
             $('.nav.nav-tabs.main').append(tab);
+            $('.nav-tabs.main>li').width((($('.nav-tabs.main').width() - 1) / $('.nav-tabs.main>li').length));
             $('.nav-tabs a[href=' + '#' + $(this).attr('data-menu-id') + ']').trigger('click');
         }
     });
