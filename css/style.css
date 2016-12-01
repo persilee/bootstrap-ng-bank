@@ -1,13 +1,5 @@
 @charset "UTF-8";
 @font-face {
-    font-family: 'muli';
-    src: url('../fonts/muli.eot?-fvbane');
-    src: url('../fonts/muli.eot?#iefix-fvbane') format('embedded-opentype'), url('../fonts/muli.woff?-fvbane') format('woff'), url('../fonts/muli.ttf?-fvbane') format('truetype'), url('../fonts/muli.svg?-fvbane#themify') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Muli';
     font-style: normal;
     font-weight: 300;
@@ -19,6 +11,13 @@
     font-style: normal;
     font-weight: 400;
     src: local('Muli'), url(https://fonts.gstatic.com/s/muli/v9/minRpKQdEvXRRS8oAbAtWvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+@font-face {
+    font-family: 'muli';
+    src: url('../fonts/muli.eot?-fvbane');
+    src: url('../fonts/muli.eot?#iefix-fvbane') format('embedded-opentype'), url('../fonts/muli.woff?-fvbane') format('woff'), url('../fonts/muli.ttf?-fvbane') format('truetype'), url('../fonts/muli.svg?-fvbane#themify') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
@@ -127,7 +126,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 }
 
 .sidebar .sidebar-wrapper {
-    position: relative;
+    /*position: relative;*/
     height: calc(100vh - 75px);
     overflow-y: auto;
     overflow-x: hidden;
@@ -172,7 +171,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 
 .sidebar .user {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    position: relative;
+    /*position: relative;*/
     margin-top: 20px;
     padding-bottom: 20px;
     z-index: 4;
@@ -749,22 +748,22 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
     font-size: 30px;
 }
 
-.sidebar.mini .nav a {
+/*.sidebar.mini .nav a {
     position: relative;
-}
+}*/
 
 .sidebar.mini .collapse {
     display: block;
     visibility: visible;
     position: absolute;
     left: 80px;
-    top: -15px;
+    top: -10px;
     width: 180px;
     z-index: 2016;
     background-color: #f4f3ef;
     border-radius: 6px;
     box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
-    /*display: none;*/
+    display: none;
 }
 
 .sidebar.mini .collapse li a {
@@ -788,6 +787,32 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
 .sidebar-mini .main-panel {
     width: calc(100% - 80px);
     margin-left: 80px;
+}
+.sidebar-mini .sidebar-wrapper>.nav>li {
+  position: absolute;
+  width: 80px;
+}
+.sidebar-mini .sidebar-wrapper>.nav>li:nth-child(1) {
+  top: 20%;
+}
+.sidebar-mini .sidebar-wrapper>.nav>li:nth-child(2) {
+  top: 30%;
+}
+.sidebar-mini .sidebar-wrapper>.nav>li:nth-child(3) {
+  top: 40%;
+}
+.sidebar-mini .sidebar-wrapper>.nav>li:nth-child(4) {
+  top: 50%;
+}
+.sidebar.mini .sidebar-wrapper>.nav>li.triangle::before {
+    border-right: 11px solid #f5f5f5;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 43%;
+    right: 0%;
 }
 
 @media (min-width: 992px) {}
