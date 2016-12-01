@@ -70,12 +70,22 @@ $(function() {
             '</ul>'
         ].join('');
     }
+    $(window).resize(function() {
 
-    $('.wrapper').on('mouseenter', '.sidebar.mini .sidebar-wrapper>.nav>li', function() {
-        // $('.sidebar.mini .collapse').eq($(this).index() + 1).css('display', 'block');
-    }).on('mouseleave', '.sidebar.mini .sidebar-wrapper>.nav>li', function() {
-        // $('.sidebar.mini .collapse').eq($(this).index() + 1).css('display', 'none');
+
     });
+    $('.wrapper').on('mouseenter', '.sidebar.mini .sidebar-wrapper>.nav>li', function() {
+        $('.sidebar.mini .collapse').eq($(this).index() + 1).css('display', 'block');
+        $(this).addClass('triangle');
+        $('.sidebar.mini .sidebar-wrapper>.nav li>a').click(function(){
+            event.preventDefault();
+            // event.stopPropagation();
+        });
+    }).on('mouseleave', '.sidebar.mini .sidebar-wrapper>.nav>li', function() {
+        $('.sidebar.mini .collapse').eq($(this).index() + 1).css('display', 'none');
+        $('.sidebar.mini .sidebar-wrapper>.nav>li').removeClass('triangle');
+    });
+
     /*
      * 点击让搜索框整体变白，失去焦点是变回原来颜色
      */

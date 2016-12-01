@@ -127,7 +127,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 }
 
 .sidebar .sidebar-wrapper {
-    position: relative;
+    /*position: relative;*/
     height: calc(100vh - 75px);
     overflow-y: auto;
     overflow-x: hidden;
@@ -172,7 +172,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 
 .sidebar .user {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    position: relative;
+    /*position: relative;*/
     margin-top: 20px;
     padding-bottom: 20px;
     z-index: 4;
@@ -749,9 +749,9 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
     font-size: 30px;
 }
 
-.sidebar.mini .nav a {
+/*.sidebar.mini .nav a {
     position: relative;
-}
+}*/
 
 .sidebar.mini .collapse {
     display: block;
@@ -764,7 +764,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
     background-color: #f4f3ef;
     border-radius: 6px;
     box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
-    /*display: none;*/
+    display: none;
 }
 
 .sidebar.mini .collapse li a {
@@ -788,6 +788,42 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
 .sidebar-mini .main-panel {
     width: calc(100% - 80px);
     margin-left: 80px;
+}
+.sidebar-mini .sidebar-wrapper .nav>li {
+  position: static;
+}
+.sidebar.mini #componentsExamples {
+  top: 20%;
+}
+.sidebar.mini #formsExamples{
+  top: 30%;
+}
+.sidebar.mini #tablesExamples{
+  top: 40%;
+}
+.sidebar.mini #pagesExamples{
+  top: 50%;
+}
+.sidebar.mini .sidebar-wrapper>.nav>li.triangle::before {
+    border-right: 11px solid #f5f5f5;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    right: 0%;
+}
+.sidebar.mini .sidebar-wrapper>.nav>li.triangle:nth-child(1)::before{
+  top: 24%;
+}
+.sidebar.mini .sidebar-wrapper>.nav>li.triangle:nth-child(2)::before{
+  top: 33.5%;
+}
+.sidebar.mini .sidebar-wrapper>.nav>li.triangle:nth-child(3)::before{
+  top: 42.5%;
+}
+.sidebar.mini .sidebar-wrapper>.nav>li.triangle:nth-child(4)::before{
+  top: 52%;
 }
 
 @media (min-width: 992px) {}
