@@ -1,13 +1,5 @@
 @charset "UTF-8";
 @font-face {
-    font-family: 'muli';
-    src: url('../fonts/muli.eot?-fvbane');
-    src: url('../fonts/muli.eot?#iefix-fvbane') format('embedded-opentype'), url('../fonts/muli.woff?-fvbane') format('woff'), url('../fonts/muli.ttf?-fvbane') format('truetype'), url('../fonts/muli.svg?-fvbane#themify') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Muli';
     font-style: normal;
     font-weight: 300;
@@ -19,6 +11,13 @@
     font-style: normal;
     font-weight: 400;
     src: local('Muli'), url(https://fonts.gstatic.com/s/muli/v9/minRpKQdEvXRRS8oAbAtWvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+@font-face {
+    font-family: 'muli';
+    src: url('../fonts/muli.eot?-fvbane');
+    src: url('../fonts/muli.eot?#iefix-fvbane') format('embedded-opentype'), url('../fonts/muli.woff?-fvbane') format('woff'), url('../fonts/muli.ttf?-fvbane') format('truetype'), url('../fonts/muli.svg?-fvbane#themify') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
@@ -758,7 +757,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
     visibility: visible;
     position: absolute;
     left: 80px;
-    top: -15px;
+    top: -10px;
     width: 180px;
     z-index: 2016;
     background-color: #f4f3ef;
@@ -789,19 +788,20 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
     width: calc(100% - 80px);
     margin-left: 80px;
 }
-.sidebar-mini .sidebar-wrapper .nav>li {
-  position: static;
+.sidebar-mini .sidebar-wrapper>.nav>li {
+  position: absolute;
+  width: 80px;
 }
-.sidebar.mini #componentsExamples {
+.sidebar-mini .sidebar-wrapper>.nav>li:nth-child(1) {
   top: 20%;
 }
-.sidebar.mini #formsExamples{
+.sidebar-mini .sidebar-wrapper>.nav>li:nth-child(2) {
   top: 30%;
 }
-.sidebar.mini #tablesExamples{
+.sidebar-mini .sidebar-wrapper>.nav>li:nth-child(3) {
   top: 40%;
 }
-.sidebar.mini #pagesExamples{
+.sidebar-mini .sidebar-wrapper>.nav>li:nth-child(4) {
   top: 50%;
 }
 .sidebar.mini .sidebar-wrapper>.nav>li.triangle::before {
@@ -811,19 +811,8 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
     content: " ";
     display: inline-block;
     position: absolute;
+    top: 43%;
     right: 0%;
-}
-.sidebar.mini .sidebar-wrapper>.nav>li.triangle:nth-child(1)::before{
-  top: 24%;
-}
-.sidebar.mini .sidebar-wrapper>.nav>li.triangle:nth-child(2)::before{
-  top: 33.5%;
-}
-.sidebar.mini .sidebar-wrapper>.nav>li.triangle:nth-child(3)::before{
-  top: 42.5%;
-}
-.sidebar.mini .sidebar-wrapper>.nav>li.triangle:nth-child(4)::before{
-  top: 52%;
 }
 
 @media (min-width: 992px) {}
