@@ -1,6 +1,6 @@
 $(function() {
 
-    $('.card').height($('.content').height() - 20);
+    $('.wrapper>.main-panel .card.main').height($('.content').height() - 20);
     $('.main.tab-content').height($('.card').height() - 81);
     //下拉菜单
     $('.dropdown-toggle').dropdown();
@@ -8,8 +8,15 @@ $(function() {
     $('[data-toggle=tooltip]').tooltip('show');
     //弹窗
     $('[data-toggle=popover]').popover('show');
+    //windows系统滚动条优化
+    var isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+    if (isWindows) {
+        $('.sidebar .sidebar-wrapper').perfectScrollbar();
+        $('.main.tab-content').perfectScrollbar();
+    }
+
     /*
-     * 点击收缩菜单
+     *点击收缩菜单
      */
     $('.user .photo').tooltip('toggle');
     var sidebar_switch = true;
@@ -77,7 +84,7 @@ $(function() {
     $('.wrapper').on('mouseenter', '.sidebar.mini .sidebar-wrapper>.nav>li', function() {
         $('.sidebar.mini .collapse').eq($(this).index() + 1).css('display', 'block');
         $(this).addClass('triangle');
-        $('.sidebar.mini .sidebar-wrapper>.nav li>a').click(function(){
+        $('.sidebar.mini .sidebar-wrapper>.nav li>a').click(function() {
             event.preventDefault();
             // event.stopPropagation();
         });
@@ -175,7 +182,7 @@ $(function() {
         swal({
             title: "Here's a message!",
             buttonsStyling: false,
-            confirmButtonClass: 'btn btn-primary btn-lg'
+            confirmButtonClass: 'button button-primary button-pill button-small'
         });
     });
     $('.btn2').on('click', function() {
@@ -184,7 +191,7 @@ $(function() {
             type: 'success',
             text: 'You clicked the button!',
             buttonsStyling: false,
-            confirmButtonClass: 'btn btn-success btn-lg'
+            confirmButtonClass: 'button button-action button-pill button-small'
         });
     });
     $('.btn3').on('click', function() {
@@ -194,8 +201,8 @@ $(function() {
             type: 'warning',
             showCancelButton: true,
             buttonsStyling: false,
-            confirmButtonClass: 'btn btn-primary',
-            cancelButtonClass: 'btn btn-danger',
+            confirmButtonClass: 'button button-primary button-pill button-small',
+            cancelButtonClass: 'button button-caution button-pill button-small',
             confirmButtonText: 'Yes, delete it!'
         }).then(function() {
             swal({
@@ -203,7 +210,7 @@ $(function() {
                 text: 'Your file has been deleted.',
                 type: 'success',
                 buttonsStyling: false,
-                confirmButtonClass: 'btn btn-success btn-lg'
+                confirmButtonClass: 'button button-action button-pill button-small'
             });
         });
     });
@@ -214,8 +221,8 @@ $(function() {
             type: 'warning',
             showCancelButton: true,
             buttonsStyling: false,
-            confirmButtonClass: 'btn btn-primary',
-            cancelButtonClass: 'btn btn-danger',
+            confirmButtonClass: 'button button-primary button-pill button-small',
+            cancelButtonClass: 'button button-caution button-pill button-small',
             confirmButtonText: 'Yes, delete it!'
         }).then(function() {
             swal({
@@ -223,7 +230,7 @@ $(function() {
                 text: 'Your file has been deleted.',
                 type: 'success',
                 buttonsStyling: false,
-                confirmButtonClass: 'btn btn-success btn-lg'
+                confirmButtonClass: 'button button-action button-pill button-small'
             });
         }, function(dismiss) {
             if (dismiss === 'cancel') {
@@ -232,7 +239,7 @@ $(function() {
                     text: 'Your imaginary file is safe :)',
                     type: 'error',
                     buttonsStyling: false,
-                    confirmButtonClass: 'btn btn-danger btn-lg'
+                    confirmButtonClass: 'button button-caution button-pill button-small'
                 });
             }
         });
@@ -517,4 +524,23 @@ $(function() {
         .on('search.bs.table', function(e, text) {
             $result.text('Event: search.bs.table');
         });
+
+    /*
+     * bootstrap-select初始化
+     */
+    $('.selectpicker').selectpicker({
+
+    });
+
+    /*
+     * 设置客户信息修改
+     */
+    $('.card-wizard .nav-pills li').css('width', (100 / $('.card-wizard .nav-pills li').length) + '%');
+    $('#customerInformation').bootstrapWizard({
+        'nextSelector': '.btn-next',
+        'previousSelector': '.btn-back'
+    });
+
+
+
 })

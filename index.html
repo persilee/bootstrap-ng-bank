@@ -7,6 +7,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="dege">
     <!-- <link rel="stylesheet" href="./bootstrap-4.0.0-alpha/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css">
     <link rel="stylesheet" href="./bower_components/Buttons/css/buttons.min.css">
     <link rel="stylesheet" href="./bower_components/bootstrap-select/dist/css/bootstrap-select.css">
     <link rel="stylesheet" href="./bower_components/animate.css/animate.min.css">
@@ -14,7 +15,8 @@
     <link rel="stylesheet" href="./bower_components/sweetalert2/dist/sweetalert2.min.css">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="./themify-icons/themify-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./bower_components/bootstrapvalidator/dist/css/bootstrapValidator.min.css">
     <link rel="stylesheet" href="./bower_components/bootstrap-table/dist/bootstrap-table.min.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -28,7 +30,7 @@
                 <a class="simple-text" href="./index.html">DahSing Bank</a>
             </div>
             <div class="mini-logo hidden">
-              <a class="simple-text" href="./index.html">DB</a>
+                <a class="simple-text" href="./index.html">DB</a>
             </div>
             <div class="sidebar-wrapper">
                 <div class="user">
@@ -108,6 +110,7 @@
                                 <li><a href="./login.html" target="_blank">Login Page</a></li>
                                 <li><a href="#">Register Page</a></li>
                                 <li><a href="#">Lock Screen Page</a></li>
+                                <li><a href="#" data-menu-id="customerInformation">修改客户信息</a></li>
                             </ul>
                         </div>
                     </li>
@@ -167,7 +170,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card">
+                            <div class="card main">
                                 <div class="nav-tabs-navigation">
                                     <div class="nav-tabs-wrapper">
                                         <!-- Nav tabs -->
@@ -252,37 +255,37 @@
                                                 </div>
                                                 <h2>Buttons</h2>
                                                 <div class="row">
-                                                  <a href="#" class="button button-pill button-small">Go</a>
-                                                  <a href="#" class="button button-primary button-pill button-small">Go</a>
-                                                  <a href="#" class="button button-action button-pill button-small">Go</a>
-                                                  <a href="#" class="button button-highlight button-pill button-small">Go</a>
-                                                  <a href="#" class="button button-caution button-pill button-small">Go</a>
-                                                  <a href="#" class="button button-royal button-pill button-small">Go</a>
+                                                    <a href="#" class="button button-pill button-small">Go</a>
+                                                    <a href="#" class="button button-primary button-pill button-small">Go</a>
+                                                    <a href="#" class="button button-action button-pill button-small">Go</a>
+                                                    <a href="#" class="button button-highlight button-pill button-small">Go</a>
+                                                    <a href="#" class="button button-caution button-pill button-small">Go</a>
+                                                    <a href="#" class="button button-royal button-pill button-small">Go</a>
                                                 </div>
                                                 <h2>边框按钮</h2>
                                                 <div class="row">
-                                                  <a href="#" class="button button-border button-pill button-small">Go</a>
-                                                  <a href="#" class="button button-border button-primary button-pill button-small">Go</a>
-                                                  <a href="#" class="button button-border button-action button-pill button-small">Go</a>
-                                                  <a href="#" class="button button-border button-highlight button-pill button-small">Go</a>
-                                                  <a href="#" class="button button-border button-caution button-pill button-small">Go</a>
-                                                  <a href="#" class="button button-border button-royal button-pill button-small">Go</a>
+                                                    <a href="#" class="button button-border button-pill button-small">Go</a>
+                                                    <a href="#" class="button button-border button-primary button-pill button-small">Go</a>
+                                                    <a href="#" class="button button-border button-action button-pill button-small">Go</a>
+                                                    <a href="#" class="button button-border button-highlight button-pill button-small">Go</a>
+                                                    <a href="#" class="button button-border button-caution button-pill button-small">Go</a>
+                                                    <a href="#" class="button button-border button-royal button-pill button-small">Go</a>
                                                 </div>
                                                 <h2>形状</h2>
                                                 <div class="row">
-                                                  <button class="button button-large button-plain button-inverse button-border button-circle"><i class="fa fa-reply"></i></button>
-                                                  <button class="button button-large button-plain button-inverse button-border button-box"><i class="fa fa-star"></i></button>
-                                                  <button class="button button-large button-plain button-inverse button-border button-square"><i class="fa fa-trash-o"></i></button>
-                                                  <button class="button button-large button-plain button-inverse button-borderless"><i class="fa fa-tag"></i></button>
+                                                    <button class="button button-large button-plain button-inverse button-border button-circle"><i class="fa fa-reply"></i></button>
+                                                    <button class="button button-large button-plain button-inverse button-border button-box"><i class="fa fa-star"></i></button>
+                                                    <button class="button button-large button-plain button-inverse button-border button-square"><i class="fa fa-trash-o"></i></button>
+                                                    <button class="button button-large button-plain button-inverse button-borderless"><i class="fa fa-tag"></i></button>
                                                 </div>
                                                 <h2>阴影按钮</h2>
                                                 <div class="row">
-                                                  <a href="#" class="button button-glow button-rounded button-raised button-primary">Go</a>
-                                                  <a href="#" class="button button-glow button-border button-rounded button-primary">Go</a>
-                                                  <button class="button button-glow button-circle button-action button-jumbo"><i class="fa fa-thumbs-up"></i></button>
-                                                  <a href="#" class="button button-glow button-rounded button-highlight">Go</a>
-                                                  <a href="#" class="button button-glow button-rounded button-caution">Go</a>
-                                                  <a href="#" class="button button-glow button-rounded button-royal">Go</a>
+                                                    <a href="#" class="button button-glow button-rounded button-raised button-primary">Go</a>
+                                                    <a href="#" class="button button-glow button-border button-rounded button-primary">Go</a>
+                                                    <button class="button button-glow button-circle button-action button-jumbo"><i class="fa fa-thumbs-up"></i></button>
+                                                    <a href="#" class="button button-glow button-rounded button-highlight">Go</a>
+                                                    <a href="#" class="button button-glow button-rounded button-caution">Go</a>
+                                                    <a href="#" class="button button-glow button-rounded button-royal">Go</a>
                                                 </div>
                                             </div>
                                             <div id="panels" role="tabpanel" class="tab-pane">
@@ -364,13 +367,14 @@
                                                 </div>
                                             </div>
                                             <div id="sweetAlert" class="tab-pane" role="tabpanel">
+                                                <h2 class="page-header">对话框</h2>
                                                 <div class="row">
                                                     <div class="col-xs-3">
                                                         <div class="panel panel-primary">
                                                             <div class="panel-heading">example</div>
                                                             <div class="panel-body">
                                                                 <p>Basic example</p>
-                                                                <button type="button" class="btn btn-primary btn1">Try Me</button>
+                                                                <button type="button" class="button button-primary button-pill button-small btn1">Try Me</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -379,7 +383,7 @@
                                                             <div class="panel-heading">example</div>
                                                             <div class="panel-body">
                                                                 <p>A success message</p>
-                                                                <button type="button" class="btn btn-success btn2">Try Me</button>
+                                                                <button type="button" class="button button-action button-pill button-small btn2">Try Me</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -388,7 +392,7 @@
                                                             <div class="panel-heading">example</div>
                                                             <div class="panel-body">
                                                                 <p>Custom HTML description</p>
-                                                                <button type="button" class="btn btn-info btn3">Try Me</button>
+                                                                <button type="button" class="button button-royal button-pill button-small btn3">Try Me</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -397,7 +401,7 @@
                                                             <div class="panel-heading">example</div>
                                                             <div class="panel-body">
                                                                 <p>...and by passing a parameter, you can execute something else for "Cancel"</p>
-                                                                <button type="button" class="btn btn-danger btn4">Try Me</button>
+                                                                <button type="button" class="button button-caution button-pill button-small btn4">Try Me</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -415,14 +419,14 @@
                                                 </div>
                                                 <h2>警告框的显示位置</h2>
                                                 <div class="row" style="margin-top:30px">
-                                                    <button class="btn btn-default notifyTL">Top Left</button>
-                                                    <button class="btn btn-default notifyTC">Top Center</button>
-                                                    <button class="btn btn-default notifyTR">Top Right</button>
+                                                    <button class="button button-pill button-small notifyTL">Top Left</button>
+                                                    <button class="button button-pill button-small notifyTC">Top Center</button>
+                                                    <button class="button button-pill button-small notifyTR">Top Right</button>
                                                 </div>
                                                 <div class="row" style="margin-top:30px">
-                                                    <button class="btn btn-default notifyBL">Bottom Left</button>
-                                                    <button class="btn btn-default notifyBC">Bottom Center</button>
-                                                    <button class="btn btn-default notifyBR">Bottom Right</button>
+                                                    <button class="button button-pill button-small notifyBL">Bottom Left</button>
+                                                    <button class="button button-pill button-small notifyBC">Bottom Center</button>
+                                                    <button class="button button-pill button-small notifyBR">Bottom Right</button>
                                                 </div>
                                             </div>
                                             <div id="typography" class="tab-pane" role="tabpanel">
@@ -479,7 +483,7 @@
                                                       <input type="checkbox"> Check me out
                                                     </label>
                                                             </div>
-                                                            <button type="submit" class="btn btn-default">Submit</button>
+                                                            <button type="submit" class="button button-pill button-small">Submit</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -590,7 +594,7 @@
                                                     <h2 class="page-header">下拉列表（select）</h2>
                                                     <div class="col-xs-4">
                                                         <h4>分组</h4>
-                                                        <select class="selectpicker">
+                                                  <select class="selectpicker">
                                                     <optgroup label="Picnic">
                                                       <option>Mustard</option>
                                                       <option>Ketchup</option>
@@ -717,7 +721,7 @@
 
                                                         <div class="form-group">
                                                             <div class="col-xs-9 col-xs-offset-3 text-left">
-                                                                <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Submit</button>
+                                                                <button type="submit" class="button button-primary button-pill button-small" name="signup" value="Sign up">Submit</button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -900,8 +904,8 @@
                                                 <div class="alert alert-success" id="eventsResult">
                                                     Here is the result of event.
                                                 </div>
-                                                <table class="text-left" id="eventsTable" data-toggle="table" data-height="" data-url="https://api.github.com/users/wenzhixin/repos?type=owner&sort=full_name&direction=asc&per_page=100&page=1" data-pagination="true" data-search="true" data-show-refresh="true" data-show-toggle="true"
-                                                    data-show-columns="true" data-toolbar="#toolbar">
+                                                <table class="text-left" id="eventsTable" data-toggle="table" data-height="" data-url="https://api.github.com/users/wenzhixin/repos?type=owner&sort=full_name&direction=asc&per_page=100&page=1" data-pagination="true" data-search="true" data-show-refresh="true"
+                                                    data-show-toggle="true" data-show-columns="true" data-toolbar="#toolbar">
                                                     <thead>
                                                         <tr>
                                                             <th data-field="state" data-checkbox="true"></th>
@@ -913,6 +917,87 @@
                                                         </tr>
                                                     </thead>
                                                 </table>
+                                            </div>
+                                            <div id="customerInformation" class="tab-pane" role="tabpanel">
+                                                <div class="row">
+                                                        <div class="card card-wizard" id="wizardCard">
+                                                            <form id="wizardForm" method="" action="" novalidate="novalidate">
+                                                                <div class="header text-center">
+                                                                    <h4 class="title"></h4>
+                                                                    <p class="category"></p>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <ul class="nav nav-pills">
+                                                                        <li class="active"><a href="#tab1" data-toggle="tab" aria-expanded="false">筛选客户</a></li>
+                                                                        <li class=""><a href="#tab2" data-toggle="tab" aria-expanded="true">选择客户</a></li>
+                                                                        <li class=""><a href="#tab3" data-toggle="tab" aria-expanded="false">修改信息</a></li>
+                                                                    </ul>
+                                                                  <div class="row">
+                                                                    <div class="col-md-8 col-md-offset-2">
+                                                                      <div class="tab-content text-left">
+                                                                          <div class="tab-pane active" id="tab1">
+                                                                              <h5 class="text-center">请填写相关信息，筛选出所需要的客户信息</h5>
+                                                                              <div class="row">
+                                                                                <form role="form">
+                                                                                  <div class="form-group">
+                                                                                    <label for="customerType">客户类型：</label>
+                                                                                    <select class="selectpicker form-control">
+                                                                                      <option>Mustard</option>
+                                                                                      <option>Ketchup</option>
+                                                                                      <option>Relish</option>
+                                                                                    </select>
+                                                                                  </div>
+                                                                                  <div class="form-group">
+                                                                                    <label for="customerType">证件类型：</label>
+                                                                                    <select class="selectpicker form-control">
+                                                                                      <option>Mustard</option>
+                                                                                      <option>Ketchup</option>
+                                                                                      <option>Relish</option>
+                                                                                    </select>
+                                                                                  </div>
+                                                                                  <div class="form-group">
+                                                                                    <label for="customerType">证件号：</label>
+                                                                                    <input type="text" class="form-control" placeholder="请输入证件号码...">
+                                                                                  </div>
+                                                                                  <div class="form-group">
+                                                                                    <label for="customerType">客户号：</label>
+                                                                                    <input type="text" class="form-control" placeholder="请输入客户号...">
+                                                                                  </div>
+                                                                                  <div class="form-group">
+                                                                                    <label for="customerType">账号/合约号：</label>
+                                                                                    <input type="text" class="form-control" placeholder="请输入客户号...">
+                                                                                  </div>
+                                                                                </form>
+                                                                              </div>
+                                                                              <div class="row">
+
+                                                                              </div>
+                                                                          </div>
+                                                                          <div class="tab-pane" id="tab2">
+                                                                              <h5 class="text-center">请选择需要修改的客户信息</h5>
+                                                                              <div class="row">
+
+                                                                              </div>
+                                                                          </div>
+                                                                          <div class="tab-pane" id="tab3">
+                                                                              <h2 class="text-center text-space">Yuhuuu! <br><small> 													Click on "<b>Finish</b>" to join our community</small></h2>
+                                                                          </div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="card-footer">
+                                                                        <button type="button" class="button btn-back button-pill">Back</button>
+                                                                        <button type="button" class="button btn-next button-pill">Next</button>
+                                                                        <button type="button" class="button btn-finish button-pill" onclick="onFinishWizard()">Finish</button>
+                                                                        <div class="clearfix"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -953,7 +1038,8 @@
 
         <!-- <script src="./js/jquery.min.js"></script> -->
         <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-        <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <!-- <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+        <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- <script src="./bootstrap-4.0.0-alpha/dist/js/bootstrap.min.js"></script> -->
         <script src="./bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
         <script src="./bower_components/es6-promise/es6-promise.auto.min.js"></script>
@@ -967,64 +1053,64 @@
         <script src="./bower_components/bootstrap-table/dist/bootstrap-table.min.js"></script>
         <script src="./bower_components/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
         <script src="./bower_components/Buttons/js/buttons.js"></script>
+        <script src="./bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+        <script src="./bower_components/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
         <script src="./js/main.js"></script>
         <script type="text/javascript">
+            var $table = $('#eventsTable');
 
-		var $table = $('#eventsTable');
+            function operateFormatter(value, row, index) {
+                return [
+                    '<a class="like text-info" href="javascript:void(0)" title="Like">',
+                    '<i class="ti-image"></i>',
+                    '</a>',
+                    '<a class="edit ml10 text-warning" href="javascript:void(0)" title="Edit">',
+                    '<i class="ti-pencil-alt"></i>',
+                    '</a>',
+                    '<a class="remove ml10 text-danger" href="javascript:void(0)" title="Remove">',
+                    '<i class="ti-close"></i>',
+                    '</a>'
+                ].join('');
+            }
+            $().ready(function() {
+                window.operateEvents = {
+                    'click .like': function(e, value, row, index) {
+                        info = JSON.stringify(row).substring(0, 100);
 
-	        function operateFormatter(value, row, index) {
-	            return [
-               '<a class="like text-info" href="javascript:void(0)" title="Like">',
-               '<i class="ti-image"></i>',
-               '</a>',
-               '<a class="edit ml10 text-warning" href="javascript:void(0)" title="Edit">',
-               '<i class="ti-pencil-alt"></i>',
-               '</a>',
-               '<a class="remove ml10 text-danger" href="javascript:void(0)" title="Remove">',
-               '<i class="ti-close"></i>',
-               '</a>'
-	            ].join('');
-	        }
-	        $().ready(function(){
-	            window.operateEvents = {
-	                'click .like': function (e, value, row, index) {
-	                    info =  JSON.stringify(row).substring(0,100);
+                        swal({
+                            title: 'You click view icon, row: ',
+                            text: info,
+                            confirmButtonClass: 'btn btn-primary'
+                        });
+                        console.log(info);
+                        return false;
+                    },
+                    'click .edit': function(e, value, row, index) {
+                        info = JSON.stringify(row).substring(0, 100);
 
-	                    swal({
-                        title: 'You click view icon, row: ',
-                        text: info,
-                        confirmButtonClass: 'btn btn-primary'
-                      });
-	                    console.log(info);
-                      return false;
-	                },
-	                'click .edit': function (e, value, row, index) {
-	                    info = JSON.stringify(row).substring(0,100);
+                        swal({
+                            title: 'You click edit icon, row: ',
+                            text: info,
+                            confirmButtonClass: 'btn btn-primary'
+                        });
+                        console.log(info);
+                        return false;
+                    },
+                    'click .remove': function(e, value, row, index) {
+                        console.log(row);
+                        $table.bootstrapTable('remove', {
+                            field: 'id',
+                            values: [row.id]
+                        });
+                        return false;
+                    }
+                };
 
-	                    swal({
-                        title: 'You click edit icon, row: ',
-                        text: info,
-                        confirmButtonClass: 'btn btn-primary'
-                      });
-	                    console.log(info);
-                      return false;
-	                },
-	                'click .remove': function (e, value, row, index) {
-	                    console.log(row);
-	                    $table.bootstrapTable('remove', {
-	                        field: 'id',
-	                        values: [row.id]
-	                    });
-                      return false;
-	                }
-	            };
-
-	            $(window).resize(function () {
-	                $table.bootstrapTable('resetView');
-	            });
-			});
-
-	</script>
+                $(window).resize(function() {
+                    $table.bootstrapTable('resetView');
+                });
+            });
+        </script>
 
 </body>
 
