@@ -938,36 +938,79 @@
                                                                           <div class="tab-pane active" id="tab1">
                                                                               <h5 class="text-center">请填写相关信息，筛选出所需要的客户信息</h5>
                                                                               <div class="row">
-                                                                                <form role="form">
-                                                                                  <div class="form-group">
-                                                                                    <label for="customerType">客户类型：</label>
-                                                                                    <select class="selectpicker form-control">
-                                                                                      <option>Mustard</option>
-                                                                                      <option>Ketchup</option>
-                                                                                      <option>Relish</option>
-                                                                                    </select>
+                                                                                <!-- <form role="form" id="basicInformation"> -->
+                                                                                  <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                      <div class="form-group">
+                                                                                        <label for="customerType">客户类型：<sup>*</sup></label>
+                                                                                        <select name="customerType" class="selectpicker form-control">
+                                                                                          <option>请选择</option>
+                                                                                          <option>C - 公司客户</option>
+                                                                                          <option>F - 金融机构客户</option>
+                                                                                          <option>P - 个人客户</option>
+                                                                                        </select>
+                                                                                      </div>
+                                                                                    </div>
                                                                                   </div>
-                                                                                  <div class="form-group">
-                                                                                    <label for="customerType">证件类型：</label>
-                                                                                    <select class="selectpicker form-control">
-                                                                                      <option>Mustard</option>
-                                                                                      <option>Ketchup</option>
-                                                                                      <option>Relish</option>
-                                                                                    </select>
+                                                                                  <div class="row">
+                                                                                    <div class="col-md-6">
+                                                                                      <div class="form-group">
+                                                                                        <label for="documentType">证件类型：<sup>*</sup></label>
+                                                                                        <select name="documentType" class="selectpicker form-control">
+                                                                                          <option>请选择</option>
+                                                                                          <option>1010 - 居民身份证</option>
+                                                                                          <option>1020 - 临时身份证</option>
+                                                                                          <option>1030 - 户口簿</option>
+                                                                                          <option>1041 - 中国护照</option>
+                                                                                          <option>1042 - 外国护照</option>
+                                                                                          <option>1051 - 士兵证</option>
+                                                                                          <option>1052 - 军官证</option>
+                                                                                          <option>1062 - 警官证</option>
+                                                                                        </select>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                      <div class="form-group">
+                                                                                        <label for="idNo">证件号：<sup>*</sup></label>
+                                                                                        <input type="text" name="idNo" class="form-control" placeholder="请输入证件号码...">
+                                                                                      </div>
+                                                                                    </div>
                                                                                   </div>
-                                                                                  <div class="form-group">
-                                                                                    <label for="customerType">证件号：</label>
-                                                                                    <input type="text" class="form-control" placeholder="请输入证件号码...">
+                                                                                  <div class="row">
+                                                                                    <div class="col-md-6">
+                                                                                      <div class="form-group">
+                                                                                        <label for="customerNumber">客户号：<sup>*</sup></label>
+                                                                                        <input type="text" name="customerNumber" class="form-control" placeholder="请输入客户号...">
+                                                                                      </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                      <div class="form-group">
+                                                                                        <label for="account">账号/合约号：<sup>*</sup></label>
+                                                                                        <input type="text" name="account" class="form-control" placeholder="请输入账号/合约号...">
+                                                                                      </div>
+                                                                                    </div>
                                                                                   </div>
-                                                                                  <div class="form-group">
-                                                                                    <label for="customerType">客户号：</label>
-                                                                                    <input type="text" class="form-control" placeholder="请输入客户号...">
+                                                                                  <div class="row">
+                                                                                    <div class="col-md-4">
+                                                                                      <div class="form-group">
+                                                                                        <label for="customerType">客户英文名称：</label>
+                                                                                        <input type="text" class="form-control" placeholder="请输入客户英文名称...">
+                                                                                      </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-4">
+                                                                                      <div class="form-group">
+                                                                                        <label for="customerType">客户中文名称：</label>
+                                                                                        <input type="text" class="form-control" placeholder="请输入客户中文名称...">
+                                                                                      </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-4">
+                                                                                      <div class="form-group">
+                                                                                        <label for="customerType">客户葡文名称：</label>
+                                                                                        <input type="text" class="form-control" placeholder="请输入客户葡文名称...">
+                                                                                      </div>
+                                                                                    </div>
                                                                                   </div>
-                                                                                  <div class="form-group">
-                                                                                    <label for="customerType">账号/合约号：</label>
-                                                                                    <input type="text" class="form-control" placeholder="请输入客户号...">
-                                                                                  </div>
-                                                                                </form>
+                                                                                <!-- </form> -->
                                                                               </div>
                                                                               <div class="row">
 

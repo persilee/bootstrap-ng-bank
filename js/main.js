@@ -536,7 +536,70 @@ $(function() {
      * 设置客户信息修改
      */
     $('.card-wizard .nav-pills li').css('width', (100 / $('.card-wizard .nav-pills li').length) + '%');
+    //表单验证
+  var $validator = $('#wizardForm').bootstrapValidator({
+        message: 'This value is not valid',
+        autoFocus: true,
+        feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            customerType: {
+                validators: {
+                    notEmpty: {
+                        message: '客户类型为必填项'
+                    }
+                }
+            },
+            documentType: {
+                validators: {
+                    notEmpty: {
+                        message: '证件类型为必填项'
+                    }
+                }
+            },
+            idNo: {
+                validators: {
+                    notEmpty: {
+                        message: '证件号为必填项'
+                    }
+                }
+            },
+            customerNumber: {
+                validators: {
+                    notEmpty: {
+                        message: '客户号为必填项'
+                    }
+                }
+            },
+            account: {
+                validators: {
+                    notEmpty: {
+                        message: '账号/合约号为必填项'
+                    }
+                }
+            }
+        }
+    });
     $('#customerInformation').bootstrapWizard({
+       'tabClass': 'nav nav-pills',
+        onNext: function(tab, navigation, index) {
+            if (index == 1) {
+              $('#wizardForm select').each(function(){
+                if ($(this).val() == '请选择') {
+                  $(this).val('');
+                }
+              });
+              $('#wizardForm').submit();
+            }
+            var $valid = $('#wizardForm').data('bootstrapValidator').isValid();
+            if(!$valid) {
+	  				      //  $validator.focusInvalid();
+	  				       return false;
+	  			}
+        },
         'nextSelector': '.btn-next',
         'previousSelector': '.btn-back'
     });

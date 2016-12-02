@@ -828,9 +828,18 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
     top: 43%;
     right: 0%;
 }
+.main-panel .breadcrumb.navbar-brand{
+  background-color: transparent;
+}
 
 
 /*客户信息修改*/
+
+sup {
+  color: #EB5E28;
+  font-weight: 800;
+  line-height: 1;
+}
 #customerInformation .card-wizard{
       /*background-color: #f4f3ef;*/
       width: 100%;
