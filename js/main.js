@@ -528,16 +528,14 @@ $(function() {
     /*
      * bootstrap-select初始化
      */
-    $('.selectpicker').selectpicker({
-
-    });
+    $('.selectpicker').selectpicker();
 
     /*
      * 设置客户信息修改
      */
     $('.card-wizard .nav-pills li').css('width', (100 / $('.card-wizard .nav-pills li').length) + '%');
     //表单验证
-  var $validator = $('#wizardForm').bootstrapValidator({
+    var $validator = $('#wizardForm').bootstrapValidator({
         message: 'This value is not valid',
         autoFocus: true,
         feedbackIcons: {
@@ -584,26 +582,112 @@ $(function() {
         }
     });
     $('#customerInformation').bootstrapWizard({
-       'tabClass': 'nav nav-pills',
+        'tabClass': 'nav nav-pills',
+        'nextSelector': '.btn-next',
+        'previousSelector': '.btn-back',
+        onTabClick: function(tab, navigation, index) {
+            return false;
+        },
         onNext: function(tab, navigation, index) {
             if (index == 1) {
-              $('#wizardForm select').each(function(){
-                if ($(this).val() == '请选择') {
-                  $(this).val('');
-                }
-              });
-              $('#wizardForm').submit();
+                $('#wizardForm select').each(function() {
+                    if ($(this).val() == '请选择') {
+                        $(this).val('');
+                    }
+                });
+                $('#wizardForm').submit();
+            } else if (index == 2) {
+                $('.card-wizard.card .card-footer .btn-next').css('display', 'none');
+                $('.card-wizard.card .card-footer .btn-finish').css('display', 'block');
             }
             var $valid = $('#wizardForm').data('bootstrapValidator').isValid();
-            if(!$valid) {
-	  				      //  $validator.focusInvalid();
-	  				       return false;
-	  			}
+            if (!$valid) {
+                //  $validator.focusInvalid();
+                return false;
+            } else {
+                $('.card-wizard.card .card-footer .btn-back').css('display', 'block');
+            }
         },
-        'nextSelector': '.btn-next',
-        'previousSelector': '.btn-back'
+        onPrevious: function(tab, navigation, index) {
+            if (index == 1) {
+                $('.card-wizard.card .card-footer .btn-next').css('display', 'block');
+                $('.card-wizard.card .card-footer .btn-finish').css('display', 'none');
+            }
+        }
     });
-
-
+    $('.btn-customerNumber').on('click', function() {
+        var sHtml = $('#modalCustomerNumber').html();
+        console.log(sHtml);
+        swal({
+            title: '获取客户号',
+            html: sHtml,
+            width: '800px',
+            showCancelButton: true,
+            buttonsStyling: false,
+            confirmButtonClass: 'button button-primary button-pill button-small',
+            cancelButtonClass: 'button button-caution button-pill button-small',
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            allowOutsideClick: false
+        }).then(function() {
+            swal({
+                title: '成功!',
+                text: '你获取的客户号是：010020210201.',
+                type: 'success',
+                buttonsStyling: false,
+                confirmButtonClass: 'button button-action button-pill button-small'
+            });
+        }).then(function() {
+            $('.form-group.hasBtn input[name=customerNumber]').val('010020210201');
+            $('#wizardForm').data('bootstrapValidator').updateStatus('customerNumber', 'VALIDATED').validateField('customerNumber');
+        });
+        $('.swal2-container.swal2-in .row .form-group select').addClass('selectpicker');
+        $('.selectpicker').selectpicker();
+    });
+    $('.btn-account').on('click', function() {
+        var sHtml = $('#modalAccount').html();
+        swal({
+            title: '获取账号',
+            html: sHtml,
+            width: '800px',
+            showCancelButton: true,
+            buttonsStyling: false,
+            confirmButtonClass: 'button button-primary button-pill button-small',
+            cancelButtonClass: 'button button-caution button-pill button-small',
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            allowOutsideClick: false
+        }).then(function() {
+            swal({
+                title: '成功!',
+                text: '你获取的账号号是：1263287656734017.',
+                type: 'success',
+                buttonsStyling: false,
+                confirmButtonClass: 'button button-action button-pill button-small'
+            });
+        }).then(function() {
+            $('.form-group.hasBtn input[name=account]').val('1263287656734017');
+            $('#wizardForm').data('bootstrapValidator').updateStatus('account', 'VALIDATED').validateField('account');
+        });
+        $('.swal2-container.swal2-in .row .form-group select').addClass('selectpicker');
+        $('.selectpicker').selectpicker();
+    });
+    $('#customerInformationTable').bootstrapTable({
+        data: [{
+            customerType: 'P',
+            customerNo: '010020210201',
+            DocumentType: '1999-个人其他证件',
+            DocumentNo: 'AD0979769890679',
+            chineseName: '小明',
+            englishName: 'xiaoming',
+            portugalName: 'Olá.'
+        }]
+    });
+    var $table = $('#customerInformationTable');
+    $('#toolbar').find('select').change(function() {
+        $table.bootstrapTable('refreshOptions', {
+            exportDataType: $(this).val()
+        });
+    });
 
 })

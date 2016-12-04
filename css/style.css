@@ -22,6 +22,7 @@
 }
 
 body {
+    font-family:'Muli,muli';
     font-size: 14px;
     color: #2b2a27;
 }
@@ -845,6 +846,10 @@ sup {
       width: 100%;
       box-shadow: none;
 }
+
+.card-wizard.card .card-footer {
+    padding: 30px 15px;
+}
 .card .content {
     padding: 15px 15px 10px 15px;
     position: relative;
@@ -889,6 +894,32 @@ sup {
   background-color: #66615b;
   color: #fff;
  }
+.has-feedback .form-control.bootstrap-select{
+  padding-right: 0;
+}
+
+/*.has-feedback .bootstrap-select.btn-group .dropdown-toggle .caret {
+      right: 25px;
+}*/
+.card-wizard.card .card-footer .btn-back{
+  display: none;
+}
+
+#modalCustomerNumber,#modalAccount {
+  display: none;
+}
+
+.swal2-modal .swal2-content label{
+  font-size: 14px;
+}
+.swal2-modal .swal2-content .row{
+  padding: 10px 20px;
+}
+
+
+
+
+
 @media (min-width: 992px) {}
 
 

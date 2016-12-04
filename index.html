@@ -978,15 +978,25 @@
                                                                                   </div>
                                                                                   <div class="row">
                                                                                     <div class="col-md-6">
-                                                                                      <div class="form-group">
+                                                                                      <div class="form-group hasBtn">
                                                                                         <label for="customerNumber">客户号：<sup>*</sup></label>
-                                                                                        <input type="text" name="customerNumber" class="form-control" placeholder="请输入客户号...">
+                                                                                        <div class="input-group">
+                                                                                          <input type="text" name="customerNumber" class="form-control" placeholder="请输入客户号...">
+                                                                                          <span class="input-group-btn">
+                                                                                            <button class="btn btn-default btn-customerNumber" type="button">获取客户号</button>
+                                                                                          </span>
+                                                                                        </div>
                                                                                       </div>
                                                                                     </div>
                                                                                     <div class="col-md-6">
-                                                                                      <div class="form-group">
+                                                                                      <div class="form-group hasBtn">
                                                                                         <label for="account">账号/合约号：<sup>*</sup></label>
-                                                                                        <input type="text" name="account" class="form-control" placeholder="请输入账号/合约号...">
+                                                                                        <div class="input-group">
+                                                                                          <input type="text" name="account" class="form-control" placeholder="请输入账号/合约号...">
+                                                                                          <span class="input-group-btn">
+                                                                                            <button class="btn btn-default btn-account" type="button">获取账号</button>
+                                                                                          </span>
+                                                                                        </div>
                                                                                       </div>
                                                                                     </div>
                                                                                   </div>
@@ -1019,7 +1029,28 @@
                                                                           <div class="tab-pane" id="tab2">
                                                                               <h5 class="text-center">请选择需要修改的客户信息</h5>
                                                                               <div class="row">
-
+                                                                                <div id="toolbar">
+                                                                                  <select class="form-control selectpicker">
+                                                                                    <option value="">Export Basic</option>
+                                                                                    <option value="all">Export All</option>
+                                                                                    <option value="selected">Export Selected</option>
+                                                                                  </select>
+                                                                                </div>
+                                                                                <table class="text-left" id="customerInformationTable" data-toggle="table" data-height="" data-url="./data/data1.json" data-pagination="true" data-search="true" data-show-refresh="true"
+                                                                                    data-show-toggle="true" data-show-columns="true" data-toolbar="#toolbar" data-show-export="true" data-striped="true" data-click-to-select="true" data-single-select="true">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th data-field="state" data-checkbox="true"></th>
+                                                                                            <th data-field="customerType" data-sortable="true">客户类型</th>
+                                                                                            <th data-field="customerNo" data-sortable="true">客户号</th>
+                                                                                            <th data-field="DocumentType" data-sortable="true">证件类型</th>
+                                                                                            <th data-field="DocumentNo" data-sortable="true">证件号码</th>
+                                                                                            <th data-field="chineseName"  data-sortable="true">中文名称</th>
+                                                                                            <th data-field="englishName"  data-sortable="true">英文名称</th>
+                                                                                            <th data-field="portugalName"  data-sortable="true">葡文名称</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                </table>
                                                                               </div>
                                                                           </div>
                                                                           <div class="tab-pane" id="tab3">
@@ -1030,12 +1061,14 @@
                                                                   </div>
                                                                 </div>
                                                                 <div class="row">
+                                                                  <div class="col-md-8 col-md-offset-2">
                                                                     <div class="card-footer">
-                                                                        <button type="button" class="button btn-back button-pill">Back</button>
-                                                                        <button type="button" class="button btn-next button-pill">Next</button>
-                                                                        <button type="button" class="button btn-finish button-pill" onclick="onFinishWizard()">Finish</button>
+                                                                        <button type="button" class="button btn-back button-pill pull-left">上一步</button>
+                                                                        <button type="button" class="button btn-next button-pill pull-right">下一步</button>
+                                                                        <button type="button" class="button btn-finish button-pill pull-right" onclick="onFinishWizard()">完成</button>
                                                                         <div class="clearfix"></div>
                                                                     </div>
+                                                                  </div>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -1077,16 +1110,170 @@
                 </div>
             </footer>
         </div>
+    </div>
+    <div class="container"  id="modalCustomerNumber">
+      <div class="row">
+        <form class="form-horizontal text-right" role="form">
+
+              <div class="form-group">
+                <label class="col-md-3" for="customerType">客户类型：<sup>*</sup></label>
+                <div class="col-md-9">
+                  <select name="customerType" class="form-control">
+                    <option>请选择</option>
+                    <option>C - 公司客户</option>
+                    <option>F - 金融机构客户</option>
+                    <option>P - 个人客户</option>
+                  </select>
+                </div>
+              </div>
 
 
-        <!-- <script src="./js/jquery.min.js"></script> -->
-        <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+              <div class="form-group">
+                <label class="col-md-3" for="documentType">证件类型：<sup>*</sup></label>
+                <div class="col-md-9">
+                  <select name="documentType" class="form-control">
+                    <option>请选择</option>
+                    <option>1010 - 居民身份证</option>
+                    <option>1020 - 临时身份证</option>
+                    <option>1030 - 户口簿</option>
+                    <option>1041 - 中国护照</option>
+                    <option>1042 - 外国护照</option>
+                    <option>1051 - 士兵证</option>
+                    <option>1052 - 军官证</option>
+                    <option>1062 - 警官证</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3" for="idNo">证件号：<sup>*</sup></label>
+                <div class="col-md-9">
+                  <input type="text" name="idNo" class="form-control" placeholder="请输入证件号码...">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3" for="account">账号/合约号：</label>
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <input type="text" name="account" class="form-control" placeholder="请输入账号/合约号...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default btn-account" type="button">获取账号</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3" for="customerType">客户英文名称：</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" placeholder="请输入客户英文名称...">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3" for="customerType">客户中文名称：</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" placeholder="请输入客户中文名称...">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3" for="customerType">客户葡文名称：</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" placeholder="请输入客户葡文名称...">
+                </div>
+              </div>
+        </form>
+      </div>
+    </div>
+    <div class="container"  id="modalAccount">
+      <div class="row">
+        <form class="form-horizontal text-right" role="form">
+
+              <div class="form-group">
+                <label class="col-md-3" for="customerType">客户类型：<sup>*</sup></label>
+                <div class="col-md-9">
+                  <select name="customerType" class="form-control">
+                    <option>请选择</option>
+                    <option>C - 公司客户</option>
+                    <option>F - 金融机构客户</option>
+                    <option>P - 个人客户</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label class="col-md-3" for="documentType">证件类型：<sup>*</sup></label>
+                <div class="col-md-9">
+                  <select name="documentType" class="form-control">
+                    <option>请选择</option>
+                    <option>1010 - 居民身份证</option>
+                    <option>1020 - 临时身份证</option>
+                    <option>1030 - 户口簿</option>
+                    <option>1041 - 中国护照</option>
+                    <option>1042 - 外国护照</option>
+                    <option>1051 - 士兵证</option>
+                    <option>1052 - 军官证</option>
+                    <option>1062 - 警官证</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3" for="idNo">证件号：<sup>*</sup></label>
+                <div class="col-md-9">
+                  <input type="text" name="idNo" class="form-control" placeholder="请输入证件号码...">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3" for="customerNumber">客户号：</label>
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <input type="text" name="customerNumber" class="form-control" placeholder="请输入客户号...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default btn-customerNumber" type="button">获取客户号</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3" for="customerType">客户英文名称：</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" placeholder="请输入客户英文名称...">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3" for="customerType">客户中文名称：</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" placeholder="请输入客户中文名称...">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3" for="customerType">客户葡文名称：</label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" placeholder="请输入客户葡文名称...">
+                </div>
+              </div>
+        </form>
+      </div>
+    </div>
+
+        <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="./tableExport/libs/FileSaver/FileSaver.min.js"></script>
+        <script src="./tableExport/libs/js-xlsx/xlsx.core.min.js"></script>
+        <script src="./tableExport/libs/jsPDF/jspdf.min.js"></script>
+        <script src="./tableExport/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+        <script src="./tableExport/libs/html2canvas/html2canvas.min.js"></script>
+        <script src="./tableExport/tableExport.min.js"></script>
+        <!-- <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script> -->
         <!-- <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
         <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- <script src="./bootstrap-4.0.0-alpha/dist/js/bootstrap.min.js"></script> -->
         <script src="./bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
         <script src="./bower_components/es6-promise/es6-promise.auto.min.js"></script>
-        <script src="./bower_components/sweetalert2/dist/sweetalert2.common.js"></script>
+        <!-- <script src="./bower_components/sweetalert2/dist/sweetalert2.common.js"></script> -->
         <script src="./bower_components/remarkable-bootstrap-notify/bootstrap-notify.min.js"></script>
         <script src="./bower_components/moment/min/moment.min.js"></script>
         <script src="./bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
@@ -1094,6 +1281,7 @@
         <script src="./bower_components/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
         <script src="./bower_components/bootstrapvalidator/dist/js/language/zh_CN.js"></script>
         <script src="./bower_components/bootstrap-table/dist/bootstrap-table.min.js"></script>
+        <script src="./bower_components/bootstrap-table/dist/extensions/export/bootstrap-table-export.js"></script>
         <script src="./bower_components/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
         <script src="./bower_components/Buttons/js/buttons.js"></script>
         <script src="./bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
