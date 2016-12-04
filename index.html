@@ -7,6 +7,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="dege">
     <!-- <link rel="stylesheet" href="./bootstrap-4.0.0-alpha/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
     <link rel="stylesheet" href="./bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css">
     <link rel="stylesheet" href="./bower_components/Buttons/css/buttons.min.css">
     <link rel="stylesheet" href="./bower_components/bootstrap-select/dist/css/bootstrap-select.css">
@@ -25,7 +26,7 @@
 
 <body>
     <div class="wrapper">
-        <div class="sidebar">
+        <div class="sidebar" data-color="" data-image="">
             <div class="logo">
                 <a class="simple-text" href="./index.html">DahSing Bank</a>
             </div>
@@ -35,7 +36,7 @@
             <div class="sidebar-wrapper">
                 <div class="user">
                     <div class="photo">
-                        <img src="http://www.semantic-ui.cn/images/avatar2/large/elyse.png" alt="" class="">
+                        <img src="./images/lsy.jpg" alt="" class="">
                     </div>
                     <div class="info">
                         <a data-toggle="collapse" href="#collapseExample" class="collapsed" aria-expanded="false">
@@ -116,12 +117,13 @@
                     </li>
                 </ul>
             </div>
+            <div class="sidebar-background"></div>
         </div>
         <div class="main-panel">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-minimize">
-                        <button id="minimizeSidebar" class="btn btn-fill btn-icon"><i class="ti-more-alt"></i></button>
+                        <button id="minimizeSidebar" data-color="" class="btn btn-fill btn-icon hasColor"><i class="ti-more-alt"></i></button>
                     </div>
                     <div class="navbar-header">
                         <ol class="breadcrumb navbar-brand">
@@ -137,6 +139,63 @@
                             </div>
                         </form>
                         <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown theme">
+                                <a href="#" class="dropdown-toggle btn-scale" data-toggle="dropdown">
+                                    <i class="ti-panel"></i>
+                                </a>
+                                <ul class="dropdown-menu per">
+                                    <li class="header-title">Configuration</li>
+                                    <li class="adjustments-line">
+                                        <a href="javascript:void(0)" class="switch-trigger">
+                                            <p>Sidebar Image</p>
+                                            <input class="switch-onColor" type="checkbox" checked data-size="mini" data-on-color="info">
+                                            <div class="clearfix"></div>
+                                        </a>
+                                    </li>
+                                    <li class="adjustments-line">
+                                        <a href="javascript:void(0)" class="switch-trigger">
+                                            <p>Sidebar Mini</p>
+                                            <input class="switch-onColor" type="checkbox" checked data-size="mini" data-on-color="info">
+                                            <div class="clearfix"></div>
+                                        </a>
+                                    </li>
+                                    <li class="adjustments-line">
+                                        <a href="javascript:void(0)" class="switch-trigger">
+                                            <p>Filters</p>
+                                            <div class="pull-right">
+                                                <span class="badge filter active" data-color="black"></span>
+                                                <span class="badge filter badge-azure" data-color="azure"></span>
+                                                <span class="badge filter badge-green" data-color="green"></span>
+                                                <span class="badge filter badge-orange" data-color="orange"></span>
+                                                <span class="badge filter badge-red" data-color="red"></span>
+                                                <span class="badge filter badge-purple" data-color="purple"></span>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </a>
+                                    </li>
+                                    <li class="header-title">Sidebar Images</li>
+                                    <li class="active">
+                                        <a class="img-holder switch-trigger" href="javascript:void(0)">
+                                            <img src="./images/full-screen-image-1.jpg">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="img-holder switch-trigger" href="javascript:void(0)">
+                                            <img src="./images/full-screen-image-2.jpg">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="img-holder switch-trigger" href="javascript:void(0)">
+                                            <img src="./images/full-screen-image-3.jpg">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="img-holder switch-trigger" href="javascript:void(0)">
+                                            <img src="./images/full-screen-image-4.jpg">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle btn-rotate" data-toggle="dropdown">
                                     <i class="ti-bell"></i>
@@ -594,35 +653,44 @@
                                                     <h2 class="page-header">下拉列表（select）</h2>
                                                     <div class="col-xs-4">
                                                         <h4>分组</h4>
-                                                  <select class="selectpicker">
-                                                    <optgroup label="Picnic">
-                                                      <option>Mustard</option>
-                                                      <option>Ketchup</option>
-                                                      <option>Relish</option>
-                                                    </optgroup>
-                                                    <optgroup label="Camping">
-                                                      <option>Tent</option>
-                                                      <option>Flashlight</option>
-                                                      <option>Toilet Paper</option>
-                                                    </optgroup>
-                                                  </select>
+                                                          <select class="selectpicker">
+                                                            <optgroup label="Picnic">
+                                                              <option>Mustard</option>
+                                                              <option>Ketchup</option>
+                                                              <option>Relish</option>
+                                                            </optgroup>
+                                                            <optgroup label="Camping">
+                                                              <option>Tent</option>
+                                                              <option>Flashlight</option>
+                                                              <option>Toilet Paper</option>
+                                                            </optgroup>
+                                                          </select>
                                                     </div>
                                                     <div class="col-xs-4">
                                                         <h4>多选</h4>
                                                         <select class="selectpicker" multiple>
-                                                    <option>Mustard</option>
-                                                    <option>Ketchup</option>
-                                                    <option>Relish</option>
-                                                  </select>
+                                                          <option>Mustard</option>
+                                                          <option>Ketchup</option>
+                                                          <option>Relish</option>
+                                                        </select>
                                                     </div>
                                                     <div class="col-xs-4">
                                                         <h4>搜索</h4>
                                                         <select class="selectpicker" data-live-search="true">
-                                                    <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
-                                                    <option data-tokens="mustard">Burger, Shake and a Smile</option>
-                                                    <option data-tokens="frosting">Sugar, Spice and all things nice</option>
-                                                  </select>
+                                                          <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+                                                          <option data-tokens="mustard">Burger, Shake and a Smile</option>
+                                                          <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+                                                        </select>
                                                     </div>
+                                                </div>
+                                                <div class="row">
+                                                  <h2 class="page-header">switch</h2>
+                                                  <div class="col-xs-8 col-xs-offset-2">
+                                                    <input class="switch-onColor" type="checkbox" checked data-on-color="primary">
+                                                    <input class="switch-onColor" type="checkbox" checked data-on-color="info">
+                                                    <input class="switch-onColor" type="checkbox" checked data-on-color="success">
+                                                    <input class="switch-onColor" type="checkbox" checked data-on-color="warning">
+                                                  </div>
                                                 </div>
                                             </div>
                                             <div id="validationForms" class="tab-pane" role="tabpanel">
@@ -1286,6 +1354,7 @@
         <script src="./bower_components/Buttons/js/buttons.js"></script>
         <script src="./bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
         <script src="./bower_components/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+        <script src="./bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
         <script src="./js/main.js"></script>
         <script type="text/javascript">
             var $table = $('#eventsTable');

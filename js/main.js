@@ -2,6 +2,28 @@ $(function() {
 
     $('.wrapper>.main-panel .card.main').height($('.content').height() - 20);
     $('.main.tab-content').height($('.card').height() - 81);
+    //主题设置
+    $('.switch-onColor').bootstrapSwitch();
+    $('.nav.navbar-nav .theme .dropdown-menu>li>a').click(function(e){
+      e.stopPropagation();
+    })
+    $('.nav.navbar-nav .theme .badge').click(function(){
+      $(this).siblings().removeClass('active');
+      $(this).addClass('active');
+      var new_color = $(this).data('color');
+      $('.sidebar').attr('data-color',new_color);
+      $('#minimizeSidebar').attr('data-color',new_color).addClass('hasColor');
+    })
+    $('.nav.navbar-nav .theme .img-holder').click(function(){
+      $(this).parent('li').siblings().removeClass('active');
+      $(this).parent('li').addClass('active');
+      var new_image = $(this).find("img").attr('src');
+      $sidebarBackground = $('.sidebar .sidebar-background');
+      $sidebarBackground.fadeOut('fast',function(){
+        $sidebarBackground.css('background-image','url("'+ new_image + '")');
+        $sidebarBackground.fadeIn('fast');
+      })
+    })
     //下拉菜单
     $('.dropdown-toggle').dropdown();
     //提示
@@ -14,7 +36,6 @@ $(function() {
         $('.sidebar .sidebar-wrapper').perfectScrollbar();
         $('.main.tab-content').perfectScrollbar();
     }
-
     /*
      *点击收缩菜单
      */
@@ -597,8 +618,19 @@ $(function() {
                 });
                 $('#wizardForm').submit();
             } else if (index == 2) {
-                $('.card-wizard.card .card-footer .btn-next').css('display', 'none');
-                $('.card-wizard.card .card-footer .btn-finish').css('display', 'block');
+                if ($('#customerInformationTable').bootstrapTable('getSelections').length < 1) {
+                    swal({
+                        title: '提示',
+                        text: '您还没有选择，请选择客户信息',
+                        type: 'warning',
+                        buttonsStyling: false,
+                        confirmButtonClass: 'button button-highlight button-pill button-small'
+                    });
+                    return false;
+                } else {
+                    $('.card-wizard.card .card-footer .btn-next').css('display', 'none');
+                    $('.card-wizard.card .card-footer .btn-finish').css('display', 'block');
+                }
             }
             var $valid = $('#wizardForm').data('bootstrapValidator').isValid();
             if (!$valid) {
@@ -617,7 +649,6 @@ $(function() {
     });
     $('.btn-customerNumber').on('click', function() {
         var sHtml = $('#modalCustomerNumber').html();
-        console.log(sHtml);
         swal({
             title: '获取客户号',
             html: sHtml,
