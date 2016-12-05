@@ -969,6 +969,11 @@ sup {
     padding: 10px 20px;
 }
 
+.card-wizard .content>.row {
+  margin-right: -5px;
+  margin-left: -5px;
+}
+
 @media (min-width: 992px) {}
 
 
@@ -1116,9 +1121,11 @@ div::-webkit-scrollbar-thumb {
     overflow: hidden;
     padding: 0;
 }
+
 .nav.navbar-nav .theme .dropdown-menu>li>a.switch-trigger:hover, .nav.navbar-nav .theme .dropdown-menu>li>a.switch-trigger:focus {
     background-color: transparent;
 }
+
 .nav.navbar-nav .theme .dropdown-menu>li>a.switch-trigger.img-holder:hover, .nav.navbar-nav .theme .dropdown-menu>li>a.switch-trigger.img-holder:focus {
     background-color: transparent;
     border-color: #00bbff;
@@ -1170,18 +1177,20 @@ div::-webkit-scrollbar-thumb {
     opacity: .33;
     background: #000000;
 }
-#minimizeSidebar::after,#minimizeSidebar::before {
-  display: block;
-  content: "";
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  border-radius: 25px;
-  top: 18px;
-  left: 18px;
-  z-index: 1;
+
+#minimizeSidebar::after, #minimizeSidebar::before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 25px;
+    top: 18px;
+    left: 18px;
+    z-index: 1;
 }
-.sidebar:after,#minimizeSidebar::after {
+
+.sidebar:after, #minimizeSidebar::after {
     background: #787878;
     background: -moz-linear-gradient(top, #787878 0%, rgba(52, 52, 52, 0.7) 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #787878), color-stop(100%, rgba(52, 52, 52, 0.7)));
@@ -1198,7 +1207,7 @@ div::-webkit-scrollbar-thumb {
     opacity: .95;
 }
 
-.sidebar[data-color="blue"]:after , #minimizeSidebar[data-color="blue"]:after  {
+.sidebar[data-color="blue"]:after, #minimizeSidebar[data-color="blue"]:after {
     background: #447DF7;
     background: -moz-linear-gradient(top, #447DF7 0%, rgba(83, 60, 225, 0.7) 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #447DF7), color-stop(100%, rgba(83, 60, 225, 0.7)));
@@ -1264,17 +1273,18 @@ div::-webkit-scrollbar-thumb {
     background-size: 150% 150%;
 }
 
-#minimizeSidebar.hasColor{
-  background-color: transparent;
+#minimizeSidebar.hasColor {
+    background-color: transparent;
 }
 
-.btn.btn-fill.hasColor:hover, .btn.btn-fill.hasColor:focus,.btn.btn-fill.hasColor:active {
-  background-color: transparent;
-  border-color: transparent;
-  -webkit-box-shadow: none;
-  box-shadow: none; 
+.btn.btn-fill.hasColor:hover, .btn.btn-fill.hasColor:focus, .btn.btn-fill.hasColor:active {
+    background-color: transparent;
+    border-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
+
 .navbar .navbar-minimize .btn.btn-fill.hasColor i {
-  position: absolute;
-  z-index: 5;
+    position: absolute;
+    z-index: 5;
 }
