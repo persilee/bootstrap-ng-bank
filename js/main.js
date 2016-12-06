@@ -555,15 +555,15 @@ $(function() {
      * 设置客户信息修改
      */
     //iCheck 设置
-    $('input').iCheck({
-    checkboxClass: 'icheckbox_minimal-grey',
-    radioClass: 'iradio_minimal-grey',
-    increaseArea: '20%' // optional
-  });
+    $('.card-wizard input').iCheck({
+        // checkboxClass: 'icheckbox_minimal-grey',
+        radioClass: 'iradio_minimal-grey',
+        increaseArea: '20%' // optional
+    });
     //datepicker 设置
     $('.date.datepicker').datetimepicker({
-      viewMode: 'years',
-      format: 'YYYY/MM'
+        viewMode: 'years',
+        format: 'YYYY/MM'
     });
     $('.card-wizard .nav-pills.main li').css('width', (100 / $('.card-wizard .nav-pills.main>li').length) + '%');
     //表单验证
