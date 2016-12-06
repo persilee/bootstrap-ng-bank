@@ -4,27 +4,27 @@ $(function() {
     $('.main.tab-content').height($('.card').height() - 81);
     //主题设置
     $('.switch-onColor').bootstrapSwitch();
-    $('.nav.navbar-nav .theme .dropdown-menu>li>a').click(function(e){
-      e.stopPropagation();
+    $('.nav.navbar-nav .theme .dropdown-menu>li>a').click(function(e) {
+        e.stopPropagation();
     })
-    $('.nav.navbar-nav .theme .badge').click(function(){
-      $(this).siblings().removeClass('active');
-      $(this).addClass('active');
-      var new_color = $(this).data('color');
-      $('.sidebar').attr('data-color',new_color);
-      $('#minimizeSidebar').attr('data-color',new_color).addClass('hasColor');
+    $('.nav.navbar-nav .theme .badge').click(function() {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+        var new_color = $(this).data('color');
+        $('.sidebar').attr('data-color', new_color);
+        $('#minimizeSidebar').attr('data-color', new_color).addClass('hasColor');
     })
-    $('.nav.navbar-nav .theme .img-holder').click(function(){
-      $(this).parent('li').siblings().removeClass('active');
-      $(this).parent('li').addClass('active');
-      var new_image = $(this).find("img").attr('src');
-      $sidebarBackground = $('.sidebar .sidebar-background');
-      $sidebarBackground.fadeOut('fast',function(){
-        $sidebarBackground.css('background-image','url("'+ new_image + '")');
-        $sidebarBackground.fadeIn('fast');
-      })
-    })
-    //下拉菜单
+    $('.nav.navbar-nav .theme .img-holder').click(function() {
+            $(this).parent('li').siblings().removeClass('active');
+            $(this).parent('li').addClass('active');
+            var new_image = $(this).find("img").attr('src');
+            $sidebarBackground = $('.sidebar .sidebar-background');
+            $sidebarBackground.fadeOut('fast', function() {
+                $sidebarBackground.css('background-image', 'url("' + new_image + '")');
+                $sidebarBackground.fadeIn('fast');
+            })
+        })
+        //下拉菜单
     $('.dropdown-toggle').dropdown();
     //提示
     $('[data-toggle=tooltip]').tooltip('show');
@@ -554,7 +554,18 @@ $(function() {
     /*
      * 设置客户信息修改
      */
-    $('.card-wizard .nav-pills li').css('width', (100 / $('.card-wizard .nav-pills li').length) + '%');
+    //iCheck 设置
+    $('input').iCheck({
+    checkboxClass: 'icheckbox_minimal-grey',
+    radioClass: 'iradio_minimal-grey',
+    increaseArea: '20%' // optional
+  });
+    //datepicker 设置
+    $('.date.datepicker').datetimepicker({
+      viewMode: 'years',
+      format: 'YYYY/MM'
+    });
+    $('.card-wizard .nav-pills.main li').css('width', (100 / $('.card-wizard .nav-pills.main>li').length) + '%');
     //表单验证
     var $validator = $('#wizardForm').bootstrapValidator({
         message: 'This value is not valid',
@@ -607,7 +618,7 @@ $(function() {
         'nextSelector': '.btn-next',
         'previousSelector': '.btn-back',
         onTabClick: function(tab, navigation, index) {
-            return false;
+            // return false;
         },
         onNext: function(tab, navigation, index) {
             if (index == 1) {

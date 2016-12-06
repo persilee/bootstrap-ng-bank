@@ -7,6 +7,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="dege">
     <!-- <link rel="stylesheet" href="./bootstrap-4.0.0-alpha/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./bower_components/iCheck/skins/minimal/grey.css">
     <link rel="stylesheet" href="./bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
     <link rel="stylesheet" href="./bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css">
     <link rel="stylesheet" href="./bower_components/Buttons/css/buttons.min.css">
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="./bower_components/bootstrapvalidator/dist/css/bootstrapValidator.min.css">
     <link rel="stylesheet" href="./bower_components/bootstrap-table/dist/bootstrap-table.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/customer.css">
     <title>DahSing Bank</title>
 </head>
 
@@ -614,7 +616,7 @@
                                                             <div class='input-group date' id='datetimepicker1'>
                                                                 <input type='text' class="form-control" />
                                                                 <span class="input-group-addon">
-                                                              <span class="glyphicon glyphicon-calendar"></span>
+                                                                  <span class="glyphicon glyphicon-calendar"></span>
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -995,15 +997,15 @@
                                                                     <p class="category"></p>
                                                                 </div>
                                                                 <div class="content">
-                                                                    <ul class="nav nav-pills">
+                                                                    <ul class="nav nav-pills main">
                                                                         <li class="active"><a href="#tab1" data-toggle="tab" aria-expanded="false">筛选客户</a></li>
                                                                         <li class=""><a href="#tab2" data-toggle="tab" aria-expanded="true">选择客户</a></li>
                                                                         <li class=""><a href="#tab3" data-toggle="tab" aria-expanded="false">修改信息</a></li>
                                                                     </ul>
                                                                   <div class="row">
                                                                     <div class="col-md-12">
-                                                                      <div class="tab-content text-left">
-                                                                          <div class="tab-pane active" id="tab1">
+                                                                      <div class="tab-content">
+                                                                          <div class="tab-pane text-left active" id="tab1">
                                                                               <h5 class="text-center">请填写相关信息，筛选出所需要的客户信息</h5>
                                                                               <div class="row">
                                                                                 <!-- <form role="form" id="basicInformation"> -->
@@ -1034,6 +1036,7 @@
                                                                                           <option>1051 - 士兵证</option>
                                                                                           <option>1052 - 军官证</option>
                                                                                           <option>1062 - 警官证</option>
+                                                                                          <option>1999 - 个人其它证件</option>
                                                                                         </select>
                                                                                       </div>
                                                                                     </div>
@@ -1094,7 +1097,7 @@
 
                                                                               </div>
                                                                           </div>
-                                                                          <div class="tab-pane" id="tab2">
+                                                                          <div class="tab-pane text-left" id="tab2">
                                                                               <h5 class="text-center">请选择需要修改的客户信息</h5>
                                                                               <div class="row">
                                                                                 <div id="toolbar">
@@ -1122,20 +1125,653 @@
                                                                               </div>
                                                                           </div>
                                                                           <div class="tab-pane" id="tab3">
-                                                                            <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+                                                                            <div class="row segment">
+                                                                              <form class="form-horizontal" role="form">
+                                                                                    <div class="form-group">
+                                                                                      <label class="col-md-5 col-md-offset-1 text-center" for="customerType">客户类型：</label>
+                                                                                      <div class="col-md-5 text-center">
+                                                                                        <p class="form-control-static">P - 个人客户</p>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                      <label class="col-md-5 col-md-offset-1 text-center" for="documentType">证件类型：</label>
+                                                                                      <div class="col-md-5 text-center">
+                                                                                        <p class="form-control-static">1999 - 个人其它证件</p>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                      <label class="col-md-5 col-md-offset-1 text-center" for="idNo">证件号：</label>
+                                                                                      <div class="col-md-5 text-center">
+                                                                                        <p class="form-control-static">010020210201</p>
+                                                                                      </div>
+                                                                                    </div>
+
+                                                                                    <div class="form-group">
+                                                                                      <label class="col-md-5 col-md-offset-1 text-center" for="account">账号/合约号：</label>
+                                                                                      <div class="col-md-5 text-center">
+                                                                                        <p class="form-control-static">AD0979769890679</p>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                      <label class="col-md-5 col-md-offset-1 text-center" for="customerType">客户英文名称：</label>
+                                                                                      <div class="col-md-5 text-center">
+                                                                                        <p class="form-control-static">小明</p>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                      <label class="col-md-5 col-md-offset-1 text-center" for="customerType">客户中文名称：</label>
+                                                                                      <div class="col-md-5 text-center">
+                                                                                        <p class="form-control-static">xiaoming</p>
+                                                                                      </div>
+                                                                                    </div>
+
+                                                                                    <div class="form-group">
+                                                                                      <label class="col-md-5 col-md-offset-1 text-center" for="customerType">客户葡文名称：</label>
+                                                                                      <div class="col-md-5 text-center">
+                                                                                        <p class="form-control-static">Olá.</p>
+                                                                                      </div>
+                                                                                    </div>
+                                                                              </form>
+                                                                            </div>
+                                                                            <div class="panel-group row" id="accordion1" role="tablist" aria-multiselectable="true">
                                                                                 <div class="panel panel-default">
                                                                                     <div class="panel-heading" role="tab" id="headingOne1">
                                                                                         <h4 class="panel-title">
                                                                                           <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
-                                                                                            Collapsible Group Item #1
+                                                                                            必选信息
                                                                                           </a>
                                                                                         </h4>
                                                                                     </div>
                                                                                     <div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne1">
                                                                                         <div class="panel-body">
-                                                                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                                                                                            on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-                                                                                            butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                                                          <div class="header text-left">
+                                                                                            <div class="row">
+                                                                                              <div class="pull-left">
+                                                                                                <h5 class="inline-block">必选信息列表</h5>
+                                                                                              </div>
+                                                                                              <div class="col-xs-10">
+                                                                                                <div class="inline-block">
+                                                                                                  <ul class="nav">
+                                                                                                    <li class="active"><a href="#">基本资料</a></li>
+                                                                                                    <li><a href="#">联系方式</a></li>
+                                                                                                    <li><a href="#">联系人</a></li>
+                                                                                                  </ul>
+                                                                                                </div>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </div>
+                                                                                          <div class="row content">
+                                                                                            <!-- Nav tabs -->
+                                                                                            <ul class="nav nav-tabs" role="tablist">
+                                                                                                <li role="presentation" class="active"><a href="#idName" role="tab" data-toggle="tab">证件名称</a></li>
+                                                                                                <li role="presentation"><a href="#basicInformation" role="tab" data-toggle="tab">基本信息</a></li>
+                                                                                                <li role="presentation"><a href="#basicInformation2" role="tab" data-toggle="tab">基本信息2</a></li>
+                                                                                                <li role="presentation"><a href="#marketInformation" role="tab" data-toggle="tab">市场信息</a></li>
+                                                                                            </ul>
+                                                                                            <!-- Tab panes -->
+                                                                                            <div class="tab-content">
+                                                                                                <div role="tabpanel" class="tab-pane active" id="idName">
+                                                                                                  <form class="form-horizontal text-right padding" role="form">
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">客户中文名称：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输入客户中文名称...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">客户英文名称：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输入客户英文名称...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">客户英文简称：</label>
+                                                                                                          <div class="col-md-5">
+                                                                                                            <input type="text" class="form-control" placeholder="请输入客户英文简称...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">客户葡文名称：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输入客户葡文名称...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">别名：</label>
+                                                                                                          <div class="col-md-5">
+                                                                                                            <input type="text" class="form-control" placeholder="请输入客户别名...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-6" for="customerType">英文名称翻译标志：</label>
+                                                                                                          <div class="col-md-4">
+                                                                                                            <input type="radio" name="iCheck1"> 是
+                                                                                                            <input type="radio" name="iCheck1" checked> 否
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">称谓：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="radio" name="iCheck2" checked> 先生
+                                                                                                            <input type="radio" name="iCheck2"> 小姐
+                                                                                                            <input type="radio" name="iCheck2"> 其他
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="divider"></div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">证件类型：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <select name="documentType1" class="selectpicker form-control">
+                                                                                                              <option>请选择</option>
+                                                                                                              <option>1010 - 居民身份证</option>
+                                                                                                              <option>1020 - 临时身份证</option>
+                                                                                                              <option>1030 - 户口簿</option>
+                                                                                                              <option>1041 - 中国护照</option>
+                                                                                                              <option>1042 - 外国护照</option>
+                                                                                                              <option>1051 - 士兵证</option>
+                                                                                                              <option>1052 - 军官证</option>
+                                                                                                              <option>1062 - 警官证</option>
+                                                                                                              <option>1999 - 个人其它证件</option>
+                                                                                                            </select>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">证件号码：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输证件号码...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">证件签发地：</label>
+                                                                                                          <div class="col-md-5">
+                                                                                                            <select name="documentType1" class="selectpicker form-control">
+                                                                                                              <option>请选择</option>
+                                                                                                              <option>CN - 中国</option>
+                                                                                                              <option>US - 美国</option>
+                                                                                                              <option>EN - 英国</option>
+                                                                                                              <option>QT - 其它</option>
+                                                                                                            </select>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">证件签发日期：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <div class='input-group date datepicker'>
+                                                                                                                <input type='text' class="form-control" />
+                                                                                                                <span class="input-group-addon">
+                                                                                                                  <span class="glyphicon glyphicon-calendar"></span>
+                                                                                                                </span>
+                                                                                                            </div>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">证件失效日期：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <div class='input-group date datepicker'>
+                                                                                                                <input type='text' class="form-control" />
+                                                                                                                <span class="input-group-addon">
+                                                                                                                  <span class="glyphicon glyphicon-calendar"></span>
+                                                                                                                </span>
+                                                                                                            </div>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="divider"></div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">证件类型2：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <select name="documentType1" class="selectpicker form-control">
+                                                                                                              <option>请选择</option>
+                                                                                                              <option>1010 - 居民身份证</option>
+                                                                                                              <option>1020 - 临时身份证</option>
+                                                                                                              <option>1030 - 户口簿</option>
+                                                                                                              <option>1041 - 中国护照</option>
+                                                                                                              <option>1042 - 外国护照</option>
+                                                                                                              <option>1051 - 士兵证</option>
+                                                                                                              <option>1052 - 军官证</option>
+                                                                                                              <option>1062 - 警官证</option>
+                                                                                                              <option>1999 - 个人其它证件</option>
+                                                                                                            </select>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">证件号码2：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输证件号码...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">证件签发地2：</label>
+                                                                                                          <div class="col-md-5">
+                                                                                                            <select name="documentType1" class="selectpicker form-control">
+                                                                                                              <option>请选择</option>
+                                                                                                              <option>CN - 中国</option>
+                                                                                                              <option>US - 美国</option>
+                                                                                                              <option>EN - 英国</option>
+                                                                                                              <option>QT - 其它</option>
+                                                                                                            </select>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">证件签发日期2：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <div class='input-group date datepicker'>
+                                                                                                                <input type='text' class="form-control" />
+                                                                                                                <span class="input-group-addon">
+                                                                                                                  <span class="glyphicon glyphicon-calendar"></span>
+                                                                                                                </span>
+                                                                                                            </div>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">证件失效日期2：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <div class='input-group date datepicker'>
+                                                                                                                <input type='text' class="form-control" />
+                                                                                                                <span class="input-group-addon">
+                                                                                                                  <span class="glyphicon glyphicon-calendar"></span>
+                                                                                                                </span>
+                                                                                                            </div>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                  </form>
+                                                                                                </div>
+                                                                                                <div role="tabpanel" class="tab-pane" id="basicInformation">
+                                                                                                  <form class="form-horizontal text-right padding" role="form">
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">非本行客户标志：</label>
+                                                                                                          <div class="col-md-4">
+                                                                                                            <input type="radio" name="iCheck1" checked> 是
+                                                                                                            <input type="radio" name="iCheck1"> 否
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-3">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">员工标志：</label>
+                                                                                                          <div class="col-md-5">
+                                                                                                            <input type="radio" name="iCheck2" checked> 是
+                                                                                                            <input type="radio" name="iCheck2"> 否
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">反洗钱排查结果：</label>
+                                                                                                          <div class="col-md-6">
+                                                                                                            <input type="radio" name="iCheck3" Disabled checked> 排查
+                                                                                                            <input type="radio" name="iCheck3" Disabled> 不排查
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">客户来源：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输入客户来源...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">介绍人：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输入介绍人...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">客户价值：</label>
+                                                                                                          <div class="col-md-5">
+                                                                                                            <select name="documentType1" class="selectpicker form-control">
+                                                                                                              <option>请选择</option>
+                                                                                                              <option>H - 高</option>
+                                                                                                              <option>L - 低</option>
+                                                                                                              <option>M - 中</option>
+                                                                                                            </select>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">境外客户标志：</label>
+                                                                                                          <div class="col-md-4">
+                                                                                                            <input type="radio" name="iCheck1" checked> 是
+                                                                                                            <input type="radio" name="iCheck1"> 否
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-3">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-6" for="customerType">跨境联动标志：</label>
+                                                                                                          <div class="col-md-5">
+                                                                                                            <input type="radio" name="iCheck2" checked> 是
+                                                                                                            <input type="radio" name="iCheck2"> 否
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">自贸区地点：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <select name="documentType1" class="selectpicker form-control" disabled>
+                                                                                                              <option>请选择</option>
+                                                                                                            </select>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-3">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-7" for="customerType">自贸区地点标识：</label>
+                                                                                                          <div class="col-md-5">
+                                                                                                            <input type="radio" name="iCheck2" Disabled checked> 是
+                                                                                                            <input type="radio" name="iCheck2" Disabled> 否
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">客户经理名称：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输入客户经理名称..." disabled>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-7">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-2" for="customerType">客户经理：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <div class="input-group">
+                                                                                                              <input type="text" name="" class="form-control" placeholder="请输入客户经理号...">
+                                                                                                              <span class="input-group-btn">
+                                                                                                                <button class="btn btn-default" type="button">获取客户经理</button>
+                                                                                                              </span>
+                                                                                                            </div>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+
+                                                                                                    </div>
+                                                                                                    <div class="row">
+
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">客户所属机构：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <select name="documentType1" class="selectpicker form-control" disabled>
+                                                                                                              <option>501020-大新银行（中国）有限公司</option>
+                                                                                                            </select>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">建立客户日期：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <div class='input-group date datepicker'>
+                                                                                                                <input type='text' class="form-control" />
+                                                                                                                <span class="input-group-addon">
+                                                                                                                  <span class="glyphicon glyphicon-calendar"></span>
+                                                                                                                </span>
+                                                                                                            </div>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">见证开户机构：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输见证机构...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">见证客户经理：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输见证经理...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                  </form>
+                                                                                                </div>
+                                                                                                <div role="tabpanel" class="tab-pane" id="basicInformation2">
+                                                                                                  <form class="form-horizontal text-right padding" role="form">
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">非本行客户标志：</label>
+                                                                                                          <div class="col-md-4">
+                                                                                                            <input type="radio" name="iCheck1" checked> 是
+                                                                                                            <input type="radio" name="iCheck1"> 否
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-3">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">员工标志：</label>
+                                                                                                          <div class="col-md-5">
+                                                                                                            <input type="radio" name="iCheck2" checked> 是
+                                                                                                            <input type="radio" name="iCheck2"> 否
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">反洗钱排查结果：</label>
+                                                                                                          <div class="col-md-6">
+                                                                                                            <input type="radio" name="iCheck3" Disabled checked> 排查
+                                                                                                            <input type="radio" name="iCheck3" Disabled> 不排查
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">客户来源：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输入客户来源...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">介绍人：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输入介绍人...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">客户价值：</label>
+                                                                                                          <div class="col-md-5">
+                                                                                                            <select name="documentType1" class="selectpicker form-control">
+                                                                                                              <option>请选择</option>
+                                                                                                              <option>H - 高</option>
+                                                                                                              <option>L - 低</option>
+                                                                                                              <option>M - 中</option>
+                                                                                                            </select>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">境外客户标志：</label>
+                                                                                                          <div class="col-md-4">
+                                                                                                            <input type="radio" name="iCheck1" checked> 是
+                                                                                                            <input type="radio" name="iCheck1"> 否
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-3">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-6" for="customerType">跨境联动标志：</label>
+                                                                                                          <div class="col-md-5">
+                                                                                                            <input type="radio" name="iCheck2" checked> 是
+                                                                                                            <input type="radio" name="iCheck2"> 否
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">自贸区地点：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <select name="documentType1" class="selectpicker form-control" disabled>
+                                                                                                              <option>请选择</option>
+                                                                                                            </select>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-3">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-7" for="customerType">自贸区地点标识：</label>
+                                                                                                          <div class="col-md-5">
+                                                                                                            <input type="radio" name="iCheck2" Disabled checked> 是
+                                                                                                            <input type="radio" name="iCheck2" Disabled> 否
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">客户经理名称：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输入客户经理名称..." disabled>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-7">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-2" for="customerType">客户经理：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <div class="input-group">
+                                                                                                              <input type="text" name="" class="form-control" placeholder="请输入客户经理号...">
+                                                                                                              <span class="input-group-btn">
+                                                                                                                <button class="btn btn-default" type="button">获取客户经理</button>
+                                                                                                              </span>
+                                                                                                            </div>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+
+                                                                                                    </div>
+                                                                                                    <div class="row">
+
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">客户所属机构：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <select name="documentType1" class="selectpicker form-control" disabled>
+                                                                                                              <option>501020-大新银行（中国）有限公司</option>
+                                                                                                            </select>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">建立客户日期：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <div class='input-group date datepicker'>
+                                                                                                                <input type='text' class="form-control" />
+                                                                                                                <span class="input-group-addon">
+                                                                                                                  <span class="glyphicon glyphicon-calendar"></span>
+                                                                                                                </span>
+                                                                                                            </div>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">见证开户机构：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输见证机构...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                      <div class="col-xs-4">
+                                                                                                        <div class="form-group">
+                                                                                                          <label class="col-md-5" for="customerType">见证客户经理：</label>
+                                                                                                          <div class="col-md-7">
+                                                                                                            <input type="text" class="form-control" placeholder="请输见证经理...">
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                  </form>
+                                                                                                </div>
+                                                                                                <div role="tabpanel" class="tab-pane" id="marketInformation"></div>
+                                                                                            </div>
+                                                                                          </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1143,15 +1779,39 @@
                                                                                     <div class="panel-heading" role="tab" id="headingTwo2">
                                                                                         <h4 class="panel-title">
                                                                                           <a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
-                                                                                            Collapsible Group Item #2
+                                                                                            可选信息
                                                                                           </a>
                                                                                         </h4>
                                                                                     </div>
                                                                                     <div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo2">
                                                                                         <div class="panel-body">
-                                                                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                                                                                            on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-                                                                                            butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                                                          <div class="header text-left">
+                                                                                            <div class="row">
+                                                                                              <div class="pull-left">
+                                                                                                <h5 class="inline-block">可选信息列表</h5>
+                                                                                              </div>
+                                                                                              <div class="col-xs-10">
+                                                                                                <div class="inline-block">
+                                                                                                  <ul class="nav">
+                                                                                                    <li class="active"><a href="#">风险评级</a></li>
+                                                                                                    <li><a href="#">财务资料</a></li>
+                                                                                                    <li><a href="#">关联人士</a></li>
+                                                                                                    <li><a href="#">结单</a></li>
+                                                                                                    <li><a href="#">协议资料</a></li>
+                                                                                                    <li><a href="#">客户状态</a></li>
+                                                                                                    <li><a href="#">重大事件</a></li>
+                                                                                                    <li><a href="#">授信集团</a></li>
+                                                                                                    <li><a href="#">客户关系</a></li>
+                                                                                                    <li><a href="#">客户经理</a></li>
+                                                                                                    <li><a href="#">开户文件不全</a></li>
+                                                                                                    <li><a href="#">查询FATCA</a></li>
+                                                                                                    <li><a href="#">查询SCC</a></li>
+                                                                                                  </ul>
+                                                                                                </div>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </div>
+
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1159,15 +1819,26 @@
                                                                                     <div class="panel-heading" role="tab" id="headingThree3">
                                                                                         <h4 class="panel-title">
                                                                                           <a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
-                                                                                            Collapsible Group Item #3
+                                                                                            可选信息（账户层）
                                                                                           </a>
                                                                                         </h4>
                                                                                     </div>
                                                                                     <div id="collapseThree3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree3">
                                                                                         <div class="panel-body">
-                                                                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                                                                                            on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-                                                                                            butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                                                          <div class="header text-left">
+                                                                                            <div class="row">
+                                                                                              <div class="pull-left">
+                                                                                                <h5 class="inline-block">可选信息（账户层）列表</h5>
+                                                                                              </div>
+                                                                                              <div class="col-xs-9">
+                                                                                                <div class="inline-block">
+                                                                                                  <ul class="nav">
+                                                                                                    <li class="active"><a href="#">账户联系方式</a></li>
+                                                                                                  </ul>
+                                                                                                </div>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1258,6 +1929,7 @@
                     <option>1051 - 士兵证</option>
                     <option>1052 - 军官证</option>
                     <option>1062 - 警官证</option>
+                    <option>1999 - 个人其它证件</option>
                   </select>
                 </div>
               </div>
@@ -1332,6 +2004,7 @@
                     <option>1051 - 士兵证</option>
                     <option>1052 - 军官证</option>
                     <option>1062 - 警官证</option>
+                    <option>1999 - 个人其它证件</option>
                   </select>
                 </div>
               </div>
@@ -1405,6 +2078,7 @@
         <script src="./bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
         <script src="./bower_components/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
         <script src="./bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+        <script src="./bower_components/iCheck/icheck.min.js"></script>
         <script src="./js/main.js"></script>
         <script type="text/javascript">
             var $table = $('#eventsTable');
