@@ -725,11 +725,22 @@ $(function() {
             portugalName: 'Olá.'
         }]
     });
-    var $table = $('#customerInformationTable');
-    $('#toolbar').find('select').change(function() {
-        $table.bootstrapTable('refreshOptions', {
-            exportDataType: $(this).val()
-        });
-    });
+    // var $table = $('#customerInformationTable');
+    // $('#toolbar').find('select').change(function() {
+    //     $table.bootstrapTable('refreshOptions', {
+    //         exportDataType: $(this).val()
+    //     });
+    // });
+
+    //点击 列表标签切换对应的页面
+    $('.card.card-wizard .panel-body>.header .nav>li').click(function(){
+      $(this).siblings().removeClass('active');
+      $(this).addClass('active');
+      console.log();
+      $listContent = $('#collapseOne1 .panel-body .content>div');
+      $listContent.eq($(this).index()).siblings().css('display','none');
+      $listContent.eq($(this).index()).css('display','block');
+
+    })
 
 })

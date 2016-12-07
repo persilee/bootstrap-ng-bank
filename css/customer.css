@@ -4,9 +4,16 @@
   border-radius: 3px;
   padding: 5px;
 }
+.segment.hiding {
+  padding: 15px;
+  border: none;
+}
 .divider {
   border-bottom: 1px solid #ddd;
-  margin: 20px 0;
+  margin: 15px 0;
+}
+.divider.hiding{
+  opacity: 0;
 }
 .padding {
   padding: 20px 8px;
@@ -140,4 +147,10 @@ background-color: #66615B;
 }
 .card-wizard .content .panel .panel-body .header ul li a:hover {
   color: rgba(51, 51, 51, 1);
+}
+.card-wizard .content .panel .panel-body .content>div {
+  display: none;
+}
+.card-wizard .content .panel .panel-body .content>div:first-child {
+  display: block;
 }
