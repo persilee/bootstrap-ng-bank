@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="./bower_components/bootstrap-table/dist/bootstrap-table.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/customer.css">
+    <link rel="stylesheet" href="./css/theme.css">
+    <link rel="stylesheet" href="./css/azure.css">
     <title>DahSing Bank</title>
 </head>
 
@@ -56,6 +58,14 @@
                     </div>
                 </div>
                 <ul class="nav">
+                    <li>
+                      <a class="transactionDemo">
+                          <i class="ti-face-smile"></i>
+                          <p> 交易演示
+                              <!-- <b class="caret"></b> -->
+                          </p>
+                      </a>
+                    </li>
                     <li>
                         <a data-toggle="collapse" href="#componentsExamples" aria-expanded="false" class="collapsed">
                             <i class="ti-package"></i>
@@ -118,6 +128,55 @@
                             </ul>
                         </div>
                     </li>
+                    <li>
+                      <a class="menu" data-toggle="collapse" href="#multilevelMenu">
+                          <i class="ti-menu"></i>
+                          <p>menus
+                              <b class="caret"></b>
+                          </p>
+                      </a>
+                      <div class="collapse" id="multilevelMenu">
+                          <ul class="nav">
+                            <li><a href="#">menu</a></li>
+                            <li>
+                              <a class="menu" data-toggle="collapse" href="#multilevelMenu2">
+                                  <p>menu2
+                                      <b class="caret"></b>
+                                  </p>
+                              </a>
+                              <div class="collapse" id="multilevelMenu2">
+                                  <ul class="nav">
+                                      <li><a href="#">menu2</a></li>
+                                      <li>
+                                        <a class="menu" data-toggle="collapse" href="#multilevelMenu3">
+                                            <p>menu3
+                                                <b class="caret"></b>
+                                            </p>
+                                        </a>
+                                        <div class="collapse" id="multilevelMenu3">
+                                            <ul class="nav">
+                                                <li><a href="#">menu3</a></li>
+                                                <li>
+                                                  <a class="menu" data-toggle="collapse" href="#multilevelMenu4">
+                                                      <p>menu4
+                                                          <b class="caret"></b>
+                                                      </p>
+                                                  </a>
+                                                  <div class="collapse" id="multilevelMenu4">
+                                                      <ul class="nav">
+                                                          <li><a href="#">menu4</a></li>
+                                                      </ul>
+                                                  </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                      </li>
+                                  </ul>
+                              </div>
+                            </li>
+                          </ul>
+                      </div>
+                    </li>
                 </ul>
             </div>
             <div class="sidebar-background"></div>
@@ -128,12 +187,12 @@
                     <div class="navbar-minimize">
                         <button id="minimizeSidebar" data-color="" class="btn btn-fill btn-icon hasColor"><i class="ti-more-alt"></i></button>
                     </div>
-                    <div class="navbar-header">
+                    <!-- <div class="navbar-header">
                         <ol class="breadcrumb navbar-brand">
-                            <!-- <li><a href="#">COMPONENTS</a></li> -->
+                            <li><a href="#">COMPONENTS</a></li>
                             <li class="active"><a href="#">Hisuntech</a></li>
                         </ol>
-                    </div>
+                    </div> -->
                     <div class="collapse navbar-collapse">
                         <form class="navbar-form navbar-left navbar-search-form" role="search">
                             <div class="input-group">
@@ -202,7 +261,9 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle btn-rotate" data-toggle="dropdown">
                                     <i class="ti-bell"></i>
-                                    <span class="notification">5</span>
+                                    <span class="badge">5</span>
+                                    <div class="notification-ring red"></div>
+                                    <!-- <span class="notification">5</span> -->
                                     <!-- <p class="hidden-md hidden-lg">
                                         Notifications
                                         <b class="caret"></b>
@@ -215,6 +276,16 @@
                                     <li><a href="#not4">Notification 4</a></li>
                                     <li><a href="#another">Another notification</a></li>
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="#settings" class="btn-rotate">
+                                    <i class="ti-email"></i>
+                                    <span class="badge bule">5</span>
+                                    <div class="notification-ring red"></div>
+                                    <!-- <p class="hidden-md hidden-lg">
+                                        Settings
+                                    </p> -->
+                                </a>
                             </li>
                             <li>
                                 <a href="#settings" class="btn-rotate">
@@ -2264,32 +2335,6 @@
                     </div>
                 </div>
             </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav class="pull-left">
-                        <ul>
-                            <li>
-                                <a href="#">
-                              Hisuntech
-                          </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                             Blog
-                          </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                              Licenses
-                          </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="copyright pull-right">
-                        ©2016, made with <i class="fa fa-heart heart"></i> by <a href="#">Hisuntech</a>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
     <div class="container"  id="modalCustomerNumber">

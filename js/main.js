@@ -1,7 +1,7 @@
 $(function() {
 
-    $('.wrapper>.main-panel .card.main').height($('.content').height() - 20);
-    $('.main.tab-content').height($('.card').height() - 81);
+    // $('.wrapper>.main-panel .card.main').height($('.content').height() - 20);
+    // $('.main.tab-content').height($('.card').height() - 81);
     //主题设置
     $('.switch-onColor').bootstrapSwitch();
     $('.nav.navbar-nav .theme .dropdown-menu>li>a').click(function(e) {
@@ -117,14 +117,14 @@ $(function() {
     /*
      * 点击让搜索框整体变白，失去焦点是变回原来颜色
      */
-    $('.navbar-form .form-control').on({
-        focus: function() {
-            $('.input-group-addon').css('background-color', '#FFFFFF');
-        },
-        blur: function() {
-            $('.input-group-addon').css('background-color', '#F3F2EE');
-        }
-    });
+    // $('.navbar-form .form-control').on({
+    //     focus: function() {
+    //         $('.input-group-addon').css('background-color', '#FFFFFF');
+    //     },
+    //     blur: function() {
+    //         $('.input-group-addon').css('background-color', '#F3F2EE');
+    //     }
+    // });
     /*
      * 点击切换tab页
      */
@@ -162,7 +162,7 @@ $(function() {
         } else {
             //移除tab标签  且  给菜单上的open开关移除
             $(_this).closest('li').remove();
-            $('.nav-tabs.main>li').width((($('.nav-tabs.main').width() - 1) / $('.nav-tabs.main>li').length) - 1);
+            // $('.nav-tabs.main>li').width((($('.nav-tabs.main').width() - 1) / $('.nav-tabs.main>li').length) - 1);
             $('.sidebar .sidebar-wrapper>.nav li>a').each(function() {
                 if ($(this).attr('data-menu-id') == $(_this).closest('a').attr('href').substring(1)) {
                     $(this).removeClass('open');
@@ -175,25 +175,35 @@ $(function() {
     /*
      * 点击左侧菜单，添加到tab页面里
      */
+    $('.sidebar .sidebar-wrapper').on('click','.nav>li>a.transactionDemo',function(){
+      $('.sidebar .sidebar-wrapper .nav ul li>a[data-menu-id=customerInformation]').trigger('click');
+      $(this).parent().siblings().removeClass('active');
+      $(this).parent().siblings().find('a').removeClass('active');
+      $(this).parent().addClass('active');
+    });
     $('.sidebar .sidebar-wrapper').on('click', '.nav ul li>a', function() {
         //判断此tab页有没有打开 如果打开定位到此tab页面 如果没有打开就显示此页
-        if ($(this).hasClass('open')) {
-            console.log('open');
-            $('.navbar .navbar-brand a').text($(this).text());
-            $('.sidebar .sidebar-wrapper>.nav li').removeClass('active');
-            $(this).parent().addClass('active');
-            $(this).parent().eq(0).parents('li').addClass('active');
-            $('.nav-tabs a[href=' + '#' + $(this).attr('data-menu-id') + ']').trigger('click');
-        } else {
-            $(this).addClass('open');
-            $('.navbar .navbar-brand a').text($(this).text());
-            $('.sidebar .sidebar-wrapper>.nav li').removeClass('active');
-            $(this).parent().addClass('active');
-            $(this).parent().eq(0).parents('li').addClass('active');
-            var tab = $('<li role="presentation"><a href=' + '#' + $(this).attr('data-menu-id') + ' role="tab" data-toggle="tab">' + $(this).text() + '<i class="ti-close"></i></a></li>');
-            $('.nav.nav-tabs.main').append(tab);
-            $('.nav-tabs.main>li').width((($('.nav-tabs.main').width() - 1) / $('.nav-tabs.main>li').length));
-            $('.nav-tabs a[href=' + '#' + $(this).attr('data-menu-id') + ']').trigger('click');
+        if ($(this).hasClass('menu')) {
+          console.log('menu');
+        }else {
+          if ($(this).hasClass('open')) {
+              console.log('open');
+              $('.navbar .navbar-brand a').text($(this).text());
+              $('.sidebar .sidebar-wrapper>.nav li').removeClass('active');
+              $(this).parent().addClass('active');
+              $(this).parent().eq(0).parents('li').addClass('active');
+              $('.nav-tabs a[href=' + '#' + $(this).attr('data-menu-id') + ']').trigger('click');
+          } else {
+              $(this).addClass('open');
+              $('.navbar .navbar-brand a').text($(this).text());
+              $('.sidebar .sidebar-wrapper>.nav li').removeClass('active');
+              $(this).parent().addClass('active');
+              $(this).parent().eq(0).parents('li').addClass('active');
+              var tab = $('<li role="presentation"><a href=' + '#' + $(this).attr('data-menu-id') + ' role="tab" data-toggle="tab">' + $(this).text() + '<i class="ti-close"></i></a></li>');
+              $('.nav.nav-tabs.main').append(tab);
+              // $('.nav-tabs.main>li').width((($('.nav-tabs.main').width() - 1) / $('.nav-tabs.main>li').length));
+              $('.nav-tabs a[href=' + '#' + $(this).attr('data-menu-id') + ']').trigger('click');
+          }
         }
     });
     /*
