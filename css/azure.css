@@ -248,7 +248,7 @@
   margin-left: 10px;
 }
 .sidebar.mini .collapse {
-    background-color: rgba(241, 241, 241, 0.5);
+    background-color: rgba(249, 246, 246, .95);
 }
 
 .sidebar.mini .collapse li:hover {
