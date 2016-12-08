@@ -846,19 +846,26 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
 }
 
 .sidebar-mini .sidebar-wrapper>.nav>li:nth-child(1) {
-    top: 20%;
+    top: 10%;
 }
 
 .sidebar-mini .sidebar-wrapper>.nav>li:nth-child(2) {
-    top: 30%;
+    top: 20%;
 }
 
 .sidebar-mini .sidebar-wrapper>.nav>li:nth-child(3) {
-    top: 40%;
+    top: 30%;
 }
 
 .sidebar-mini .sidebar-wrapper>.nav>li:nth-child(4) {
+    top: 40%;
+}
+
+.sidebar-mini .sidebar-wrapper>.nav>li:nth-child(5) {
     top: 50%;
+}
+.sidebar-mini .sidebar-wrapper>.nav>li:nth-child(6) {
+    top: 60%;
 }
 
 .sidebar.mini .sidebar-wrapper>.nav>li.triangle::before {

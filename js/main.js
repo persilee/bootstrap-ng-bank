@@ -102,15 +102,15 @@ $(function() {
 
 
     });
-    $('.wrapper').on('mouseenter', '.sidebar.mini .sidebar-wrapper>.nav>li', function() {
-        $('.sidebar.mini .collapse').eq($(this).index() + 1).css('display', 'block');
+    $('.wrapper').on('mouseenter', '.sidebar.mini .sidebar-wrapper>.nav>li.list', function() {
+        $('.sidebar.mini .collapse').eq($(this).index()).css('display', 'block');
         $(this).addClass('triangle');
         $('.sidebar.mini .sidebar-wrapper>.nav li>a').click(function() {
             event.preventDefault();
             // event.stopPropagation();
         });
     }).on('mouseleave', '.sidebar.mini .sidebar-wrapper>.nav>li', function() {
-        $('.sidebar.mini .collapse').eq($(this).index() + 1).css('display', 'none');
+        $('.sidebar.mini .collapse').eq($(this).index()).css('display', 'none');
         $('.sidebar.mini .sidebar-wrapper>.nav>li').removeClass('triangle');
     });
 
