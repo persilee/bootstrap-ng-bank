@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/customer.css">
     <link rel="stylesheet" href="./css/theme.css">
-    <link rel="stylesheet" href="./css/azure.css">
+    <link rel="stylesheet" href="./css/azure.css" id="themes">
     <title>DahSing Bank</title>
 </head>
 
@@ -210,14 +210,14 @@
                                     <li class="adjustments-line">
                                         <a href="javascript:void(0)" class="switch-trigger">
                                             <p>Sidebar Image</p>
-                                            <input class="switch-onColor" type="checkbox" checked data-size="mini" data-on-color="info">
+                                            <input class="switch-onColor img" type="checkbox" checked data-size="mini" data-on-color="info">
                                             <div class="clearfix"></div>
                                         </a>
                                     </li>
                                     <li class="adjustments-line">
                                         <a href="javascript:void(0)" class="switch-trigger">
                                             <p>Sidebar Mini</p>
-                                            <input class="switch-onColor" type="checkbox" checked data-size="mini" data-on-color="info">
+                                            <input class="switch-onColor debar" type="checkbox" checked data-size="mini" data-on-color="info">
                                             <div class="clearfix"></div>
                                         </a>
                                     </li>
@@ -225,8 +225,8 @@
                                         <a href="javascript:void(0)" class="switch-trigger">
                                             <p>Filters</p>
                                             <div class="pull-right">
-                                                <span class="badge filter active" data-color="black"></span>
-                                                <span class="badge filter badge-azure" data-color="azure"></span>
+                                                <span class="badge filter badge-azure active" data-color="azure"></span>
+                                                <span class="badge filter " data-color="gray"></span>
                                                 <span class="badge filter badge-green" data-color="green"></span>
                                                 <span class="badge filter badge-orange" data-color="orange"></span>
                                                 <span class="badge filter badge-red" data-color="red"></span>
@@ -2490,6 +2490,7 @@
 
 
         <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="./bower_components/jquery.cookie/jquery.cookie.js"></script>
         <script src="./tableExport/libs/FileSaver/FileSaver.min.js"></script>
         <script src="./tableExport/libs/js-xlsx/xlsx.core.min.js"></script>
         <script src="./tableExport/libs/jsPDF/jspdf.min.js"></script>
@@ -2549,15 +2550,29 @@
                 ].join('');
             }
             $().ready(function() {
+              if($.cookie('themeColor') != ''){
+                $('#themes').attr('href','./css/'+$.cookie('themeColor')+'.css');
+                $('.sidebar').attr('data-color', $.cookie('themeColor'));
+                $('#minimizeSidebar').attr('data-color', $.cookie('themeColor'));
+                $('.nav.navbar-nav .theme .badge').siblings().removeClass('active');
+                $('.nav.navbar-nav .theme .badge[data-color='+$.cookie('themeColor')+']').addClass('active');
+              }
+              if($.cookie('themeImg') != ''){
+                $('.sidebar .sidebar-background').css('background-image', 'url("' + $.cookie('themeImg') + '")');
+                $number = $.cookie('themeImg').substr(-5,1);
+                $('.nav.navbar-nav .theme .img-holder').parent('li').removeClass('active');
+                $('.nav.navbar-nav .theme .img-holder').parent('li').eq($number - 1).addClass('active');
+              }
+              if($.cookie('switchImg')=='false'){
+                $('.sidebar .sidebar-background').css('background-image', 'url("")');
+                $('.nav.navbar-nav .theme .adjustments-line .switch-onColor.img').bootstrapSwitch('state',false);
+              }
               var i = 2;
                 window.operateEvents = {
                     'click .add': function(e, value, row, index) {
                       var $contactNumber = '0000000' + i;
                       var newRow = row;
                       newRow.contactNumber = $contactNumber;
-                          console.log(row);
-                          console.log(index);
-                          console.log(value);
                       $contactTable.bootstrapTable('insertRow', {index: i, row: row});
                       $contactTable.bootstrapTable('updateRow', {index: i, row: newRow});
                       i++;
