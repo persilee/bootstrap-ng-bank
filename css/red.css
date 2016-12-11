@@ -14,7 +14,7 @@
 }
 
 .navbar-form .form-control:focus {
-    border: 1px solid #FFA534;
+    border: 1px solid #FB404B;
     border-left: 0 none;
 }
 /*设置小图标*/
@@ -71,9 +71,11 @@
     background-color: rgba(251, 64, 75, 0.8);
 }
 .sidebar .sidebar-wrapper>.nav li.active>a, .off-canvas-sidebar .sidebar-wrapper>.nav li.active>a {
-  color: #333;
+  color: #555;
+  font-weight: 800;
 }
 
 .sidebar .sidebar-wrapper>.nav li.active>a:hover, .off-canvas-sidebar .sidebar-wrapper>.nav li.active>a:hover {
-  color: #333;
+  color: #555;
+  font-weight: 800;
 }

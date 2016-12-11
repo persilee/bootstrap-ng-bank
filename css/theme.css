@@ -415,7 +415,7 @@
 }
 
 .nav-tabs>li .ti-close {
-    display: block;
+    /*display: block;*/
 }
 
 .nav-tabs>li.active>a:hover, {
