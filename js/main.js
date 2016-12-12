@@ -121,7 +121,7 @@ $(function() {
         $('body').removeClass('sidebar-mini');
         $('.sidebar .logo').removeClass('hidden');
         $('.mini-logo').addClass('hidden');
-        $('.user .photo').width(80);
+        $('.user .photo').width(60);
         $('.user .info').css('display', 'block');
         $('.sidebar .nav li a').attr('data-toggle', 'collapse');
         $('.sidebar .collapse').css('display', '');

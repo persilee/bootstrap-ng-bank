@@ -591,8 +591,6 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
 .main.tab-content {
     padding: 15px 30px;
     position: relative;
-    overflow-y: auto;
-    overflow-x: hidden;
 }
 
 .card {
@@ -749,7 +747,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
 }
 
 .sidebar .mini-nav ul li:hover, .popo-list li:hover {
-    background-color: #66615b
+    background-color: #66615b;
 }
 
 .sidebar .mini-nav ul li:hover a, .popo-list li:hover a {

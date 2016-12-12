@@ -70,3 +70,7 @@
 .popo-list li:hover {
     background-color: rgba(35, 203, 238, 0.8);
 }
+
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    background-color: rgba(35, 203, 238, 0.8);
+}
