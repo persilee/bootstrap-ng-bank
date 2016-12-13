@@ -24,7 +24,7 @@
 body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, .btn-simple, .alert, a, .td-name, td, button.close {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Microsoft YaHei", "微软雅黑","Roboto", "Helvetica Neue", Arial, sans-serif;
     font-weight: 400;
 }
 
@@ -80,7 +80,7 @@ span[data-notify=icon] {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: 'Muli', "Helvetica", Arial, sans-serif;
+    font-family: "Microsoft YaHei", "微软雅黑",'Muli', "Helvetica", Arial, sans-serif;
 }
 
 .btn:hover, .btn:focus, .navbar .navbar-nav>li>a.btn:hover, .navbar .navbar-nav>li>a.btn:focus {

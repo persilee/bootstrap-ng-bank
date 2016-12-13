@@ -280,8 +280,8 @@
                             <li>
                                 <a href="#settings" class="btn-rotate">
                                     <i class="ti-email"></i>
-                                    <span class="badge bule">3</span>
-                                    <div class="notification-ring red"></div>
+                                    <span class="badge blue">3</span>
+                                    <div class="notification-ring blue"></div>
                                     <!-- <p class="hidden-md hidden-lg">
                                         Settings
                                     </p> -->
@@ -2313,7 +2313,7 @@
                                                                   </div>
                                                                 </div>
                                                                 <div class="row">
-                                                                  <div class="col-md-9 col-md-offset-1">
+                                                                  <div class="col-md-4 col-md-offset-4">
                                                                     <div class="card-footer">
                                                                         <button type="button" class="button btn-back button-pill pull-left">上一步</button>
                                                                         <button type="button" class="button btn-next button-pill pull-right">下一步</button>
@@ -2550,24 +2550,27 @@
                 ].join('');
             }
             $().ready(function() {
-              if($.cookie('themeColor') != '' && $.cookie('themeColor') != 'undefined'){
+              if($.cookie('themeColor') != '' && typeof($.cookie('themeColor')) != 'undefined'){
+                console.log('aaa');
                 $('#themes').attr('href','./css/'+$.cookie('themeColor')+'.css');
                 $('.sidebar').attr('data-color', $.cookie('themeColor'));
                 $('#minimizeSidebar').attr('data-color', $.cookie('themeColor'));
                 $('.nav.navbar-nav .theme .badge').siblings().removeClass('active');
                 $('.nav.navbar-nav .theme .badge[data-color='+$.cookie('themeColor')+']').addClass('active');
+              }else{
+                $('#themes').attr('href','./css/azure.css');
               }
-              if($.cookie('themeImg') != '' && $.cookie('themeColor') != 'undefined'){
+              if($.cookie('themeImg') != '' && typeof($.cookie('themeColor')) != 'undefined'){
                 $('.sidebar .sidebar-background').css('background-image', 'url("' + $.cookie('themeImg') + '")');
                 $number = $.cookie('themeImg').substr(-5,1);
                 $('.nav.navbar-nav .theme .img-holder').parent('li').removeClass('active');
                 $('.nav.navbar-nav .theme .img-holder').parent('li').eq($number - 1).addClass('active');
               }
-              if($.cookie('switchImg') == 'false' && $.cookie('themeColor') != 'undefined'){
+              if($.cookie('switchImg') == 'false' && typeof($.cookie('themeColor')) != 'undefined'){
                 $('.sidebar .sidebar-background').css('background-image', 'url("")');
                 $('.nav.navbar-nav .theme .adjustments-line .switch-onColor.img').bootstrapSwitch('state',false);
               }
-              if($.cookie('switchdebar') == 'false' && $.cookie('themeColor') != 'undefined'){
+              if($.cookie('switchdebar') == 'false' && typeof($.cookie('themeColor')) != 'undefined'){
                 $('.nav.navbar-nav .theme .adjustments-line .switch-onColor.debar').bootstrapSwitch('state',false);
                 $('#minimizeSidebar').find('i').attr('class', 'ti-menu-alt');
                 $('.sidebar').addClass('mini');

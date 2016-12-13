@@ -87,7 +87,7 @@ $(function() {
                 });
             }
         })
-        //下拉菜单
+    //下拉菜单
     $('.dropdown-toggle').dropdown();
     //提示
     $('[data-toggle=tooltip]').tooltip('show');
@@ -817,7 +817,6 @@ $(function() {
     $('.card.card-wizard .panel-body>.header .nav>li').click(function() {
         $(this).siblings().removeClass('active');
         $(this).addClass('active');
-        console.log();
         $listContent = $('#collapseOne1 .panel-body .content>div');
         $listContent.eq($(this).index()).siblings().css('display', 'none');
         $listContent.eq($(this).index()).css('display', 'block');
