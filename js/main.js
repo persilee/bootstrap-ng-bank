@@ -410,7 +410,7 @@ var branch = {
                 var new_color = $(this).data('color');
                 $('.sidebar').attr('data-color', new_color);
                 $('#minimizeSidebar').attr('data-color', new_color).addClass('hasColor');
-                $('#themes').attr('href', './css/' + new_color + '.css');
+                $('#themes').attr('href', './css/themes/' + new_color + '.css');
                 if ($.cookie('themeColor') == '') {
                     $.cookie('themeColor', new_color, {
                         expires: 30

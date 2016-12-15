@@ -1,0 +1,29 @@
+{
+  "name": "bootstrap-ng-bank",
+  "version": "1.0.0",
+  "description": "[bootstrap-ng-bank](http://192.168.232.10:8088/) ==================== ###### Tags  [v0.1.1](https://github.com/persilee/bootstrap-ng-bank/releases/tag/v0.1.1)[v0.1.2](https://github.com/persilee/bootstrap-ng-bank/releases/tag/v0.1.2)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/persilee/bootstrap4-ng-bank.git"
+  },
+  "author": "lishaoy.net",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/persilee/bootstrap4-ng-bank/issues"
+  },
+  "homepage": "https://github.com/persilee/bootstrap4-ng-bank#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}

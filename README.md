@@ -27,7 +27,7 @@ bootstrap-ng-bank/
 │    ├── glyphicons-halflings-regular.svg
 │    ├── glyphicons-halflings-regular.ttf
 │    └── glyphicons-halflings-regular.woff
-├── themify-icons
+├── themify-icons/
 │   ├── ...
 │   └── themify-icons.css
 ├── index.html
@@ -112,13 +112,14 @@ bootstrap-ng-bank/
 /**页面渲染部分 start **************************/
   renderData: function() {
     ...
-  }
+  },
 /**页面渲染部分 end ****************************/
 
 /** 交易演示 -- 设置客户信息修改 start ***********/
   transactionDemo : function(){
     ...
-  }  
+  }
+}
 /** 交易演示 -- 设置客户信息修改 end *************/    
   ```
 #### `style.css`

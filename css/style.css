@@ -15,8 +15,8 @@
 
 @font-face {
     font-family: 'muli';
-    src: url('../fonts/muli.eot?-fvbane');
-    src: url('../fonts/muli.eot?#iefix-fvbane') format('embedded-opentype'), url('../fonts/muli.woff?-fvbane') format('woff'), url('../fonts/muli.ttf?-fvbane') format('truetype'), url('../fonts/muli.svg?-fvbane#themify') format('svg');
+    src: url('fonts/muli.eot?-fvbane');
+    src: url('fonts/muli.eot?#iefix-fvbane') format('embedded-opentype'), url('fonts/muli.woff?-fvbane') format('woff'), url('fonts/muli.ttf?-fvbane') format('truetype'), url('fonts/muli.svg?-fvbane#themify') format('svg');
     font-weight: normal;
     font-style: normal;
 }

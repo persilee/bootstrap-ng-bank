@@ -1,596 +1,489 @@
-/*! =========================================================
- *
- * Paper Dashboard PRO - V1.1.0
- *
- * =========================================================
- *
- * Copyright 2016 Creative Tim
- * Available with purchase of license from http://www.creative-tim.com/product/paper-dashboard-pro
- *
- *                       _oo0oo_
- *                      o8888888o
- *                      88" . "88
- *                      (| -_- |)
- *                      0\  =  /0
- *                    ___/`---'\___
- *                  .' \\|     |// '.
- *                 / \\|||  :  |||// \
- *                / _||||| -:- |||||- \
- *               |   | \\\  -  /// |   |
- *               | \_|  ''\---/''  |_/ |
- *               \  .-\__  '-'  ___/-. /
- *             ___'. .'  /--.--\  `. .'___
- *          ."" '<  `.___\_<|>_/___.' >' "".
- *         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
- *         \  \ `_.   \_ __\ /__ _/   .-` /  /
- *     =====`-.____`.___ \_____/___.-`___.-'=====
- *                       `=---='
- *
- *     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *
- *               Buddha Bless:  "No Bugs"
- *
- * ========================================================= */
+type = ['', 'info', 'success', 'warning', 'danger'];
 
-var fixedTop = false;
-
-var mobile_menu_visible = 0,
-    mobile_menu_initialized = false,
-    toggle_initialized = false,
-    bootstrap_nav_initialized = false,
-    $sidebar,
-    isWindows;
-
-<<<<<<< HEAD
-(function(){
-    isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
-
-    if (isWindows && !$('body').hasClass('sidebar-mini')){
-       // if we are on windows OS we activate the perfectScrollbar function
-       $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-
-       $('html').addClass('perfect-scrollbar-on');
-   } else {
-       $('html').addClass('perfect-scrollbar-off');
-   }
-})();
-
-$(document).ready(function(){
-    window_width = $(window).width();
+$().ready(function() {
     $sidebar = $('.sidebar');
+    $sidebar_img_container = $sidebar.find('.sidebar-background');
 
-    if($('body').hasClass('sidebar-mini')){
-=======
-(function() {
-    isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+    $full_page = $('.full-page');
 
-    if (isWindows && !$('body').hasClass('sidebar-mini')) {
-        // if we are on windows OS we activate the perfectScrollbar function
-        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+    $sidebar_responsive = $('body > .navbar-collapse');
 
-        $('html').addClass('perfect-scrollbar-on');
-    } else {
-        $('html').addClass('perfect-scrollbar-off');
-    }
-})();
-
-$(document).ready(function() {
     window_width = $(window).width();
-    $sidebar = $('.sidebar');
 
-    if ($('body').hasClass('sidebar-mini')) {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-        pdp.misc.sidebar_mini_active = true;
+    if (window_width > 767) {
+        if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+            $('.fixed-plugin .dropdown').addClass('open');
+        }
+
     }
 
-    pdp.initSidebarsCheck();
-
-    pdp.initMinimizeSidebar();
-
-<<<<<<< HEAD
-    $('.form-control').on("focus", function(){
-        $(this).parent('.input-group').addClass("input-group-focus");
-    }).on("blur", function(){
-=======
-    $('.form-control').on("focus", function() {
-        $(this).parent('.input-group').addClass("input-group-focus");
-    }).on("blur", function() {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-        $(this).parent(".input-group").removeClass("input-group-focus");
+    $('.fixed-plugin a').click(function(event) {
+        // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+        if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+                event.stopPropagation();
+            } else if (window.event) {
+                window.event.cancelBubble = true;
+            }
+        }
     });
 
-    //  Activate the tooltips
-    $('[rel="tooltip"]').tooltip();
+    $('.fixed-plugin .badge').click(function() {
+        $full_page_background = $('.full-page-background');
 
-    // Init Tags Input
-<<<<<<< HEAD
-    if($(".tagsinput").length != 0){
-=======
-    if ($(".tagsinput").length != 0) {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-        $(".tagsinput").tagsInput();
-    }
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
 
-    //  Init Bootstrap Select Picker
-<<<<<<< HEAD
-    if($(".selectpicker").length != 0){
-=======
-    if ($(".selectpicker").length != 0) {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-        $(".selectpicker").selectpicker({
-            size: 9
-        });
-    }
+        var new_color = $(this).data('color');
 
-
-});
-
-
-
-// activate collapse right menu when the windows is resized
-<<<<<<< HEAD
-$(window).resize(function(){
-=======
-$(window).resize(function() {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-    pdp.initSidebarsCheck();
-
-});
-
-pdp = {
-<<<<<<< HEAD
-    misc:{
-=======
-    misc: {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-        navbar_menu_visible: 0,
-        active_collapse: true,
-        disabled_collapse_init: 0
-
-    },
-<<<<<<< HEAD
-    initSidebarsCheck: function(){
-        // Init navigation toggle for small screens
-        if($(window).width() <= 991){
-            if($sidebar.length != 0){
-=======
-    initSidebarsCheck: function() {
-        // Init navigation toggle for small screens
-        if ($(window).width() <= 991) {
-            if ($sidebar.length != 0) {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-                pdp.initSidebarMenu();
-            } else {
-                pdp.initBootstrapNavbarMenu();
-            }
-<<<<<<< HEAD
-        } else if(mobile_menu_initialized == true){
-=======
-        } else if (mobile_menu_initialized == true) {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-            // reset all the additions that we made for the sidebar wrapper only if the screen is bigger than 991px
-            $sidebar_wrapper.find('.navbar-form').remove();
-            $sidebar_wrapper.find('.nav-mobile-menu').remove();
-
-            mobile_menu_initialized = false;
+        if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
         }
-    },
 
-<<<<<<< HEAD
-    initMinimizeSidebar: function(){
+        if ($full_page.length != 0) {
+            $full_page.attr('data-color', new_color);
+        }
 
-        // when we are on a Desktop Screen and the collapse is triggered we check if the sidebar mini is active or not. If it is active then we don't let the collapse to show the elements because the elements from the collapse are showing on the hover state over the icons in sidebar mini, not on the click.
-        $('.sidebar .collapse').on('show.bs.collapse',function(){
-            if($(window).width() > 991){
-                if(pdp.misc.sidebar_mini_active == true){
-                    return false;
-                } else{
-=======
-    initMinimizeSidebar: function() {
+        if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+        }
+    });
 
-        // when we are on a Desktop Screen and the collapse is triggered we check if the sidebar mini is active or not. If it is active then we don't let the collapse to show the elements because the elements from the collapse are showing on the hover state over the icons in sidebar mini, not on the click.
-        $('.sidebar .collapse').on('show.bs.collapse', function() {
-            if ($(window).width() > 991) {
-                if (pdp.misc.sidebar_mini_active == true) {
-                    return false;
-                } else {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-                    return true;
-                }
-            }
-        });
+    $('.fixed-plugin .img-holder').click(function() {
+        $full_page_background = $('.full-page-background');
 
-<<<<<<< HEAD
-        $('#minimizeSidebar').click(function(){
-            var $btn = $(this);
+        $(this).parent('li').siblings().removeClass('active');
+        $(this).parent('li').addClass('active');
 
-            if(pdp.misc.sidebar_mini_active == true){
-=======
-        $('#minimizeSidebar').click(function() {
-            var $btn = $(this);
 
-            if (pdp.misc.sidebar_mini_active == true) {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-                $('body').removeClass('sidebar-mini');
-                $btn.html('<i class="ti-more-alt"></i>');
-                pdp.misc.sidebar_mini_active = false;
+        var new_image = $(this).find("img").attr('src');
 
-<<<<<<< HEAD
-                if(isWindows){
-                    $('.sidebar .sidebar-wrapper').perfectScrollbar();
-                }
-
-            }else{
-
-                $('.sidebar .collapse').collapse('hide').on('hidden.bs.collapse',function(){
-                    $(this).css('height','auto');
-                });
-
-                if(isWindows){
-                    $('.sidebar .sidebar-wrapper').perfectScrollbar('destroy');
-                }
-
-                setTimeout(function(){
-                    $('body').addClass('sidebar-mini');
-                    $btn.html('<i class="ti-menu-alt"></i>');
-
-                    $('.sidebar .collapse').css('height','auto');
-                    pdp.misc.sidebar_mini_active = true;
-                },300);
-            }
-
-            // we simulate the window Resize so the charts will get updated in realtime.
-            var simulateWindowResize = setInterval(function(){
-                window.dispatchEvent(new Event('resize'));
-            },180);
-
-            // we stop the simulation of Window Resize after the animations are completed
-            setTimeout(function(){
-                clearInterval(simulateWindowResize);
-            },1000);
-        });
-    },
-
-    initSidebarMenu: function(){
-        $sidebar_wrapper = $('.sidebar-wrapper');
-
-        if(!mobile_menu_initialized){
-=======
-                if (isWindows) {
-                    $('.sidebar .sidebar-wrapper').perfectScrollbar();
-                }
-
-            } else {
-
-                $('.sidebar .collapse').collapse('hide').on('hidden.bs.collapse', function() {
-                    $(this).css('height', 'auto');
-                });
-
-                if (isWindows) {
-                    $('.sidebar .sidebar-wrapper').perfectScrollbar('destroy');
-                }
-
-                setTimeout(function() {
-                    $('body').addClass('sidebar-mini');
-                    $btn.html('<i class="ti-menu-alt"></i>');
-
-                    $('.sidebar .collapse').css('height', 'auto');
-                    pdp.misc.sidebar_mini_active = true;
-                }, 300);
-            }
-
-            // we simulate the window Resize so the charts will get updated in realtime.
-            var simulateWindowResize = setInterval(function() {
-                window.dispatchEvent(new Event('resize'));
-            }, 180);
-
-            // we stop the simulation of Window Resize after the animations are completed
-            setTimeout(function() {
-                clearInterval(simulateWindowResize);
-            }, 1000);
-        });
-    },
-
-    initSidebarMenu: function() {
-        $sidebar_wrapper = $('.sidebar-wrapper');
-
-        if (!mobile_menu_initialized) {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-
-            $navbar = $('nav').find('.navbar-collapse').first().clone(true);
-
-            nav_content = '';
-            mobile_menu_content = '';
-
-<<<<<<< HEAD
-            $navbar.children('ul').each(function(){
-=======
-            $navbar.children('ul').each(function() {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-
-                content_buff = $(this).html();
-                nav_content = nav_content + content_buff;
+        if ($sidebar_img_container.length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+                $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                $sidebar_img_container.fadeIn('fast');
             });
+        }
 
-            nav_content = '<ul class="nav nav-mobile-menu">' + nav_content + '</ul>';
+        if ($full_page_background.length != 0) {
 
-            $navbar_form = $('nav').find('.navbar-form').clone(true);
-
-            $sidebar_nav = $sidebar_wrapper.find(' > .nav');
-
-            // insert the navbar form before the sidebar list
-            $nav_content = $(nav_content);
-            $nav_content.insertBefore($sidebar_nav);
-            $navbar_form.insertBefore($nav_content);
-
-            $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function(event) {
-                event.stopPropagation();
-
+            $full_page_background.fadeOut('fast', function() {
+                $full_page_background.css('background-image', 'url("' + new_image + '")');
+                $full_page_background.fadeIn('fast');
             });
+        }
 
-            mobile_menu_initialized = true;
+        if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+        }
+    });
+
+    $('.switch-sidebar-image input').change(function() {
+        $full_page_background = $('.full-page-background');
+
+        $input = $(this);
+
+        if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+                $sidebar_img_container.fadeIn('fast');
+                $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+                $full_page_background.fadeIn('fast');
+                $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
         } else {
-<<<<<<< HEAD
-            if($(window).width() > 991){
-=======
-            if ($(window).width() > 991) {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-                // reset all the additions that we made for the sidebar wrapper only if the screen is bigger than 991px
-                $sidebar_wrapper.find('.navbar-form').remove();
-                $sidebar_wrapper.find('.nav-mobile-menu').remove();
-
-                mobile_menu_initialized = false;
+            if ($sidebar_img_container.length != 0) {
+                $sidebar.removeAttr('data-image');
+                $sidebar_img_container.fadeOut('fast');
             }
+
+            if ($full_page_background.length != 0) {
+                $full_page.removeAttr('data-image', '#');
+                $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
         }
+    });
 
-<<<<<<< HEAD
-        if(!toggle_initialized){
-            $toggle = $('.navbar-toggle');
+    $('.switch-sidebar-mini input').change(function() {
+        $body = $('body');
 
-            $toggle.click(function (){
+        $input = $(this);
 
-                if(mobile_menu_visible == 1) {
-                    $('html').removeClass('nav-open');
+        if (lbd.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            lbd.misc.sidebar_mini_active = false;
 
-                    $('.close-layer').remove();
-                    setTimeout(function(){
-=======
-        if (!toggle_initialized) {
-            $toggle = $('.navbar-toggle');
+            if (isWindows) {
+                $('.sidebar .sidebar-wrapper').perfectScrollbar();
+            }
 
-            $toggle.click(function() {
+        } else {
 
-                if (mobile_menu_visible == 1) {
-                    $('html').removeClass('nav-open');
-
-                    $('.close-layer').remove();
-                    setTimeout(function() {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-                        $toggle.removeClass('toggled');
-                    }, 400);
-
-                    mobile_menu_visible = 0;
-                } else {
-<<<<<<< HEAD
-                    setTimeout(function(){
-=======
-                    setTimeout(function() {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-                        $toggle.addClass('toggled');
-                    }, 430);
-
-                    main_panel_height = $('.main-panel')[0].scrollHeight;
-                    $layer = $('<div class="close-layer"></div>');
-<<<<<<< HEAD
-                    $layer.css('height',main_panel_height + 'px');
-                    $layer.appendTo(".main-panel");
-
-
-                    setTimeout(function(){
-=======
-                    $layer.css('height', main_panel_height + 'px');
-                    $layer.appendTo(".main-panel");
-
-
-                    setTimeout(function() {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-                        $layer.addClass('visible');
-                    }, 100);
-
-                    $layer.click(function() {
-                        $('html').removeClass('nav-open');
-                        mobile_menu_visible = 0;
-
-                        $layer.removeClass('visible');
-
-<<<<<<< HEAD
-                         setTimeout(function(){
-                            $layer.remove();
-                            $toggle.removeClass('toggled');
-
-                         }, 400);
-=======
-                        setTimeout(function() {
-                            $layer.remove();
-                            $toggle.removeClass('toggled');
-
-                        }, 400);
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-                    });
-
-                    $('html').addClass('nav-open');
-                    mobile_menu_visible = 1;
-
-                }
+            $('.sidebar .collapse').collapse('hide').on('hidden.bs.collapse', function() {
+                $(this).css('height', 'auto');
             });
 
-            toggle_initialized = true;
+            if (isWindows) {
+                $('.sidebar .sidebar-wrapper').perfectScrollbar('destroy');
+            }
+
+            setTimeout(function() {
+                $('body').addClass('sidebar-mini');
+
+                $('.sidebar .collapse').css('height', 'auto');
+                lbd.misc.sidebar_mini_active = true;
+            }, 300);
         }
+
+        // we simulate the window Resize so the charts will get updated in realtime.
+        var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+        }, 180);
+
+        // we stop the simulation of Window Resize after the animations are completed
+        setTimeout(function() {
+            clearInterval(simulateWindowResize);
+        }, 1000);
+
+    });
+
+    $('.switch-navbar-fixed input').change(function() {
+        $nav = $('nav.navbar').first();
+
+        if ($nav.hasClass('navbar-fixed')) {
+            $nav.removeClass('navbar-fixed').prependTo('.main-panel');
+        } else {
+            $nav.prependTo('.wrapper').addClass('navbar-fixed');
+        }
+
+    });
+
+
+    $('#twitter').sharrre({
+        share: {
+            twitter: true
+        },
+        enableHover: false,
+        enableTracking: true,
+        buttons: {
+            twitter: {
+                via: 'CreativeTim'
+            }
+        },
+        click: function(api, options) {
+            api.simulateClick();
+            api.openPopup('twitter');
+        },
+        template: '<i class="fa fa-twitter"></i> &middot; 2',
+        url: 'http://demos.creative-tim.com/material-dashboard/examples/dashboard.html'
+    });
+
+    $('#facebook').sharrre({
+        share: {
+            facebook: true
+        },
+        enableHover: false,
+        enableTracking: true,
+        click: function(api, options) {
+            api.simulateClick();
+            api.openPopup('facebook');
+        },
+        template: '<i class="fa fa-facebook-square"></i> &middot; 40',
+        url: 'http://demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html'
+    });
+
+
+});
+
+
+demo = {
+    initPickColor: function() {
+        $('.pick-class-label').click(function() {
+            var new_class = $(this).attr('new-class');
+            var old_class = $('#display-buttons').attr('data-class');
+            var display_div = $('#display-buttons');
+            if (display_div.length) {
+                var display_buttons = display_div.find('.btn');
+                display_buttons.removeClass(old_class);
+                display_buttons.addClass(new_class);
+                display_div.attr('data-class', new_class);
+            }
+        });
+    },
+
+    initFormExtendedDatetimepickers: function() {
+        $('.datetimepicker').datetimepicker({
+            icons: {
+                time: "fa fa-clock-o",
+                date: "fa fa-calendar",
+                up: "fa fa-chevron-up",
+                down: "fa fa-chevron-down",
+                previous: 'fa fa-chevron-left',
+                next: 'fa fa-chevron-right',
+                today: 'fa fa-screenshot',
+                clear: 'fa fa-trash',
+                close: 'fa fa-remove'
+            }
+        });
+    },
+
+    initDocumentationCharts: function() {
+        /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
+
+        dataDailySalesChart = {
+            labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+            series: [
+                [12, 17, 7, 17, 23, 18, 38]
+            ]
+        };
+
+        optionsDailySalesChart = {
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            low: 0,
+            high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+            chartPadding: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            },
+        }
+
+        var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+
+        md.startAnimationForLineChart(dailySalesChart);
 
     },
 
-<<<<<<< HEAD
-      initBootstrapNavbarMenu: debounce(function(){
+    initDashboardPageCharts: function() {
 
-        if(!bootstrap_nav_initialized){
-=======
-    initBootstrapNavbarMenu: debounce(function() {
+        /* ----------==========     Daily Sales Chart initialization    ==========---------- */
 
-        if (!bootstrap_nav_initialized) {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-            $navbar = $('nav').find('.navbar-collapse').first().clone(true);
+        dataDailySalesChart = {
+            labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+            series: [
+                [12, 17, 7, 17, 23, 18, 38]
+            ]
+        };
 
-            nav_content = '';
-            mobile_menu_content = '';
-
-            //add the content from the regular header to the mobile menu
-<<<<<<< HEAD
-            $navbar.children('ul').each(function(){
-=======
-            $navbar.children('ul').each(function() {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-                content_buff = $(this).html();
-                nav_content = nav_content + content_buff;
-            });
-
-            nav_content = '<ul class="nav nav-mobile-menu">' + nav_content + '</ul>';
-
-            $navbar.html(nav_content);
-            $navbar.addClass('off-canvas-sidebar');
-
-            // append it to the body, so it will come from the right side of the screen
-            $('body').append($navbar);
-
-            $toggle = $('.navbar-toggle');
-
-            $navbar.find('a').removeClass('btn btn-round btn-default');
-            $navbar.find('button').removeClass('btn-round btn-fill btn-info btn-primary btn-success btn-danger btn-warning btn-neutral');
-            $navbar.find('button').addClass('btn-simple btn-block');
-
-<<<<<<< HEAD
-            $toggle.click(function (){
-                if(mobile_menu_visible == 1) {
-                    $('html').removeClass('nav-open');
-
-                    $('.close-layer').remove();
-                    setTimeout(function(){
-=======
-            $toggle.click(function() {
-                if (mobile_menu_visible == 1) {
-                    $('html').removeClass('nav-open');
-
-                    $('.close-layer').remove();
-                    setTimeout(function() {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-                        $toggle.removeClass('toggled');
-                    }, 400);
-
-                    mobile_menu_visible = 0;
-                } else {
-<<<<<<< HEAD
-                    setTimeout(function(){
-=======
-                    setTimeout(function() {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-                        $toggle.addClass('toggled');
-                    }, 430);
-
-                    $layer = $('<div class="close-layer"></div>');
-                    $layer.appendTo(".wrapper-full-page");
-
-<<<<<<< HEAD
-                    setTimeout(function(){
-=======
-                    setTimeout(function() {
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-                        $layer.addClass('visible');
-                    }, 100);
-
-
-                    $layer.click(function() {
-                        $('html').removeClass('nav-open');
-                        mobile_menu_visible = 0;
-
-                        $layer.removeClass('visible');
-
-<<<<<<< HEAD
-                         setTimeout(function(){
-                            $layer.remove();
-                            $toggle.removeClass('toggled');
-
-                         }, 400);
-=======
-                        setTimeout(function() {
-                            $layer.remove();
-                            $toggle.removeClass('toggled');
-
-                        }, 400);
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-                    });
-
-                    $('html').addClass('nav-open');
-                    mobile_menu_visible = 1;
-
-                }
-
-            });
-            bootstrap_nav_initialized = true;
+        optionsDailySalesChart = {
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            low: 0,
+            high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+            chartPadding: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            },
         }
-    }, 500),
+
+        var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+
+        md.startAnimationForLineChart(dailySalesChart);
+
+
+
+        /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
+
+        dataCompletedTasksChart = {
+            labels: ['12am', '3pm', '6pm', '9pm', '12pm', '3am', '6am', '9am'],
+            series: [
+                [230, 750, 450, 300, 280, 240, 200, 190]
+            ]
+        };
+
+        optionsCompletedTasksChart = {
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            low: 0,
+            high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+            chartPadding: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            }
+        }
+
+        var completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
+
+        // start animation for the Completed Tasks Chart - Line Chart
+        md.startAnimationForLineChart(completedTasksChart);
+
+
+
+        /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
+
+        var dataEmailsSubscriptionChart = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            series: [
+                [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
+
+            ]
+        };
+        var optionsEmailsSubscriptionChart = {
+            axisX: {
+                showGrid: false
+            },
+            low: 0,
+            high: 1000,
+            chartPadding: {
+                top: 0,
+                right: 5,
+                bottom: 0,
+                left: 0
+            }
+        };
+        var responsiveOptions = [
+            ['screen and (max-width: 640px)', {
+                seriesBarDistance: 5,
+                axisX: {
+                    labelInterpolationFnc: function(value) {
+                        return value[0];
+                    }
+                }
+            }]
+        ];
+        var emailsSubscriptionChart = Chartist.Bar('#emailsSubscriptionChart', dataEmailsSubscriptionChart, optionsEmailsSubscriptionChart, responsiveOptions);
+
+        //start animation for the Emails Subscription Chart
+        md.startAnimationForBarChart(emailsSubscriptionChart);
+
+    },
+
+    initGoogleMaps: function() {
+        var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
+        var mapOptions = {
+            zoom: 13,
+            center: myLatlng,
+            scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
+            styles: [{
+                "featureType": "water",
+                "stylers": [{
+                    "saturation": 43
+                }, {
+                    "lightness": -11
+                }, {
+                    "hue": "#0088ff"
+                }]
+            }, {
+                "featureType": "road",
+                "elementType": "geometry.fill",
+                "stylers": [{
+                    "hue": "#ff0000"
+                }, {
+                    "saturation": -100
+                }, {
+                    "lightness": 99
+                }]
+            }, {
+                "featureType": "road",
+                "elementType": "geometry.stroke",
+                "stylers": [{
+                    "color": "#808080"
+                }, {
+                    "lightness": 54
+                }]
+            }, {
+                "featureType": "landscape.man_made",
+                "elementType": "geometry.fill",
+                "stylers": [{
+                    "color": "#ece2d9"
+                }]
+            }, {
+                "featureType": "poi.park",
+                "elementType": "geometry.fill",
+                "stylers": [{
+                    "color": "#ccdca1"
+                }]
+            }, {
+                "featureType": "road",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "color": "#767676"
+                }]
+            }, {
+                "featureType": "road",
+                "elementType": "labels.text.stroke",
+                "stylers": [{
+                    "color": "#ffffff"
+                }]
+            }, {
+                "featureType": "poi",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            }, {
+                "featureType": "landscape.natural",
+                "elementType": "geometry.fill",
+                "stylers": [{
+                    "visibility": "on"
+                }, {
+                    "color": "#b8cb93"
+                }]
+            }, {
+                "featureType": "poi.park",
+                "stylers": [{
+                    "visibility": "on"
+                }]
+            }, {
+                "featureType": "poi.sports_complex",
+                "stylers": [{
+                    "visibility": "on"
+                }]
+            }, {
+                "featureType": "poi.medical",
+                "stylers": [{
+                    "visibility": "on"
+                }]
+            }, {
+                "featureType": "poi.business",
+                "stylers": [{
+                    "visibility": "simplified"
+                }]
+            }]
+
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            title: "Hello World!"
+        });
+
+        // To add the marker to the map, call setMap();
+        marker.setMap(map);
+    },
+
+    showNotification: function(from, align) {
+        color = Math.floor((Math.random() * 4) + 1);
+
+        $.notify({
+            icon: "notifications",
+            message: "Welcome to <b>Material Dashboard</b> - a beautiful freebie for every web developer."
+
+        }, {
+            type: type[color],
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
+    }
+
+
+
 }
-
-
-// Returns a function, that, as long as it continues to be invoked, will not
-// be triggered. The function will be called after it stops being called for
-// N milliseconds. If `immediate` is passed, trigger the function on the
-// leading edge, instead of the trailing.
-
-function debounce(func, wait, immediate) {
-<<<<<<< HEAD
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		clearTimeout(timeout);
-		timeout = setTimeout(function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		}, wait);
-		if (immediate && !timeout) func.apply(context, args);
-	};
-};
-
-
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-=======
-    var timeout;
-    return function() {
-        var context = this,
-            args = arguments;
-        clearTimeout(timeout);
-        timeout = setTimeout(function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        }, wait);
-        if (immediate && !timeout) func.apply(context, args);
-    };
-};
-
-
-(function(i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function() {
-        (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
->>>>>>> fa24ee786ca8f0c11a557f6b64923726f60d0ab3
-
-ga('create', 'UA-46172202-1', 'auto');
-ga('send', 'pageview');
