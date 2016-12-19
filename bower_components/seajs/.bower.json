@@ -1,30 +1,15 @@
 {
   "name": "seajs",
-  "version": "3.0.0",
-  "main": "./dist/sea.js",
-  "ignore": [
-    "**/.*",
-    "docs",
-    "lib",
-    "src",
-    "tests",
-    "CNAME",
-    "component.json",
-    "CONTRIBUTING.md",
-    "index.html",
-    "Makefile",
-    "package.json",
-    "README.md"
-  ],
   "homepage": "https://github.com/seajs/seajs",
-  "_release": "3.0.0",
+  "version": "2.0.0",
+  "_release": "2.0.0",
   "_resolution": {
     "type": "version",
-    "tag": "3.0.0",
-    "commit": "d323d7ee8df0e221129cc0e777bbf7cd4463550f"
+    "tag": "2.0.0",
+    "commit": "f955867536d9fecb409ae0bbd587e14e69e37afc"
   },
   "_source": "https://github.com/seajs/seajs.git",
-  "_target": "^3.0.0",
+  "_target": "2.0.0",
   "_originalSource": "seajs",
   "_direct": true
 }
