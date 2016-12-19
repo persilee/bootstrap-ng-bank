@@ -6,12 +6,22 @@
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-usemin');
 
     grunt.initConfig({
       clean: {
         dist: {
           src:'dist/'
         }
+      },
+      useminPrepare: {
+        html: 'index.html',
+        options: {
+          dest: './'
+        }
+      },
+      usemin: {
+        html: ['dist/index.html']
       },
       cssmin: {
         dist: {
@@ -93,7 +103,7 @@
       watch:{
         files: {
           files: ['*.html'/*,'css/*.css','js/*.js','data/*.json','images/*.jpg','fonts/*.*'*/],
-          tasks: ['copy:html'],
+          tasks: ['copy:html','usemin'],
           options: {
             livereload: true
           }
@@ -103,6 +113,13 @@
         html:{
           src: '*.html',
           dest: 'dist/'
+        },
+        css:{
+          expand: true,
+          src: 'css/themes/*.css',
+          dest: 'dist/css/themes/',
+          flatten: true,
+          filter: 'isFile'
         },
         data: {
           src: 'data/*.json',
@@ -134,5 +151,5 @@
 
 
     grunt.registerTask('server',['connect','watch']);
-    grunt.registerTask('build',['clean','copy','concat','uglify','cssmin']);
+    grunt.registerTask('build',['clean','copy','concat','uglify','cssmin','usemin']);
 }
