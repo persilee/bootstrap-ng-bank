@@ -1,0 +1,8 @@
+/*! define components/table/extensions/group-by-v2/bootstrap-table-group-by-debug.css */
+.bootstrap-table .table > tbody > tr.groupBy {
+    cursor: pointer;
+}
+
+.bootstrap-table .table > tbody > tr.groupBy.expanded {
+
+}

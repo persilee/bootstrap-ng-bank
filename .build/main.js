@@ -1,5 +1,5 @@
 // 所有模块都通过 define 来定义
-define("js/main", [ "jquery", "jqueryCookie", "FileSaver", "jsXlsx", "jsPDF", "jsPDFAutoTable", "html2canvas", "tableExport", "bootstrap", "sweetalert2", "es6Promise", "notify", "moment", "momentZh", "datetimepicker", "select", "bootstrapValidator", "bootstrapValidatorZh", "bootstrapTable", "bootstrapTableExport", "bootstrapTableEditable", "bootstrapTableZh", "bootstrapEditable", "buttons", "scrollbar", "wizard", "switch", "iCheck" ], function(require, exports, module) {
+define("main", [ "jquery", "jqueryCookie", "FileSaver", "jsXlsx", "jsPDF", "jsPDFAutoTable", "html2canvas", "tableExport", "bootstrap", "sweetalert2", "es6Promise", "notify", "moment", "momentZh", "datetimepicker", "select", "bootstrapValidator", "bootstrapValidatorZh", "bootstrapTable", "bootstrapTableExport", "bootstrapTableEditable", "bootstrapTableZh", "bootstrapEditable", "buttons", "scrollbar", "wizard", "switch", "iCheck" ], function(require, exports, module) {
     // 通过 require 引入依赖
     var $ = require("jquery");
     require("jqueryCookie");

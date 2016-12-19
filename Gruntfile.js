@@ -59,8 +59,12 @@ module.exports = function(grunt) {
         },
         transport: {
           js: {
-              src : ['js/drag.js'],
-              dest: '.build/temp'
+            files:[{
+              expand: true,
+              cwd:'js',
+              src:['**/*'],
+              dest:'.build'
+            }]
           }
         },
         concat: {
