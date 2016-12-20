@@ -2487,39 +2487,7 @@
         </form>
       </div>
     </div>
-
-        <!-- build:js ./js/app.min.js -->
-        <!-- <script src="./js/components/jquery/jquery.min.js"></script>
-        <script src="./js/components/cookie/jquery.cookie.js"></script>
-        <script src="./js/components/tableExport/FileSaver/FileSaver.min.js"></script>
-        <script src="./js/components/tableExport/js-xlsx/xlsx.core.min.js"></script>
-        <script src="./js/components/tableExport/jsPDF/jspdf.min.js"></script>
-        <script src="./js/components/tableExport/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
-        <script src="./js/components/tableExport/html2canvas/html2canvas.min.js"></script>
-        <script src="./js/components/tableExport/tableExport.min.js"></script>
-        <script src="./js/components/bootstrap/bootstrap.min.js"></script>
-        <script src="./js/components/sweetalert2/sweetalert2.min.js"></script>
-        <script src="./js/components/es6-promise/es6-promise.auto.min.js"></script>
-        <script src="./js/components/bootstrap-notify/bootstrap-notify.min.js"></script>
-        <script src="./js/components/moment/moment.min.js"></script>
-        <script src="./js/components/moment/zh-cn.js"></script>
-        <script src="./js/components/datetimepicker/bootstrap-datetimepicker.min.js"></script>
-        <script src="./js/components/select/bootstrap-select.min.js"></script>
-        <script src="./js/components/bootstrapValidator/bootstrapValidator.min.js"></script>
-        <script src="./js/components/bootstrapValidator/language/zh_CN.js"></script>
-        <script src="./js/components/table/bootstrap-table.min.js"></script>
-        <script src="./js/components/table/extensions/export/bootstrap-table-export.js"></script>
-        <script src="./js/components/table/extensions/editable/bootstrap-table-editable.min.js"></script>
-        <script src="./js/components/table/locale/bootstrap-table-zh-CN.min.js"></script>
-        <script src="./js/components/editable/bootstrap-editable.min.js"></script>
-        <script src="./js/components/buttons/buttons.js"></script>
-        <script src="./js/components/scrollbar/perfect-scrollbar.jquery.min.js"></script>
-        <script src="./js/components/wizard/jquery.bootstrap.wizard.min.js"></script>
-        <script src="./js/components/switch/bootstrap-switch.min.js"></script>
-        <script src="./js/components/iCheck/icheck.min.js"></script>
-        <script src="./js/main.js"></script> -->
-        <script src="js/components/seajs/sea.js" id="seajsnode" data-config="./js/config.js" data-main="./js/main.js"></script>
-        <!-- endbuild -->
+        <script src="js/components/seajs/sea.js" id="seajsnode" data-config="./js/config.js"></script>
         <script type="text/javascript">
         function operateFormatter1(value, row, index){
           return [
@@ -2545,7 +2513,9 @@
                 '</a>'
             ].join('');
         }
-        seajs.use(['js/init.js']);
+        seajs.use(['js/main.js'],function(branch){
+          // branch.init();
+        });
         </script>
 
 </body>
