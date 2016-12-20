@@ -25,7 +25,7 @@ seajs.config({
     },
     'jsPDFAutoTable': {
       src: 'js/components/tableExport/jsPDF-AutoTable/jspdf.plugin.autotable.js',
-      deps: ['jquery','jsPDF']
+      deps: ['jquery']
     },
     'html2canvas': {
       src: 'js/components/tableExport/html2canvas/html2canvas.min.js',
@@ -93,26 +93,22 @@ seajs.config({
     },
     'bootstrapEditable': {
       src: 'js/components/editable/bootstrap-editable.min.js',
-      deps: ['jquery','bootstrap']
-    },
-    'buttons': {
-      src: 'js/components/buttons/buttons.js',
       deps: ['jquery']
     },
-    'scrollbar': {
-      src: 'js/components/scrollbar/perfect-scrollbar.jquery.min.js',
+    'jqueryCookie': {
+      src: 'js/components/cookie/jquery.cookie.js',
       deps: ['jquery']
     },
-    'wizard': {
-      src: 'js/components/wizard/jquery.bootstrap.wizard.min.js',
-      deps: ['jquery','bootstrap']
+    'jqueryCookie': {
+      src: 'js/components/cookie/jquery.cookie.js',
+      deps: ['jquery']
     },
-    'switch': {
-      src: 'js/components/switch/bootstrap-switch.min.js',
-      deps: ['jquery','bootstrap']
+    'jqueryCookie': {
+      src: 'js/components/cookie/jquery.cookie.js',
+      deps: ['jquery']
     },
-    'iCheck': {
-      src: 'js/components/iCheck/icheck.min.js',
+    'jqueryCookie': {
+      src: 'js/components/cookie/jquery.cookie.js',
       deps: ['jquery']
     }
   },

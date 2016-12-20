@@ -1,4 +1,14 @@
 module.exports = function(grunt) {
+
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-usemin');
+
     // LiveReload的默认端口号，你也可以改成你想要的端口号
     var lrPort = 35729;
     // 使用connect-livereload模块，生成一个与LiveReload脚本
@@ -16,15 +26,11 @@ module.exports = function(grunt) {
         // 启用目录浏览(相当于IIS中的目录浏览)
         connect.directory(options.base[0])];
     };
-    var style = require('grunt-cmd-transport').style.init(grunt);
 
     grunt.initConfig({
         clean: {
             dist: {
                 src: 'dist/'
-            },
-            tmp: {
-                src: '.build'
             }
         },
         useminPrepare: {
@@ -45,100 +51,17 @@ module.exports = function(grunt) {
         uglify: {
             my_target: {
                 files: {
-                    'dist/js/components.min.js': ['dist/js/components.js'],
                     'dist/js/app.min.js': ['dist/js/app.js']
                 }
             }
         },
-        transport: {
-          js: {
-            files:[{
-              expand: true,
-              cwd:'js',
-              src:['**/*'],
-              dest:'.build/js'
-            }]
-          },
-          css: {
-            files:[{
-              expand: true,
-              cwd:'css',
-              src:['**/*'],
-              dest:'.build/css'
-            }]
-          }
-         },
         concat: {
-            jsComponents: {
-                options: {
-                   noncmd: true
-                },
-                src: [
-                '.build/js/components/jquery/jquery.min.js',
-                '.build/js/components/cookie/jquery.cookie.js',
-                '.build/js/components/tableExport/FileSaver/FileSaver.min.js',
-                '.build/js/components/tableExport/js-xlsx/xlsx.core.min.js',
-                '.build/js/components/tableExport/jsPDF/jspdf.min.js',
-                '.build/js/components/tableExport/jsPDF-AutoTable/jspdf.plugin.autotable.js',
-                '.build/js/components/tableExport/html2canvas/html2canvas.min.js',
-                '.build/js/components/tableExport/tableExport.min.js',
-                '.build/js/components/bootstrap/bootstrap.min.js',
-                '.build/js/components/sweetalert2/sweetalert2.min.js',
-                '.build/js/components/es6-promise/es6-promise.auto.min.js',
-                '.build/js/components/bootstrap-notify/bootstrap-notify.min.js',
-                '.build/js/components/moment/moment.min.js',
-                '.build/js/components/moment/zh-cn.js',
-                '.build/js/components/datetimepicker/bootstrap-datetimepicker.min.js',
-                '.build/js/components/select/bootstrap-select.min.js',
-                '.build/js/components/bootstrapValidator/bootstrapValidator.min.js',
-                '.build/js/components/bootstrapValidator/language/zh_CN.js',
-                '.build/js/components/table/bootstrap-table.min.js',
-                '.build/js/components/table/extensions/export/bootstrap-table-export.js',
-                '.build/js/components/table/extensions/editable/bootstrap-table-editable.min.js',
-                '.build/js/components/table/locale/bootstrap-table-zh-CN.min.js',
-                '.build/js/components/editable/bootstrap-editable.min.js',
-                '.build/js/components/buttons/buttons.js',
-                '.build/js/components/scrollbar/perfect-scrollbar.jquery.min.js',
-                '.build/js/components/wizard/jquery.bootstrap.wizard.min.js',
-                '.build/js/components/switch/bootstrap-switch.min.js',
-                '.build/js/components/iCheck/icheck.min.js'
-              ],
-                dest: 'dist/js/components.js'
-            },
-            jsApp: {
-                options: {
-                   noncmd: true
-                },
-                src: [
-                '.build/js/init.js',
-                '.build/js/main.js'
-              ],
+            js: {
+                src: ['js/components/jquery/jquery.min.js', 'js/components/cookie/jquery.cookie.js', 'js/components/tableExport/FileSaver/FileSaver.min.js', 'js/components/tableExport/js-xlsx/xlsx.core.min.js', 'js/components/tableExport/jsPDF/jspdf.min.js', 'js/components/tableExport/jsPDF-AutoTable/jspdf.plugin.autotable.js', 'js/components/tableExport/html2canvas/html2canvas.min.js', 'js/components/tableExport/tableExport.min.js', 'js/components/bootstrap/bootstrap.min.js', 'js/components/sweetalert2/sweetalert2.min.js', 'js/components/es6-promise/es6-promise.auto.min.js', 'js/components/bootstrap-notify/bootstrap-notify.min.js', 'js/components/moment/moment.min.js', 'js/components/moment/zh-cn.js', 'js/components/datetimepicker/bootstrap-datetimepicker.min.js', 'js/components/select/bootstrap-select.min.js', 'js/components/bootstrapValidator/bootstrapValidator.min.js', 'js/components/bootstrapValidator/language/zh_CN.js', 'js/components/table/bootstrap-table.min.js', 'js/components/table/extensions/export/bootstrap-table-export.js', 'js/components/table/extensions/editable/bootstrap-table-editable.min.js', 'js/components/table/locale/bootstrap-table-zh-CN.min.js', 'js/components/editable/bootstrap-editable.min.js', 'js/components/buttons/buttons.js', 'js/components/scrollbar/perfect-scrollbar.jquery.min.js', 'js/components/wizard/jquery.bootstrap.wizard.min.js', 'js/components/switch/bootstrap-switch.min.js', 'js/components/iCheck/icheck.min.js', 'js/main.js'],
                 dest: 'dist/js/app.js'
             },
             css: {
-                options: {
-                    css2js: style.css2js,
-                    noncmd: true
-                },
-                src: [
-                '.build/css/components/editable/bootstrap-editable.css',
-                '.build/css/components/iCheck/grey.css',
-                '.build/css/components/switch/bootstrap-switch.min.css',
-                '.build/css/components/scrollbar/perfect-scrollbar.min.css',
-                '.build/css/components/buttons/buttons.min.css',
-                '.build/css/components/select/bootstrap-select.css',
-                '.build/css/components/animate/animate.min.css',
-                '.build/css/components/datetimepicker/bootstrap-datetimepicker.min.css',
-                '.build/css/components/sweetalert2/sweetalert2.min.css',
-                '.build/css/components/bootstrap/bootstrap.min.css',
-                '.build/css/components/bootstrapValidator/bootstrapValidator.min.css',
-                '.build/css/components/table/bootstrap-table.min.css',
-                '.build/css/components/themifyIcons/themify-icons.css',
-                '.build/css/components/fontAwesome/css/font-awesome.min.css',
-                '.build/css/style.css',
-                '.build/css/customer.css',
-                '.build/css/themes/theme.css'
-              ],
+                src: ['css/components/editable/bootstrap-editable.css', 'css/components/iCheck/grey.css', 'css/components/switch/bootstrap-switch.min.css', 'css/components/scrollbar/perfect-scrollbar.min.css', 'css/components/buttons/buttons.min.css', 'css/components/select/bootstrap-select.css', 'css/components/animate/animate.min.css', 'css/components/datetimepicker/bootstrap-datetimepicker.min.css', 'css/components/sweetalert2/sweetalert2.min.css', 'css/components/bootstrap/bootstrap.min.css', 'css/components/bootstrapValidator/bootstrapValidator.min.css', 'css/components/table/bootstrap-table.min.css', 'css/components/themifyIcons/themify-icons.css','css/components/fontAwesome/css/font-awesome.min.css','css/style.css', 'css/customer.css', 'css/themes/theme.css'],
                 dest: 'dist/css/app.css'
             }
         },
@@ -206,17 +129,6 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-connect');
-    // grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-cmd-transport');
-    grunt.loadNpmTasks('grunt-cmd-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-usemin');
-
     grunt.registerTask('server', ['connect', 'watch']);
-    grunt.registerTask('build', ['clean', 'copy','transport','concat', 'uglify', 'cssmin', 'usemin','clean:tmp']);
+    grunt.registerTask('build', ['clean', 'copy', 'concat', 'uglify', 'cssmin', 'usemin']);
 }
