@@ -6,15 +6,13 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="dege">
 
-    <link rel="stylesheet" href="./bower_components/bootstrap-select/dist/css/bootstrap-select.css">
-    <link rel="stylesheet" href="./bower_components/animate.css/animate.min.css">
 
-
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href="./themify-icons/themify-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./bower_components/bootstrapvalidator/dist/css/bootstrapValidator.min.css">
-    <link rel="stylesheet" href="./css/login.css">
+    <!-- <link rel="stylesheet" href="./css/components/animate/animate.min.css">
+    <link rel="stylesheet" href="./css/components/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/components/select/bootstrap-select.css">
+    <link rel="stylesheet" href="./css/components/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/components/bootstrapValidator/bootstrapValidator.min.css"> -->
+    <link rel="stylesheet" href="./css/login.min.css">
     <title>Login</title>
 </head>
 
@@ -29,18 +27,18 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                   </button>
-                <a class="navbar-brand" href="#">DahSing Bank</a>
+                <a class="navbar-brand" href="#"></a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="#">
-                              Register
+
                           </a>
                     </li>
                     <li>
                         <a href="#">
-                              Login
+
                           </a>
                     </li>
                 </ul>
@@ -53,26 +51,42 @@
             <div class="content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
-                            <form method="#" action="#">
+                        <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+                            <form class="form-horizontal" method="#" action="#">
                                 <div class="card" data-background="color" data-color="blue">
                                     <div class="header">
-                                        <h3 class="title">Login</h3>
+                                        <h3 class="title"></h3>
                                     </div>
-                                    <div class="content">
-                                        <div class="form-group">
-                                            <label>Email address</label>
-                                            <input type="email" placeholder="Enter email" class="form-control input-no-border">
+                                    <div class="content text-right">
+                                      <div class="form-group">
+                                        <label class="col-md-3" for="documentType">项&nbsp;&nbsp;&nbsp;&nbsp;目</label>
+                                        <div class="col-md-8">
+                                          <select name="documentType" class="form-control selectpicker">
+                                            <option>请选择</option>
+                                            <option>...</option>
+                                            <option>...</option>
+                                            <option>...</option>
+                                          </select>
                                         </div>
+                                      </div>
                                         <div class="form-group">
-                                            <label>Password</label>
-                                            <input type="password" placeholder="Password" class="form-control input-no-border">
+                                           <label class="col-md-3">用户名</label>
+                                           <div class="col-md-8">
+                                             <input type="email" placeholder="用户名" class="form-control input-no-border">
+                                           </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                          <label class="col-md-3">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+                                          <div class="col-md-8">
+                                              <input type="password" placeholder="密  码" class="form-control input-no-border">
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="footer text-center">
-                                        <button type="submit" class="btn btn-fill btn-wd ">Let's go</button>
+                                        <button type="submit" class="btn btn-fill btn-wd ">登 录</button>
                                         <div class="forgot">
-                                            <a href="#pablo">Forgot your password?</a>
+                                            <a href="#pablo"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -93,14 +107,16 @@
                     </div>
                 </div>
             </footer>
-            <div class="full-page-background" style="background-image: url(http://demos.creative-tim.com/paper-dashboard-pro/assets/img/background/background-2.jpg) "></div>
+            <div class="full-page-background" style="background-image: url(images/background-2.jpg) "></div>
         </div>
     </div>
 
-    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="./bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="./bower_components/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+    <!-- <script src="./js/components/jquery/jquery.min.js"></script>
+    <script src="./js/components/bootstrap/bootstrap.min.js"></script>
+    <script src="./js/components/bootstrapValidator/bootstrapValidator.min.js"></script>
+    <script src="./js/components/bootstrapValidator/language/zh_CN.js"></script>
+    <script src="./js/components/select/bootstrap-select.min.js"></script> -->
+    <script src="./js/login.min.js"></script>
 
 </body>
 

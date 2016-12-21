@@ -43,15 +43,24 @@ module.exports = function(grunt) {
             html: ['dist/index.html']
         },
         cssmin: {
-            dist: {
+            app: {
                 src: 'dist/css/app.css',
                 dest: 'dist/css/app.min.css'
+            },
+            login: {
+                src: 'dist/css/login.css',
+                dest: 'dist/css/login.min.css'
             }
         },
         uglify: {
-            my_target: {
+            app: {
                 files: {
                     'dist/js/app.min.js': ['dist/js/app.js']
+                }
+            },
+            login: {
+                files: {
+                  'dist/js/login.min.js': ['dist/js/login.js']
                 }
             }
         },
@@ -63,6 +72,28 @@ module.exports = function(grunt) {
             css: {
                 src: ['css/components/editable/bootstrap-editable.css', 'css/components/iCheck/grey.css', 'css/components/switch/bootstrap-switch.min.css', 'css/components/scrollbar/perfect-scrollbar.min.css', 'css/components/buttons/buttons.min.css', 'css/components/select/bootstrap-select.css', 'css/components/animate/animate.min.css', 'css/components/datetimepicker/bootstrap-datetimepicker.min.css', 'css/components/sweetalert2/sweetalert2.min.css', 'css/components/bootstrap/bootstrap.min.css', 'css/components/bootstrapValidator/bootstrapValidator.min.css', 'css/components/table/bootstrap-table.min.css', 'css/components/themifyIcons/themify-icons.css','css/components/fontAwesome/css/font-awesome.min.css','css/style.css', 'css/customer.css', 'css/themes/theme.css'],
                 dest: 'dist/css/app.css'
+            },
+            jsLogin: {
+                src:[
+                  'js/components/jquery/jquery.min.js',
+                  'js/components/bootstrap/bootstrap.min.js',
+                  'js/components/bootstrapValidator/bootstrapValidator.min.js',
+                  'js/components/bootstrapValidator/language/zh_CN.js',
+                  'js/components/select/bootstrap-select.min.js',
+                  'js/login.js'
+                ],
+                dest: 'dist/js/login.js'
+            },
+            cssLogin: {
+                src: [
+                  'css/components/animate/animate.min.css',
+                  'css/components/fontAwesome/css/font-awesome.min.css',
+                  'css/components/select/bootstrap-select.css',
+                  'css/components/bootstrap/bootstrap.min.css',
+                  'css/components/bootstrapValidator/bootstrapValidator.min.css',
+                  'css/login.css'
+                ],
+                dest: 'dist/css/login.css'
             }
         },
         connect: {
