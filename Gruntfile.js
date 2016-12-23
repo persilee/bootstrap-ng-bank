@@ -70,7 +70,7 @@ module.exports = function(grunt) {
                 dest: 'dist/js/app.js'
             },
             css: {
-                src: ['css/components/editable/bootstrap-editable.css', 'css/components/iCheck/grey.css', 'css/components/switch/bootstrap-switch.min.css', 'css/components/scrollbar/perfect-scrollbar.min.css', 'css/components/buttons/buttons.min.css', 'css/components/select/bootstrap-select.css', 'css/components/animate/animate.min.css', 'css/components/datetimepicker/bootstrap-datetimepicker.min.css', 'css/components/sweetalert2/sweetalert2.min.css', 'css/components/bootstrap/bootstrap.min.css', 'css/components/bootstrapValidator/bootstrapValidator.min.css', 'css/components/table/bootstrap-table.min.css', 'css/components/themifyIcons/themify-icons.css','css/components/fontAwesome/css/font-awesome.min.css','css/style.css', 'css/customer.css', 'css/themes/theme.css'],
+                src: ['css/components/editable/css/bootstrap-editable.css', 'css/components/iCheck/grey.css', 'css/components/switch/bootstrap-switch.min.css', 'css/components/scrollbar/perfect-scrollbar.min.css', 'css/components/buttons/buttons.min.css', 'css/components/select/bootstrap-select.css', 'css/components/animate/animate.min.css', 'css/components/datetimepicker/bootstrap-datetimepicker.min.css', 'css/components/sweetalert2/sweetalert2.min.css', 'css/components/bootstrap/bootstrap.min.css', 'css/components/bootstrapValidator/bootstrapValidator.min.css', 'css/components/table/bootstrap-table.min.css', 'css/components/themifyIcons/themify-icons.css','css/components/fontAwesome/css/font-awesome.min.css','css/style.css', 'css/customer.css', 'css/themes/theme.css'],
                 dest: 'dist/css/app.css'
             },
             jsLogin: {

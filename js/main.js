@@ -847,7 +847,61 @@ var branch = {
           $listContent.eq($(this).index()).siblings().css('display', 'none');
           $listContent.eq($(this).index()).css('display', 'block');
 
-      })
+      });
+      //给表格添加数据或者事件
+      var i = 2;
+        window.operateEvents = {
+            'click .add': function(e, value, row, index) {
+              var $contactNumber = '0000000' + i;
+              var newRow = row;
+              newRow.contactNumber = $contactNumber;
+              $contactTable.bootstrapTable('insertRow', {index: i, row: row});
+              $contactTable.bootstrapTable('updateRow', {index: i, row: newRow});
+              i++;
+            },
+            'click .like': function(e, value, row, index) {
+                info = JSON.stringify(row).substring(0, 100);
+
+                swal({
+                    title: 'You click view icon, row: ',
+                    text: info,
+                    confirmButtonClass: 'btn btn-primary'
+                });
+                console.log(info);
+                return false;
+            },
+            'click .edit': function(e, value, row, index) {
+                info = JSON.stringify(row).substring(0, 100);
+
+                swal({
+                    title: 'You click edit icon, row: ',
+                    text: info,
+                    confirmButtonClass: 'btn btn-primary'
+                });
+                console.log(info);
+                return false;
+            },
+            'click .remove1': function(e, value, row, index) {
+                $contactTable.bootstrapTable('remove', {
+                    field: 'contactNumber',
+                    values: [row.contactNumber]
+                });
+                return false;
+            },
+            'click .remove': function(e, value, row, index) {
+                console.log(row);
+                $contactTable.bootstrapTable('remove', {
+                    field: 'id',
+                    values: [row.id]
+                });
+                return false;
+            }
+        };
+        $(window).resize(function() {
+            $table.bootstrapTable('resetView');
+            $contactTable.bootstrapTable('resetView');
+        });
     }
+
 /** 交易演示 -- 设置客户信息修改 end *************/
 }

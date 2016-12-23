@@ -7,7 +7,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="dege">
     <!-- build:css ./css/app.min.css -->
-    <link rel="stylesheet" href="./css/components/editable/bootstrap-editable.css">
+    <link rel="stylesheet" href="./css/components/editable/css/bootstrap-editable.css">
     <link rel="stylesheet" href="./css/components/iCheck/grey.css">
     <link rel="stylesheet" href="./css/components/switch/bootstrap-switch.min.css">
     <link rel="stylesheet" href="./css/components/scrollbar/perfect-scrollbar.min.css">
@@ -23,17 +23,18 @@
     <link rel="stylesheet" href="./css/components/fontAwesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/customer.css">
+    <link rel="stylesheet" href="./css/caseManagement.css">
     <link rel="stylesheet" href="./css/themes/theme.css">
     <!-- endbuild -->
     <link rel="stylesheet" href="./css/themes/azure.css" id="themes">
-    <title>DahSing</title>
+    <title>ITM</title>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="sidebar" data-color="" data-image="">
             <div class="logo">
-                <a class="simple-text" href="./index.html">DahSing Bank</a>
+                <a class="simple-text" href="./index.html">ITM</a>
             </div>
             <div class="mini-logo hidden">
                 <a class="simple-text" href="./index.html">DB</a>
@@ -58,6 +59,19 @@
                     </div>
                 </div>
                 <ul class="nav">
+                  <li class="list">
+                      <a data-toggle="collapse" href="#caseManagement" aria-expanded="false" class="collapsed">
+                          <i class="ti-package"></i>
+                          <p> 案例管理
+                              <b class="caret"></b>
+                          </p>
+                      </a>
+                      <div class="collapse" id="caseManagement" aria-expanded="false">
+                          <ul class="nav">
+                              <li><a href="#" data-menu-id="case">案例管理</a></li>
+                          </ul>
+                      </div>
+                  </li>
                     <li>
                       <a class="transactionDemo">
                           <i class="ti-face-smile"></i>
@@ -313,6 +327,102 @@
 
                                         <!-- Tab panes -->
                                         <div class="tab-content main">
+                                            <div id="case" class="tab-pane" role="tabpanel">
+                                              <div class="headSearch padding">
+                                                  <form class="form-horizontal" role="form">
+                                                    <div class="row">
+                                                      <div class="col-xs-4">
+                                                        <div class="form-group">
+                                                          <label class="col-md-5" for="customerType">案例编号：</label>
+                                                          <div class="col-md-7">
+                                                            <input type="text" class="form-control" placeholder="案例编号搜索...">
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-xs-4">
+                                                        <div class="form-group">
+                                                          <label class="col-md-5" for="customerType">阶段：</label>
+                                                          <div class="col-md-7">
+                                                            <select name="documentType1" class="selectpicker form-control">
+                                                              <option>所有</option>
+                                                              <option>IIT - System Integration</option>
+                                                              <option>test</option>
+                                                            </select>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-xs-4">
+                                                        <div class="form-group">
+                                                          <label class="col-md-5" for="customerType">案例负责人：</label>
+                                                          <div class="col-md-7">
+                                                            <input type="text" class="form-control" placeholder="案例负责人搜索...">
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="row">
+                                                      <div class="col-xs-4">
+                                                        <div class="form-group">
+                                                          <label class="col-md-5" for="customerType">需求编号：</label>
+                                                          <div class="col-md-7">
+                                                            <input type="text" class="form-control" placeholder="案例编号搜索...">
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-xs-4">
+                                                        <div class="form-group">
+                                                          <label class="col-md-5" for="customerType">状态：</label>
+                                                          <div class="col-md-7">
+                                                            <select name="documentType1" class="selectpicker form-control">
+                                                              <option>所有</option>
+                                                              <option>new - 未执行</option>
+                                                              <option>passed - 通过</option>
+                                                              <option>unpassed - 不通过</option>
+                                                              <option>blocked - 阻挡</option>
+                                                            </select>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-xs-4">
+                                                        <div class="form-group">
+                                                          <label class="col-md-5" for="customerType">测试人：</label>
+                                                          <div class="col-md-7">
+                                                            <input type="text" class="form-control" placeholder="测试人搜索...">
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="row">
+                                                      <div id="toolbar4">
+                                                          <select class="form-control selectpicker">
+                                                            <option value="">Export Basic</option>
+                                                            <option value="all">Export All</option>
+                                                            <option value="selected">Export Selected</option>
+                                                          </select>
+                                                      </div>
+                                                      <table class="text-left" id="contactTable" data-toggle="table" data-height="" data-url="./data/data3.json" data-pagination="true" data-search="true" data-show-refresh="true"
+                                                          data-show-toggle="true" data-show-columns="true" data-toolbar="#toolbar4" data-show-export="true" data-striped="true" data-click-to-select="true" data-single-select="true">
+                                                          <thead>
+                                                              <tr>
+                                                                  <th data-field="state" data-checkbox="true"></th>
+                                                                  <th data-field="contactNumber" data-sortable="true">案例编号</th>
+                                                                  <th data-field="contactNumber" data-sortable="true">需求编号</th>
+                                                                  <th data-field="transactionStatus" data-sortable="true">负责人</th>
+                                                                  <th data-field="contactEn" data-editable="true" data-sortable="true">测试人</th>
+                                                                  <th data-field="contactCn" data-editable="true" data-sortable="true">功能描述</th>
+                                                                  <th data-field="contactPw" data-editable="true" data-sortable="true">应用</th>
+                                                                  <th data-field="contactPw" data-editable="true" data-sortable="true">完成率</th>
+                                                                  <th data-field="contactPw" data-editable="true" data-sortable="true">状态</th>
+                                                                  <th data-field="contactPw" data-editable="true" data-sortable="true">阶段</th>
+                                                                  <th data-field="contactPw" data-editable="true" data-sortable="true">计划执行日期</th>
+                                                                  <th data-field="operation" data-sortable="true" data-events="operateEvents1" data-formatter="operateFormatter1">操作</th>
+                                                              </tr>
+                                                          </thead>
+                                                      </table>
+                                                    </div>
+                                                  </form>
+                                              </div>
+                                            </div>
                                             <div id="buttons" class="tab-pane" role="tabpanel">
                                                 <h2>按钮颜色</h2>
                                                 <div class="row">
@@ -2337,6 +2447,7 @@
             </div>
         </div>
     </div>
+
     <div class="container"  id="modalCustomerNumber">
       <div class="row">
         <form class="form-horizontal text-right" role="form">
@@ -2488,6 +2599,7 @@
       </div>
     </div>
 
+
         <!-- build:js ./js/app.min.js -->
         <script src="./js/components/jquery/jquery.min.js"></script>
         <script src="./js/components/cookie/jquery.cookie.js"></script>
@@ -2517,6 +2629,7 @@
         <script src="./js/components/wizard/jquery.bootstrap.wizard.min.js"></script>
         <script src="./js/components/switch/bootstrap-switch.min.js"></script>
         <script src="./js/components/iCheck/icheck.min.js"></script>
+        <script src="./js/caseManagement.js"></script>
         <script src="./js/main.js"></script>
         <!-- endbuild -->
         <script type="text/javascript">
@@ -2580,59 +2693,6 @@
                 $('.user .info').css('display', 'none');
                 $('.sidebar.mini .nav li a').attr('data-toggle', '');
               }
-              var i = 2;
-                window.operateEvents = {
-                    'click .add': function(e, value, row, index) {
-                      var $contactNumber = '0000000' + i;
-                      var newRow = row;
-                      newRow.contactNumber = $contactNumber;
-                      $contactTable.bootstrapTable('insertRow', {index: i, row: row});
-                      $contactTable.bootstrapTable('updateRow', {index: i, row: newRow});
-                      i++;
-                    },
-                    'click .like': function(e, value, row, index) {
-                        info = JSON.stringify(row).substring(0, 100);
-
-                        swal({
-                            title: 'You click view icon, row: ',
-                            text: info,
-                            confirmButtonClass: 'btn btn-primary'
-                        });
-                        console.log(info);
-                        return false;
-                    },
-                    'click .edit': function(e, value, row, index) {
-                        info = JSON.stringify(row).substring(0, 100);
-
-                        swal({
-                            title: 'You click edit icon, row: ',
-                            text: info,
-                            confirmButtonClass: 'btn btn-primary'
-                        });
-                        console.log(info);
-                        return false;
-                    },
-                    'click .remove1': function(e, value, row, index) {
-                        $contactTable.bootstrapTable('remove', {
-                            field: 'contactNumber',
-                            values: [row.contactNumber]
-                        });
-                        return false;
-                    },
-                    'click .remove': function(e, value, row, index) {
-                        console.log(row);
-                        $contactTable.bootstrapTable('remove', {
-                            field: 'id',
-                            values: [row.id]
-                        });
-                        return false;
-                    }
-                };
-
-                $(window).resize(function() {
-                    $table.bootstrapTable('resetView');
-                    $contactTable.bootstrapTable('resetView');
-                });
             });
         </script>
 

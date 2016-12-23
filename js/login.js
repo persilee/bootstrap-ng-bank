@@ -1,4 +1,6 @@
-$(function(){
-  $('.selectpicker').selectpicker();
-  console.log('aa');
-})
+define(['jquery', 'bootstrap', 'bootstrapValidator','select'],
+function ($) {
+  $(function(){
+    $('.selectpicker').selectpicker('refresh');
+  })
+});

@@ -17,37 +17,8 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-transparent navbar-absolute">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                  </button>
-                <a class="navbar-brand" href="#"></a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#">
-
-                          </a>
-                    </li>
-                    <li>
-                        <a href="#">
-
-                          </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <div class="wrapper wrapper-full-page">
-        <div class="full-page login-page" data-color="" data-image="http://demos.creative-tim.com/paper-dashboard-pro/assets/img/background/background-2.jpg">
-            <!--   you can change the color of the filter page using: data-color="blue | azure | green | orange | red | purple" -->
+        <div class="full-page login-page">
             <div class="content">
                 <div class="container">
                     <div class="row">
@@ -59,9 +30,9 @@
                                     </div>
                                     <div class="content text-right">
                                       <div class="form-group">
-                                        <label class="col-md-3" for="documentType">项&nbsp;&nbsp;&nbsp;&nbsp;目</label>
+                                        <label class="col-md-3">项&nbsp;&nbsp;&nbsp;&nbsp;目</label>
                                         <div class="col-md-8">
-                                          <select name="documentType" class="form-control selectpicker">
+                                          <select class="form-control selectpicker">
                                             <option>请选择</option>
                                             <option>...</option>
                                             <option>...</option>
@@ -100,7 +71,6 @@
                 <div class="container">
                     <div class="copyright">
                         ©
-                        <script async="" src="//www.google-analytics.com/analytics.js"></script>
                         <script>
                             document.write(new Date().getFullYear())
                         </script>, made with <i class="fa fa-heart heart"></i> by <a href="#">Hisuntech</a>
@@ -111,12 +81,30 @@
         </div>
     </div>
 
-    <script src="./js/components/jquery/jquery.min.js"></script>
+    <!-- <script src="./js/components/jquery/jquery.min.js"></script>
     <script src="./js/components/bootstrap/bootstrap.min.js"></script>
     <script src="./js/components/bootstrapValidator/bootstrapValidator.min.js"></script>
     <script src="./js/components/bootstrapValidator/language/zh_CN.js"></script>
-    <script src="./js/components/select/bootstrap-select.min.js"></script>
-    <script src="./js/login.js"></script>
+    <script src="./js/components/select/bootstrap-select.min.js"></script> -->
+    <script src="./js/components/requirejs/require.js" id="scriptid"></script>
+    <script src="./js/config.js"></script>
+    <script type="text/javascript" >
+    // require.config({
+    //     baseUrl: './',
+    //     paths: {
+    //         jquery: 'js/components/jquery/jquery.min',
+    //         bootstrap: 'js/components/bootstrap/bootstrap.min',
+    //         bootstrapValidator: 'js/components/bootstrapValidator/language/zh_CN',
+    //         bootstrapValidatorZh: 'js/components/bootstrapValidator/language/zh_CN',
+    //         select: 'js/components/select/bootstrap-select.min'
+    //     }
+    // })
+      require(['js/itm'],function (obj) {
+        obj.b();
+        console.log(obj.a);
+      });
+
+    </script>
 
 </body>
 
