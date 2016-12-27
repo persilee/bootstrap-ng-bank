@@ -11,6 +11,7 @@ var branch = {
       this.initValidator();
       this.initBootstrapTable();
       this.transactionDemo();
+      this.initBootstapSelect();
     },
 /**组件的初始化 start *************************/
     //下拉菜单
@@ -389,10 +390,17 @@ var branch = {
 
     },
     /*
-     * bootstrap-select初始化
+     * select初始化
      */
     initBootstapSelect : function(){
       $('.selectpicker').selectpicker();
+      $('.editable-select').editableSelect({
+        effects: 'fade'
+      });
+      $('#noFiltering').editableSelect({
+        effects: 'fade',
+        filter: false
+      });
     },
 /**组件的初始化 end ****************************/
 

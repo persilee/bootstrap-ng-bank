@@ -82,3 +82,6 @@
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
     background-color: rgba(251, 64, 75, 0.8);
 }
+.es-list li.selected {
+    background: rgba(251, 64, 75, 0.8);
+}

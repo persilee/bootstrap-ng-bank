@@ -70,3 +70,6 @@
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
     background-color: rgba(120, 120, 120, 0.8);
 }
+.es-list li.selected {
+    background: rgba(120, 120, 120, 0.8);
+}
